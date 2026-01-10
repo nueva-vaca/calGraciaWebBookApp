@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><title>item aleatorio dentro de lista</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 2em;
+      text-align: center;
+      margin-top: 100px;
+    }
+    .comida {
+      color: darkred;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <p>Quiero comer <span class="comida" onclick="cambiarComida()">patata</span></p>
+
+  <script>
+    const comidas = ["patata", "mazorca", "helado", "manzana", "bollicao"];
+
+    function cambiarComida() {
+      const comidaActual = document.querySelector(".comida").textContent;
+      let nuevaComida;
+
+      do {
+        nuevaComida = comidas[Math.floor(Math.random() * comidas.length)];
+      } while (nuevaComida === comidaActual);
+
+      document.querySelector(".comida").textContent = nuevaComida;
+    }
+  </script>
+</body>
+</html>

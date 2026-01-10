@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Word Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        select, button {
+            font-size: 16px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Word Selector</h1>
+    <p>Select a word from the list or let the system pick one randomly!</p>
+
+    <!-- Dropdown list -->
+    <select id="wordList">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="cherry">Cherry</option>
+        <option value="date">Date</option>
+        <option value="elderberry">Elderberry</option>
+    </select>
+
+    <!-- Button to select a random word -->
+    <button onclick="selectRandomWord()">Pick Random Word</button>
+
+    <!-- Display the selected word -->
+    <p id="selectedWord" style="font-size: 20px; font-weight: bold; color: green;"></p>
+
+    <script>
+        // Function to select a random word from the dropdown
+        function selectRandomWord() {
+            const wordList = document.getElementById("wordList");
+            const options = wordList.options;
+            const randomIndex = Math.floor(Math.random() * options.length);
+            const randomWord = options[randomIndex].text;
+
+            // Display the selected word
+            document.getElementById("selectedWord").textContent = `Randomly Selected Word: ${randomWord}`;
+
+            // Optionally, set the dropdown to the selected word
+            wordList.selectedIndex = randomIndex;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+p, span 
+    {
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    } 
+
+
+
+/* COLORES */ /* COLORES */ /* COLORES */
+/* COLORES */ /* COLORES */ /* COLORES */
+/* COLORES */ /* COLORES */ /* COLORES */
+
+.colorGris { color: grey ; } 
+.colorGrisClaro { color: lightgrey ; } 
+.colorRojo { color: red ; } 
+.colorAzul { color: blue ; }

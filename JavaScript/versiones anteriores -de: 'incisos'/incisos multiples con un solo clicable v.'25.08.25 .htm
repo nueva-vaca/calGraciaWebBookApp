@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>1 clicable --> X incisos</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    
+
+
+
+
+
+<!-- test de 1 clicalbe + 2 incisos --> 
+<p>
+  <span class="clicableParaExpandir" data-inciso-id="a35c7bab-c440-40ac-8cbb-8116199de924">-.estar</span> 
+ 
+      <p class="inciso" data-inciso-id="a35c7bab-c440-40ac-8cbb-8116199de924" >mal.estar = duca</p>
+      <p class="inciso" data-inciso-id="a35c7bab-c440-40ac-8cbb-8116199de924" >bien.estar = suca</p>
+    
+</p> 
+
+
+
+
+
+
+
+   
+
+<!-- GRUPO A -->
+    <span class="clicableParaExpandir" data-inciso-id="grupo-A">
+  ► Toggle Content for Group A: 
+</span>
+
+<p class="inciso" data-inciso-id="grupo-A" >
+  This is the first paragraph belonging to Group A. It will be shown/hidden.
+</p>
+
+<ul class="inciso" data-inciso-id="grupo-A" style="list-style-type: square;">
+  <li>List item 1 in Group A.</li>
+  <li>List item 2 in Group A.</li>
+</ul>
+
+<hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- GRUPO B -->
+<strong class="clicableParaExpandir" data-inciso-id="grupo-B">
+  ► Show/Hide Details for Group B
+</strong>
+<p class="inciso" data-inciso-id="grupo-A">
+  This is the first paragraph belonging to Group A. It will be shown/hidden.
+</p> 
+
+<div class="inciso" data-inciso-id="grupo-B">
+  This is a single block of text for Group B.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- SCRIPT DE INCISOS -->
+<script>  
+
+
+
+  // INSTRUCCIONES e información:
+// (-) ' la clase '.inciso' - se esconde por defecto
+// [1]  Esconde : (casi) todos los elementos html >que: tengan 'la clase' 'inciso'
+
+// [1] Hide all elements with the 'inciso' class by default.
+document.querySelectorAll('.inciso').forEach(inciso => {
+    inciso.style.display = 'none';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// [1]: Find all elements with the class '.clicableParaExpandir' and [2]: add an "EventListener" to each.
+document.querySelectorAll('.clicableParaExpandir').forEach(clicable_para_expandir => {
+
+    clicable_para_expandir.addEventListener('click', () => {
+        // MODIFIED LOGIC: Use 'data-inciso-id' to find target elements.
+
+        // 1. Get the ID from the 'data-inciso-id' attribute of the element that was clicked.
+        // 1. obtiene el valor del atributo 'data-inciso-id' del elemento en el que se hizo clic (clicable_para_expandir). Este valor (valor del atributo 'data-inciso-id' del elemento en el que se hizo clic --> incisoId) se utiliza para {identificar y seleccionar} los elementos '.inciso' correspondientes - que deben ser {mostrados u ocultados} 
+        const incisoId = clicable_para_expandir.dataset.incisoId;
+
+        // 2. If the clickable element doesn't have a 'data-inciso-id', do nothing.
+        if (!incisoId) {
+            console.warn("This clickable element is missing a 'data-inciso-id' attribute:", clicable_para_expandir);
+            return;
+        }
+
+        // 3. Find ALL elements with the '.inciso' class that have a matching 'data-inciso-id'.
+        const incisosParaAlternar = document.querySelectorAll(`.inciso[data-inciso-id="${incisoId}"]`);
+
+        // 4. Loop through each of the found elements and toggle its visibility.
+        incisosParaAlternar.forEach(inciso => {
+            toggleDisplay(inciso);
+        });
+    });
+
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// This -is: "a helper function" <-- to toggle the visibility of an element. 
+// It -checks: the element's tag <-- to apply the correct 'display' style ('block' for lists, 'inline' for others).
+const toggleDisplay = (elemento) => {
+    // First, check if the element actually exists to prevent errors.
+    if (!elemento) {
+        return;
+    }
+
+    // Check if the element is currently hidden.
+    if (elemento.style.display === 'none') {
+        const tagNameDelElemento = elemento.tagName;
+        // If it's a list ('UL' or 'OL'), display it as a block.
+        if (tagNameDelElemento === 'UL' || tagNameDelElemento === 'OL') {
+            elemento.style.display = 'block';
+        } else {
+            // For any other element, display it as inline.
+            elemento.style.display = 'inline';
+        }
+    } else {
+        // If the element is already visible, hide it.
+        elemento.style.display = 'none';
+    }
+};
+/* FIN DEL CÓDIGO DE "STRETCH.TEXT" */
+
+
+
+</script>
+</body>
+</html>

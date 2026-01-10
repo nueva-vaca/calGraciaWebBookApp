@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .switch-point {
+      cursor: pointer;
+      user-select: none;
+      padding: 0 5px;
+    }
+    .switch-point:hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <span id="text1">Stages One through Four</span>
+    <span class="switch-point" onclick="switchText()">-</span>
+    <span id="text2">aim at : gaining more stable of attention</span>
+  </p>
+
+  <script>
+    function switchText() {
+      const text1 = document.getElementById('text1');
+      const text2 = document.getElementById('text2');
+      const temp = text1.textContent;
+      text1.textContent = text2.textContent;
+      text2.textContent = temp;
+    }
+  </script>
+</body>
+</html>

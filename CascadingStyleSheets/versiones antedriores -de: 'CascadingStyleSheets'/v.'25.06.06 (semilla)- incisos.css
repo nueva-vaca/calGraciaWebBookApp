@@ -1,0 +1,41 @@
+
+ 
+ span.level1 
+    {
+ 	background-color: #8684a0;
+ 	color: #000;
+ 	border-radius: 10px;
+ 	display: none;
+    }
+ 	
+    
+span.stretch a { color: #10273f; }
+ 	
+
+span.level2 
+    { 
+ 	background-color: #b1afc4;
+ 	border-radius: 10px;
+ 	}
+	 	
+    
+span.level3 
+        { 
+	 	background-color: #deddeb;
+	 	border-radius: 10px;
+	 	}
+ 
+ 
+a.stretchLink 
+    { 
+    text-decoration: none; 
+    border: 2px solid #ffadad; 
+    padding: 0 0.2em; 
+    border-radius: 10px; 
+    }
+ 	
+
+a.stretchLink:hover { background-color: #524a8d; }
+
+
+a.close { color: #000; }

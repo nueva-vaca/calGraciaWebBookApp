@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head><title>lista donde elegir</title>
+  <meta charset="UTF-8">
+  
+  <style>
+    select {
+      -webkit-appearance: none;  /* Safari and Chrome */
+      -moz-appearance: none;     /* Firefox */
+      appearance: none;
+      border: none;
+      background: none;
+      font: inherit;
+      padding: 0;
+      margin: 0;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <p>I want 
+    <select id="choice">
+      <option value="more">more</option>
+      <option value="less">less</option>
+      <option value="often" style="color: red;" > often </option>
+      <option value="sugar">sugar</option>
+      <option value="heat">heat</option>
+    </select>
+  </p>
+
+  <script>
+    const select = document.getElementById("choice");
+    select.addEventListener("change", () => {
+      console.log("Selected:", select.value);
+    });
+  </script>
+</body>
+</html>

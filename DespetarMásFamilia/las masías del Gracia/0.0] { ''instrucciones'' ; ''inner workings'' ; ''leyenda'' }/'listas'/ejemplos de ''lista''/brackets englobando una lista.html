@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JSFiddle rbnottcu</title>
+
+  <style>
+    ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.block {
+  display:table;
+  height:400px;
+}
+
+.block__module {
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.block__bg-1,
+.block__bg-2 {
+  height:400px;
+  width:50px;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/GullBraceLeft.svg/2000px-GullBraceLeft.svg.png") no-repeat center;
+  background-size:contain;
+}
+
+.block__bg-2 {
+  transform: scaleX(-1);
+}
+  </style>
+
+  
+</head>
+<body>
+  <div class="block">
+<div class="block__bg-1"></div>
+  <div class="block__module">
+    <h2>Paragraph style</h2>
+    <p>
+      line 1 <br/>
+      line 2 <br/>
+      line 3 <br/>
+      line 4 <br/>
+      line 5 <br/>
+    </p>
+  </div>
+  <div class="block__bg-2"></div>
+</div>
+
+
+<div class="block">
+  <div class="block__bg-1"></div>
+  <div class="block__module">
+    <h2>List</h2>
+    <ul>
+      <li>line 1</li>
+      <li>line 2</li>
+      <li>line 3</li>
+      <li>line 4</li>
+      <li>line 5</li>
+    </ul>
+  </div>
+  <div class="block__bg-2"></div>
+</div>
+
+  <script>
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>re.routing</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<style>
+
+
+
+h1 span,
+h1 p 
+    {
+    font-size: inherit;
+    }
+
+.clicableParaExpandir{border: solid 0.5px rgba(211, 211, 211, 0);} 
+.clicableParaExpandir:hover
+    {
+    cursor: pointer; 
+    animation: resaltarClicableParaExpandir 1s ease-in-out 1; 
+    }
+@keyframes resaltarClicableParaExpandir 
+    {
+    0%, 100% { border-color: transparent; }
+    33%, 66% { border-color: lightgray; /* Change to desired color */}
+    } 
+
+ 
+
+
+
+
+* 
+    {
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    }  
+
+
+
+html , body 
+    {     
+    box-sizing: border-box; /* 'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height} */ 
+    padding: 0 ; 
+    margin: 0 ;  
+    }
+
+
+
+
+iframe 
+    {
+    width: 100%;
+    height: calc(1fr) ;
+    }
+
+
+
+
+#menúPieDePantalla 
+    {
+    background-color:rgba(165, 42, 42, 0.298)  ; 
+    position:sticky ; 
+    bottom: 0 ;
+    width: 100%;
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+p , span 
+    {
+    font-size: 13pt ; 
+    }
+
+
+
+
+
+h1 , h1 *
+    { 
+    font-size:9vw !important ; 
+    text-decoration-line: underline overline ; 
+    /* display:flex ; 
+    justify-content:center ; */ 
+    text-align:center ;
+    /* width: 100% ; */ 
+    /* max-height: 222px; */
+    } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
+/* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
+/* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
+
+.letraGORDITA, .textoImportante, .resumen , .resumenEnGordita
+    { 
+    font-weight: 999 ; 
+    }
+
+.subrayado{text-decoration:underline;} 
+
+
+
+
+
+
+
+
+
+
+
+
+/* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ 
+/* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ 
+/* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ 
+
+
+
+.textoImportante, .letraGORDITA, .resumen 
+    { 
+    font-weight: 999 ; 
+    }
+
+.textoSecundario , .textoDetalleSecundario
+    {
+    color:#7f7f7f ; 
+    } 
+
+.textoTerciario , .textoDetalleTerciario , .fluff , .paja 
+    {
+    color:lightgray ; 
+    }
+
+
+
+
+.ambiguo::before ,  .ambiguo::after
+    {
+    content: '"' ;
+    }
+
+
+
+.demasiadoAmplio::before ,  .demasiadoAmplio::after
+    {
+    content: '"' ;
+    }
+
+
+
+.síEsExactamenteLoQueQuieroDecir::before , .síEsExactamenteLoQueQuieroDecir::after , .literalmente::before , .literalmente::after , .términoTécnicoEspecífico::before 
+    {
+    content: "‘" ;
+    color:red ;
+    } 
+.síEsExactamenteLoQueQuieroDecir::after , .literalmente::after , .términoTécnicoEspecífico::after
+    {
+    content: "’" ;
+    color:red ;
+    }
+
+.noEsExactamenteLoQueQuieroDecir::before , .noEsExactamenteLoQueQuieroDecir::after
+    {
+    content: '"' ;
+    color:blue ;
+    }
+.piensoQueEsExacto::before  
+    {
+    content: "‘" ;
+    color:blue ;
+    } 
+.piensoQueEsExacto::after  
+    {
+    content: "’" ;
+    color:blue ;
+    } 
+
+.categoríaGeneral::before , .categoríaGeneral::after
+    {
+    content: '"' ;
+    color:green ;
+    }
+.categoríaEspecífica::before , .categoríaEspecífica::after
+    {
+    content: "'" ;
+    color:green ;
+    }
+
+.metáfora::before , .metáfora::after , .metafora::before , .metafora::after 
+    {
+    content: '"' ;
+    color:lightgray ;
+    }
+
+
+
+
+
+
+
+
+
+.quieroQueSeVeaPoco , .colorGrisClaro { color: lightgrey ; }
+
+
+
+
+.detalleDiscretoPeroMuyImportanteParaPrestarleAtención { color: lightgrey ; } 
+.detalleDiscretoPeroMuyImportanteParaPrestarleAtención::after {    content: " (!!!)";    color: red; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* COLORES */ /* COLORES */ /* COLORES */
+/* COLORES */ /* COLORES */ /* COLORES */
+/* COLORES */ /* COLORES */ /* COLORES */
+
+.colorGris { color:  #7f7f7f ; } 
+.colorGrisClaro { color: lightgrey ; } 
+.colorRojo { color: #fb0017 ; } 
+.colorAzul { color: #1080d6 ; } 
+.colorAzulClaro { color: #abe2ff ;}
+.colorVerde { color: #309603 ;}
+.colorVerdeClaro { color: #2f960383 ;}
+
+
+
+
+
+
+
+
+
+
+
+</style>
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+<!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE --><!-- STYLE -->
+
+
+
+
+
+    
+</head>
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<!----><!----><!----><!---->
+<body>
+    
+    
+<!-- TÍTULO: html page routing -->    
+<h3 class="colorRojo" style = " text-align: center ; text-decoration-line: underline; " >HTML page routing</h3>
+    
+    <p>  
++ <span class="colorRojo">[</span> HTML page routing <span class="colorRojo">]</span> <span class="colorRojo">-</span>is<span class="colorRojo">:</span> <span class="colorRojo">[</span> a technique used to navigate between different <span class="colorGris">{</span>views or pages<span class="colorGris">}</span> in a web application - without reloading the entire page <span class="colorRojo">]</span>. <span class="colorGrisClaro"> This is commonly implemented in Single Page Applications (SPAs) to provide a seamless user experience</span>. There are two  <span style="text-decoration-line: line-through;" class="colorGrisClaro" >primary</span> methods for routing in <span class="colorAzul">'</span>Single Page Applications<span class="colorAzul">'</span>: { <span class="colorRojo">URL routing</span> -and: <span class="colorRojo">hash routing</span> }.
+    </p> 
+
+
+<br>
+
+
+    <h4  class="colorRojo" style = " text-decoration-line: underline; text-align: center ; " >hash routing</h4> 
+
+    <p>
+        + <span class="colorRojo">'</span>hash fragment<span class="colorRojo">'</span> <span class="colorGris">ej> https://sitio.com/</span><span class="colorRojo">#/"<span class="colorAzul">name</span>"</span> <-- no recarga la la página - pero puede usarse para cambiar el contenido dinámicamente  
+    </p>
+
+
+<br><br>
+
+<!-- 1] definición de enlaces de navegación -->
+    <p>
+      <span class="colorVerde" >1] <span style="text-decoration-line: underline;">definición de enlaces de navegación</span></span>  
+      
+   
+
+<pre>
+    &lt;<span class="colorGris">nav</span>&gt;
+        &lt;a href=<span class="colorRojo">"#/"</span>&gt;<span class="colorGris">página index</span> &lt;/a&gt;
+        &lt;a href=<span class="colorRojo">"#/</span><span class="colorAzul">about</span><span class="colorRojo">"</span>&gt;<span class="colorGris">página de información sobre</span>&lt;/a&gt;
+        &lt;a href=<span class="colorRojo">"#/</span><span class="colorAzul">contact</span><span class="colorRojo">"</span>&gt;<span class="colorGris">página para contactarnos</span>&lt;/a&gt;
+    &lt;/<span class="colorGris">nav</span>&gt;
+    &lt;<span class="colorGris">div</span> <span class="colorRojo">id="</span><span class="colorAzul">whatever_identification</span><span class="colorRojo">"</span>&gt;&lt;/<span class="colorGris">div</span>&gt;
+        
+</pre>
+</p>
+<!-- ^ 1] definición de enlaces de navegación --> 
+
+
+
+
+<!-- 2] definición de rutas (en javaScript) --> 
+ <p>
+    <span class="colorVerde" >2] <span style="text-decoration-line: underline;">definición de rutas <span class="colorVerdeClaro">(en javaScript)</span></span></span> 
+ </p> 
+
+ <p>+- crea un 'objeto' donde se defina : que archivo html se debe cargar para cada ruta</p>
+
+ <pre>
+    const <span class="colorAzul">routes </span><span class="colorRojo">= {</span> 
+        <span class="colorRojo">"/": { </span><span class="colorAzul">template: </span><span class="colorRojo">"</span><span class="colorGris">templates/index.html</span><span class="colorRojo">" ,</span> <span class="colorAzul">title: </span><span class="colorRojo">"</span>Home<span class="colorRojo">" } ,</span> 
+        <span class="colorRojo">"</span><span class="colorVerde">about</span><span class="colorRojo">": { </span><span class="colorAzul">template: </span><span class="colorRojo">"</span><span class="colorGris">templates/about.html</span><span class="colorRojo">" ,</span> <span class="colorAzul">title: </span><span class="colorRojo">"</span>About<span class="colorRojo">" } ,</span>
+        <span class="colorRojo">"</span><span class="colorVerde">contact</span><span class="colorRojo">": { </span><span class="colorAzul">template: </span><span class="colorRojo">"</span><span class="colorGris">templates/contact.html</span><span class="colorRojo">" ,</span> <span class="colorAzul">title: </span><span class="colorRojo">"</span>Contact<span class="colorRojo">" } ,</span>
+        <span class="colorRojo">404 : { </span><span class="colorAzul">template: </span><span class="colorRojo">"</span><span class="colorGris">templates/404.html</span><span class="colorRojo">" ,</span> <span class="colorAzul">title: </span><span class="colorRojo">"</span>Not Found<span class="colorRojo">" } ,</span> 
+                            <span class="colorRojo">} ;</span>
+ </pre>
+
+ <!-- ^ 2] definición de rutas (en javaScript) -->
+
+
+
+
+
+
+
+ <!-- 3] función "locationHandler" +-= manejo de navegación -->
+
+ <p>
+    <span class="colorVerde" >3] <span style="text-decoration-line: underline;">función "locationHandler" <span class="colorVerdeClaro">+-= manejo de navegación</span></span></span> 
+ </p>
+
+<pre>
+    const <span class="colorAzul">locationRoutingHandler</span> <span class="colorRojo">= async () => {</span>
+        const <span class="colorAzul">hash</span> <span class="colorRojo">= window.</span>location<span class="colorRojo">.</span>replace<span class="colorRojo">("</span>#<span class="colorRojo">" ,</span> " "<span class="colorRojo">)</span> || <span class="colorRojo">"</span>/<span class="colorRojo">" ;</span> 
+        const <span class="colorAzul">route </span><span class="colorRojo">= </span><span class="colorVerde">routes</span>[<span class="colorGris">hash_path</span>]  ||  <span class="colorVerde">routes</span>[404]<span class="colorRojo"> ;</span>
+        const <span class="colorAzul">html </span><span class="colorRojo">= await fetch (</span><span class="colorVerde">route</span><span class="colorRojo">.</span><span class="colorVerde">template</span><span class="colorRojo">).then(</span><span class="colorAzul">res</span><span class="colorRojo">.</span>text()<span class="colorRojo">) ;</span>
+        <span class="colorRojo">document.getElementById("</span><span class="colorVerde">whatever_identification</span><span class="colorRojo">").innerHTML = </span><span class="colorAzul">html </span><span class="colorRojo">;</span>
+        <span class="colorRojo">document.</span>title <span class="colorRojo">= </span> <span class="colorVerde">route</span><span class="colorRojo">.</span>title<span class="colorRojo"> ;</span>
+        <span class="colorRojo">} ;</span>
+</pre>
+ <!-- ^ 3] función "locationHandler" +-= manejo de navegación --> 
+
+
+
+<br>
+
+
+
+ <!-- 4] activación del router --> 
+
+ <p>
+    <span class="colorVerde" >4] <span style="text-decoration-line: underline;">activación del router <span class="colorVerdeClaro">(en javaScript)</span></span></span> 
+ </p>
+
+ <pre>
+    <span class="colorRojo">window.addEventListener("</span><span class="colorAzul">hashchange</span><span class="colorRojo">" , </span><span class="colorVerde">locationRoutingHandler</span><span class="colorRojo">) ; </span>
+    <span class="colorRojo">locationRoutingHandler() ;</span>
+ </pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

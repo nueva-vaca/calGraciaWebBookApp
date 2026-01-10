@@ -1,0 +1,54 @@
+.clicableParaExpandir{border: solid 0.5px rgba(211, 211, 211, 0);} 
+.clicableParaExpandir:hover
+    {
+    cursor: pointer; 
+    animation: resaltarClicableParaExpandir 1s ease-in-out 1; 
+    }
+@keyframes resaltarClicableParaExpandir 
+    {
+    0%, 100% { border-color: transparent; }
+    33%, 66% { border-color: lightgray; /* Change to desired color */}
+    } 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ span.level1 
+    {
+ 	background-color: #8684a0;
+ 	color: #000;
+ 	border-radius: 10px;
+ 	display: none;
+    }
+ 	
+    
+span.level2 
+    { 
+ 	background-color: #b1afc4;
+ 	border-radius: 10px;
+ 	}
+	 	
+    
+span.level3 
+    { 
+    background-color: #deddeb;
+    border-radius: 10px;
+    }
+ 
+ 

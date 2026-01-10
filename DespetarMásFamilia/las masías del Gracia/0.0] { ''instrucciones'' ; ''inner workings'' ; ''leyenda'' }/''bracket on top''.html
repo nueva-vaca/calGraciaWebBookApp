@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .bracket-container {
+      display: inline-block;
+      position: relative;
+      padding-top: 8px;
+    }
+
+    .bracket-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 10px;
+      border-top: 2px solid rgb(247, 6, 6);
+      border-left: 2px solid black;
+      border-right: 2px solid black;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <span class="bracket-container">insurrection</span> is disrupting
+  </p>
+</body>
+</html>

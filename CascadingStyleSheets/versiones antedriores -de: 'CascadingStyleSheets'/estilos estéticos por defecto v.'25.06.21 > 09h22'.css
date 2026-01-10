@@ -1,0 +1,193 @@
+* 
+    {
+    font-family: 'Lucida Grande', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    }  
+
+
+
+html , body 
+    {     
+    box-sizing: border-box; /* 'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height} */ 
+    padding: 0 ; 
+    margin: 0 ;  
+    }
+
+
+
+#menúPieDePantalla 
+    {
+    background-color:rgba(165, 42, 42, 0.298)  ; 
+    position:sticky ; 
+    bottom: 0 ;
+    width: 100%;
+    }
+
+
+
+body 
+    {
+    display:grid ;
+    min-height:100dvh ; /* dvh ±= todo el height del view "por dinámico" */
+    grid-template-rows: 1fr auto ; /* 2 filas = { "contenido" ocupa : 1 fracción + 'el footer' en automático } */
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+p , span 
+    {
+    font-size: 5vw ; 
+    }
+
+
+
+h1 
+    { 
+    font-size:8vw ; 
+    text-decoration-line: underline overline ; 
+    /* display:flex ; 
+    justify-content:center ; */ 
+    text-align:center ;
+    width: 100% ;
+    max-height: 222px;
+    } 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
+/* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
+/* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
+
+.letraGORDITA, .textoImportante, .resumen 
+    { 
+    font-weight: 999 ; 
+    }
+
+.subrayado{text-decoration:underline;} 
+
+
+
+
+
+
+
+
+
+
+
+
+/* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ 
+/* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ 
+/* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ /* "TIPOS DE TEXTOS" */ 
+
+
+
+.textoSecundario 
+    {
+    color:#7f7f7f ; 
+    } 
+
+
+
+.textoImportante, .letraGORDITA, .resumen 
+    { 
+    font-weight: 999 ; 
+    }
+
+
+.noEsExactamenteLoQueQuieroDecir::before , .noEsExactamenteLoQueQuieroDecir::after
+    {
+    content: '"' ;
+    color:blue ;
+    }
+
+
+
+.síEsExactamenteLoQueQuieroDecir::before , .síEsExactamenteLoQueQuieroDecir::after , .literalmente::before , .literalmente::after , .términoTécnicoEspecífico::before 
+    {
+    content: "‘" ;
+    color:red ;
+    } 
+.síEsExactamenteLoQueQuieroDecir::after , .literalmente::after , .términoTécnicoEspecífico::after
+    {
+    content: "’" ;
+    color:red ;
+    }
+
+.piensoQueEsExacto::before  
+    {
+    content: "‘" ;
+    color:blue ;
+    } 
+.piensoQueEsExacto::after  
+    {
+    content: "’" ;
+    color:blue ;
+    } 
+
+
+
+.quieroQueSeVeaPoco , .colorGrisClaro { color: lightgrey ; }
+
+
+
+
+.detalleDiscretoPeroMuyImportanteParaPrestarleAtención { color: lightgrey ; } 
+.detalleDiscretoPeroMuyImportanteParaPrestarleAtención::after {    content: " (!!!)";    color: red; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* COLORES */ /* COLORES */ /* COLORES */
+/* COLORES */ /* COLORES */ /* COLORES */
+/* COLORES */ /* COLORES */ /* COLORES */
+
+.colorGris { color:  #7f7f7f ; } 
+.colorGrisClaro { color: lightgrey ; } 
+.colorRojo { color: #fb0017 ; } 
+.colorAzul { color: #1080d6 ; } 
+.colorAzulClaro { color: #abe2ff ;}
+.colorVerde { color: #309603 ;}
+.colorVerdeClaro { color: #2f960383 ;}
