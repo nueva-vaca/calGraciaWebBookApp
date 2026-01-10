@@ -1,0 +1,84 @@
+document.querySelectorAll('.inciso').forEach(inciso => {
+    inciso.style.display = 'none';
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+document.querySelectorAll('.clicableParaExpandir').forEach(clicable_para_expandir => {
+
+    clicable_para_expandir.addEventListener('click', () => {
+       const incisoId = clicable_para_expandir.dataset.identificaciónDelInciso;
+
+        if (!incisoId) {
+            console.warn("This clickable element is missing a 'data-inciso-id' attribute:", clicable_para_expandir);
+            return;
+        }
+
+        const incisosParaAlternar = document.querySelectorAll(`.inciso[data-inciso-id="${incisoId}"]`);
+
+        incisosParaAlternar.forEach(inciso => {
+            toggleDisplay(inciso);
+        });
+    });
+
+}); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const toggleDisplay = (elemento) => {
+    if (!elemento) {
+        return;
+    }
+
+    if (elemento.style.display === 'none') {
+        const tagNameDelElemento = elemento.tagName;
+        if (tagNameDelElemento === 'UL' || tagNameDelElemento === 'OL') {
+            elemento.style.display = 'block';
+        } else {
+           elemento.style.display = 'inline';
+        }
+    } else {
+
+        elemento.style.display = 'none';
+    }
+};
+
+
+

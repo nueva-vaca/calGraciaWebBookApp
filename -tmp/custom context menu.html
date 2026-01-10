@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Context Menu</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #contextMenu {
+      display: none;
+      position: absolute;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    #contextMenu a {
+      display: block;
+      padding: 8px 12px;
+      text-decoration: none;
+      color: #333;
+      cursor: pointer;
+    }
+    #contextMenu a:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <div id="target" style="width: 300px; height: 200px; background-color: #ddd; text-align: center; line-height: 200px; margin: 50px auto;">
+    Right-click here
+  </div>
+
+  <div id="contextMenu">
+    <a href="#" onclick="alert('Option 1 selected')">Option 1</a>
+    <a href="#" onclick="alert('Option 2 selected')">Option 2</a>
+    <a href="#" onclick="alert('Option 3 selected')">Option 3</a>
+  </div>
+
+  <script>
+    const target = document.getElementById('target');
+    const contextMenu = document.getElementById('contextMenu');
+
+    // Show custom context menu
+    target.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      contextMenu.style.display = 'block';
+      contextMenu.style.left = `${event.pageX}px`;
+      contextMenu.style.top = `${event.pageY}px`;
+    });
+
+    // Hide context menu on click elsewhere
+    document.addEventListener('click', () => {
+      contextMenu.style.display = 'none';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Potato Selector</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .clickable { color: blue; cursor: pointer; text-decoration: underline; }
+        .dropdown { display: none; position: absolute; background: white; border: 1px solid #ccc; padding: 5px; }
+        .dropdown div { cursor: pointer; padding: 3px 10px; }
+        .dropdown div:hover { background-color: #f0f0f0; }
+        .container { position: relative; display: inline-block; }
+    </style>
+</head>
+<body>
+
+    <p>I love eating <span id="potato" class="clickable">potato</span>!</p>
+    <div class="container">
+        <div id="dropdownMenu" class="dropdown">
+            <div onclick="replaceWord('Carrot')">Carrot</div>
+            <div onclick="replaceWord('Broccoli')">Broccoli</div>
+            <div onclick="replaceWord('Tomato')">Tomato</div>
+            <div onclick="replaceWord('Cucumber')">Cucumber</div>
+            <div onclick="replaceWord('Pepper')">Pepper</div>
+        </div>
+    </div>
+
+    <script>
+        const potatoElement = document.getElementById("potato");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+
+        potatoElement.onclick = function(event) {
+            dropdownMenu.style.display = "block";
+            dropdownMenu.style.left = event.target.offsetLeft + "px";
+            dropdownMenu.style.top = event.target.offsetTop + event.target.offsetHeight + "px";
+        };
+
+        function replaceWord(vegetable) {
+            potatoElement.textContent = vegetable;
+            dropdownMenu.style.display = "none";
+        }
+
+        document.addEventListener("click", function(event) {
+            if (!potatoElement.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                dropdownMenu.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

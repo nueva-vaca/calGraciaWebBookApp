@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Replacer</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .hidden { display: none; }
+        .vegetable-list { margin-top: 10px; }
+        .vegetable-list div { cursor: pointer; color: blue; }
+        .vegetable-list div:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <p id="sentence">I love eating <span id="potato" style="color:blue; cursor:pointer;">potato</span>!</p>
+    
+    <div id="vegetableList" class="hidden">
+        <p>Choose a vegetable:</p>
+        <div onclick="replacePotato('carrot')">Carrot</div>
+        <div onclick="replacePotato('broccoli')">Broccoli</div>
+        <div onclick="replacePotato('tomato')">Tomato</div>
+        <div onclick="replacePotato('cucumber')">Cucumber</div>
+        <div onclick="replacePotato('pepper')">Pepper</div>
+    </div>
+
+    <script>
+        document.getElementById("potato").onclick = function() {
+            document.getElementById("vegetableList").classList.toggle("hidden");
+        };
+
+        function replacePotato(vegetable) {
+            document.getElementById("potato").textContent = vegetable;
+            document.getElementById("vegetableList").classList.add("hidden");
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+Yes, there is a portable version of Visual Studio Code! You can use Visual Studio Code in Portable mode, which allows : all data {created and maintained} by VS Code - to live near itself, making it easy to move across different environments.
+
+To set up Visual Studio Code in Portable mode, follow these steps:
+
+1. **Download the ZIP or TAR.GZ file** for your platform from the Visual Studio Code download page.
+2. **Extract the contents** of the downloaded file.
+3. **Create a `data` folder** within the extracted VS Code folder:
+   - For Windows: Create a `data` folder in the same directory as `Code.exe`.
+   - For Linux: Create a `data` folder in the same directory as the `code` executable.
+   - For macOS: Create a `code-portable-data` folder alongside the `Visual Studio Code.app`.
+
+Once the `data` folder is created, all VS Code data, including session state, preferences, and extensions, will be stored in this folder, making it portable[1](https://code.visualstudio.com/docs/editor/portable).
+
+Additionally, there are third-party portable versions available, such as the one provided by [Portapps on GitHub](https://github.com/portapps/vscode-portable/releases)[2](https://github.com/portapps/vscode-portable/releases).
+
+Would you like more detailed instructions for a specific operating system?

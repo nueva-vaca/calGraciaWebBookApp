@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="en">
+<head> 
+    <title>html and body elements - "filling the screen"</title> 
+
+<style>
+
+    html, body
+        {
+        /**/ border: solid 2px red;
+        /**/ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        height: 100%;
+        box-sizing: border-box; /* 'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height} */
+        margin: 0;
+        } 
+    body{/**/ border: solid 3px blue;}
+   
+
+    .colorGris{color: grey;}
+    .colorGrisClaro{color: lightgray;} 
+    .colorRojo{color:red;} 
+    .letraGordita{font-weight: bolder;}
+
+</style>
+
+</head>
+
+
+
+
+
+
+<!-- BODY -->
+<!-- BODY -->
+<!-- BODY -->
+<body> 
+
+<p>I want to make " the {&lthtml&gt -and: &ltbody&gt} "elements boxes" " - fill : the "screen",<br> -therefore: <br> use: <br> 
+    
+        <li class="colorGrisClaro">do not need to change their width -bs: by default - both "{&lthtml&gt -and: &ltbody&gt} elements" - are 'block elements' -and thus: take the whole width of the "screen" (<span style="color: red; font-weight: bolder;">?</span>) <br>+ A block-level element always takes up the full width available (= stretches out to the left and right as far as it can).</li>
+        <li>need to make : the height of both "{&lthtml&gt -and: &ltbody&gt} elements" - 100% of the "I-don't know the term" &lt-- by writing : 'height: 100%;' <span class="colorGrisClaro"> not : height: 100vh;</span></span></li>
+        <li>'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height}</li>
+    </p>
+
+    
+    
+
+<p style="margin-top: 50px;">
+<span style=" text-decoration:underline; ">"The end result" -is</span>: <br><br>
+
+    html, body<br>
+
+        <span class=" colorRojo letraGordita">{</span><br>
+
+        <a href="/box-sizing.html" style="text-decoration: none;"><span style="color: red;">box-sizing</a>: </span> <span>border-box</span><span class="colorRojo">; </span> <span style="color: rgb(112, 133, 112);">/* 'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height} */ </span><br>  
+
+        height: <span style=" color:blue; ">100</span>%<span class="colorRojo">;</span><br>
+
+        <span class="colorGris">margin: 0;</span><br>
+
+        <span class=" colorRojo letraGordita">}</span><br> 
+</p>
+
+</body>
+
+
+
+
+
+
+
+
+<!--  -->
+<!--  -->
+<!--  -->
+<!--  -->
+</html>

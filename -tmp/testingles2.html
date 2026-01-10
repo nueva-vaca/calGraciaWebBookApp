@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Potato Selector</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        select { display: none; margin-left: 5px; }
+        .clickable { color: blue; cursor: pointer; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+    <p id="sentence">I love eating <span id="potato" class="clickable">potato</span>!</p>
+    <select id="vegetableSelect">
+        <option value="">Choose a vegetable</option>
+        <option value="carrot">Carrot</option>
+        <option value="broccoli">Broccoli</option>
+        <option value="tomato">Tomato</option>
+        <option value="cucumber">Cucumber</option>
+        <option value="pepper">Pepper</option>
+    </select>
+
+    <script>
+        document.getElementById("potato").onclick = function() {
+            document.getElementById("vegetableSelect").style.display = "inline";
+        };
+
+        document.getElementById("vegetableSelect").onchange = function() {
+            let selectedVeg = this.value;
+            if (selectedVeg) {
+                document.getElementById("potato").textContent = selectedVeg;
+                this.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+</html>
