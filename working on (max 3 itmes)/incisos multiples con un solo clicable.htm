@@ -88,14 +88,14 @@
 
 
 <!-- GRUPO B -->
-<span class="clicableParaExpandir" data-inciso-id="grupo-B">
+<span class="contenedor" data-contenidor-id="grupo-B">
   ► Show/Hide Details for Group B: 
 </span>
-<p class="inciso" data-inciso-id="grupo-A">
+<p class="contenido" data-contenidor-id="grupo-A">
   This is the first paragraph belonging to Group A. It will be shown/hidden.
 </p> 
 
-<div class="inciso" data-inciso-id="grupo-B">
+<div class="contenido" data-contenidor-id="grupo-B">
   This is a single block of text for Group B.
 </div>
 
@@ -126,9 +126,7 @@
 // [1]  Esconde : (casi) todos los elementos html >que: tengan 'la clase' 'contenido'
 
 // [1] Hide all elements with the 'contenido' class by default.
-document.querySelectorAll('.contenido').forEach(contenido => {
-    contenido.style.display = 'none';
-});
+document.querySelectorAll('.contenido').forEach(contenido => {       contenido.style.display = 'none';   });
 
 
 
