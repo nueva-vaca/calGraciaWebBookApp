@@ -43,11 +43,10 @@
 
 <!-- test de 1 clicalbe + 2 incisos --> 
 <p>
-  <span class="contenedor" data-contenidor-id="a35c7bab-c440-40ac-8cbb-8116199de924">-.estar</span> 
+  <span class="clicableParaExpandir" data-inciso-id="a35c7bab-c440-40ac-8cbb-8116199de924">-.estar</span> 
  
-      <p class="contenido" data-contenidor-id="a35c7bab-c440-40ac-8cbb-8116199de924" >mal.estar = duca</p>
-      <br>
-      <p class="contenido" data-contenidor-id="a35c7bab-c440-40ac-8cbb-8116199de924" >bien.estar = suca</p>
+      <p class="inciso" data-inciso-id="a35c7bab-c440-40ac-8cbb-8116199de924" >mal.estar = duca</p>
+      <p class="inciso" data-inciso-id="a35c7bab-c440-40ac-8cbb-8116199de924" >bien.estar = suca</p>
     
 </p> 
 
@@ -60,15 +59,15 @@
    
 
 <!-- GRUPO A -->
-    <span class="contenedor" data-contenidor-id="grupo-A">
+    <span class="clicableParaExpandir" data-inciso-id="grupo-A">
   ► Toggle Content for Group A: 
 </span>
 
-<p class="contenido" data-contenidor-id="grupo-A" >
+<p class="inciso" data-inciso-id="grupo-A" >
   This is the first paragraph belonging to Group A be shown/hidden.. It will
 </p>
 
-<ul class="contenido" data-contenidor-id="grupo-A" style="list-style-type: square;">
+<ul class="inciso" data-inciso-id="grupo-A" style="list-style-type: square;">
   <li>List item 1 in Group A.</li>
   <li>List item 2 in Group A.</li>
 </ul>
@@ -116,18 +115,18 @@
 
 
 
-<!-- SCRIPT DE CONTENIDORES -->
+<!-- SCRIPT DE INCISOS -->
 <script>  
 
 
 
   // INSTRUCCIONES e información:
-// (-) ' la clase '.contenido' - se esconde por defecto
-// [1]  Esconde : (casi) todos los elementos html >que: tengan 'la clase' 'contenido'
+// (-) ' la clase '.inciso' - se esconde por defecto
+// [1]  Esconde : (casi) todos los elementos html >que: tengan 'la clase' 'inciso'
 
-// [1] Hide all elements with the 'contenido' class by default.
-document.querySelectorAll('.contenido').forEach(contenido => {
-    contenido.style.display = 'none';
+// [1] Hide all elements with the 'inciso' class by default.
+document.querySelectorAll('.inciso').forEach(inciso => {
+    inciso.style.display = 'none';
 });
 
 
@@ -151,28 +150,28 @@ document.querySelectorAll('.contenido').forEach(contenido => {
 
 
 
-// [1]: Find all elements with the class '.contenedor' and [2]: add an "EventListener" to each.
-document.querySelectorAll('.contenedor').forEach(contenedor_para_expandir => {
+// [1]: Find all elements with the class '.clicableParaExpandir' and [2]: add an "EventListener" to each.
+document.querySelectorAll('.clicableParaExpandir').forEach(clicable_para_expandir => {
 
-    contenedor_para_expandir.addEventListener('click', () => {
-        // MODIFIED LOGIC: Use 'data-contenidor-id' to find target elements.
+    clicable_para_expandir.addEventListener('click', () => {
+        // MODIFIED LOGIC: Use 'data-inciso-id' to find target elements.
 
-        // 1. Get the ID from the 'data-contenidor-id' attribute of the element that was clicked.
-        // 1. obtiene el valor del atributo 'data-contenidor-id' del elemento en el que se hizo clic (contenedor_para_expandir). Este valor (valor del atributo 'data-contenidor-id' del elemento en el que se hizo clic --> contenidorId) se utiliza para {identificar y seleccionar} los elementos '.contenido' correspondientes - que deben ser {mostrados u ocultados} 
-        const contenidorId = contenedor_para_expandir.dataset.contenidorId;
+        // 1. Get the ID from the 'data-inciso-id' attribute of the element that was clicked.
+        // 1. obtiene el valor del atributo 'data-inciso-id' del elemento en el que se hizo clic (clicable_para_expandir). Este valor (valor del atributo 'data-inciso-id' del elemento en el que se hizo clic --> incisoId) se utiliza para {identificar y seleccionar} los elementos '.inciso' correspondientes - que deben ser {mostrados u ocultados} 
+        const incisoId = clicable_para_expandir.dataset.incisoId;
 
-        // 2. If the clickable element doesn't have a 'data-contenido-id', do nothing.
-        if (!contenidorId) {
-            console.warn("This clickable element is missing a 'data-contenido-id' attribute:", contenedor_para_expandir);
+        // 2. If the clickable element doesn't have a 'data-inciso-id', do nothing.
+        if (!incisoId) {
+            console.warn("This clickable element is missing a 'data-inciso-id' attribute:", clicable_para_expandir);
             return;
         }
 
-        // 3. Find ALL elements with the '.contenido' class that have a matching 'data-contenidor-id'.
-        const contenidoParaAlternar = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorId}"]`);
+        // 3. Find ALL elements with the '.inciso' class that have a matching 'data-inciso-id'.
+        const incisosParaAlternar = document.querySelectorAll(`.inciso[data-inciso-id="${incisoId}"]`);
 
         // 4. Loop through each of the found elements and toggle its visibility.
-        contenidoParaAlternar.forEach(contenido => {
-            toggleDisplay(contenido);
+        incisosParaAlternar.forEach(inciso => {
+            toggleDisplay(inciso);
         });
     });
 
