@@ -1,5 +1,8 @@
-. 
+.
 
-(+) 'routing' +-= links hacia otras páginas web (ej: https://www.youtube.com/watch?v=JmSb1VFoP7w&t=410s ) 
- 
-(+) single page application 
+
+
+
+
+[ ] merge : [ style in the head of index] -with: [ the css file 'estilos estéticos por defecto' ] 
+[ ] merge : [ the script in the index file ] -into: [ the java.script file 'incisos.js' ]
