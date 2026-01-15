@@ -4,5 +4,4 @@
 
 
 
-[ ] merge : [ style in the head of index] -with: [ the css file 'estilos estéticos por defecto' ] 
-[ ] merge : [ the script in the index file ] -into: [ the java.script file 'incisos.js' ]
+
