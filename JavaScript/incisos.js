@@ -87,7 +87,7 @@ if (hayBotónParaResaltarLosExpandibles)
         // [1] "coge" todos los elementos que tengan la clase 'clicableParaExpandir' 
     const todosLosClicablesParaExpandirEnHTMLCollection = document.getElementsByClassName('clicableParaExpandir');
     /*console.log(todosLosClicablesParaExpandirEnHTMLCollection);*/ 
-    // convertir 'HTMCollection' a "Array" -pq: [ ' el método .forEach' - no "soporta" : el tipo de datos 'HTMLCollection' ]
+    // [ convertir 'HTMCollection' a "Array" ] <---pq: [ ' el método .forEach' - no "soporta" : el tipo de datos 'HTMLCollection' ]
      const todosLosClicablesParaExpandirEnArray = Array.from(todosLosClicablesParaExpandirEnHTMLCollection);
     /*console.log(todosLosClicablesParaExpandirEnArray);*/
      
