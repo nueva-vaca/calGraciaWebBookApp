@@ -7,6 +7,7 @@
 
 
 
+
 // [1] Esconde : (casi) todos los elementos html >que: tengan la 'clase inciso' + ( ) excepto : cuando tb tenga la clase "visiblePorDefecto" 
 document.querySelectorAll('.inciso').forEach(inciso => {inciso.style.display = 'none'; }); 
 
