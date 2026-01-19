@@ -45,7 +45,12 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
 
          // 4. [1] Loop though = "Bulcea" = Repite cada uno de los elementos encontrados que tengan { el atributo data con el identificador coincidente con su contenedor } -y: [2] toggle = "alterna" su visibilidad.
         contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenido => {
-            toggleDisplay(contenido);
+            if (contenido.style.display === 'none') {
+                const EtiquetaDelElementoActual = contenido.tagName;
+                contenido.style.display = (EtiquetaDelElementoActual === 'UL' || EtiquetaDelElementoActual === 'OL' || EtiquetaDelElementoActual === 'H1') ? 'block' : 'inline';
+            } else {
+                contenido.style.display = 'none';
+            }
         });
 
     }); /* fin de :     contenedor_para_expandir.addEventListener('click', () => {     */
@@ -99,6 +104,51 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+// BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" 
+// BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" 
+// BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS CLICABLES PARA EXPANDIR" 
+// [X] add: "if 'botónParaResaltarLosExpandibles' no esta presente → entonces : "desactivar este "script""" 
+const hayBotónParaResaltarLosContenedores = document.getElementById('botónParaResaltarLosExpandibles');
+    
+if (hayBotónParaResaltarLosContenedores) 
+    { 
+    hayBotónParaResaltarLosContenedores.addEventListener('click' , ()=>
+    {
+    
+        // [1] "coge" todos los elementos que tengan la clase 'contenedor' 
+    const todosLosContenedoresEnHTMLCollection = document.getElementsByClassName('contenedor'); 
+    // [ convertir 'HTMCollection' a "Array" ] <---pq: [ ' el método .forEach' - no "soporta" : el tipo de datos 'HTMLCollection' ]
+     const todosLosContenedoresEnArray = Array.from(todosLosContenedoresEnHTMLCollection);
+     
+     
+    
+     todosLosClicablesParaExpandirEnArray.forEach( contenedor_actual => {
+        let times = 0;
+        let interval = setInterval(() => {
+            contenedor_actual.style.visibility = (contenedor_actual.style.visibility === 'hidden') ? 'visible' : 'hidden';
+            times++;
+            if (times >= 4) { // Toggle twice (4 changes: visible → hidden → visible → hidden → visible)
+                // [1] "resetea" "el intervalo"
+                // [2] pon "el clicable para expandir" en 'visible' < 'display' < 'style' 
+                clearInterval(interval);
+                clicable_para_expandir_actual.style.visibility = 'visible'; // <- para asegurarse que : [ "los clicables para expandir" - "end up" : visibles ] 
+            } 
+        }, 300); // intervalo de : { " intermmitente ; parpadeo " } 
+    });
+
+} ) }; 
 
 
 
