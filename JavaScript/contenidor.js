@@ -1,36 +1,75 @@
 // INSTRUCCIONES e información: 
-// (-) ' la clase '.inciso' - se esconde por defecto 
-// [1]  Esconde : (casi) todos los elementos html >que: tengan la 'clase inciso' 
-// i: "original code" "sourced" from 'co.pilot' (?) <-- cuando le pedí "un stretch.text" (@ 12.025)
+// (-) La clase '.contenido' - se esconde por defecto 
+// [1]  Esconde : (casi) todos los elementos html >que: tengan la 'clase contenido' 
 
 
 
 
 
 
-// [1] Esconde : (casi) todos los elementos html >que: tengan la 'clase inciso' + ( ) excepto : cuando tb tenga la clase "visiblePorDefecto" 
-document.querySelectorAll('.inciso').forEach(inciso => {inciso.style.display = 'none'; }); 
+// [[[ 1 ]]]
+// [1] Esconde : (casi) todos los elementos html >que: tengan la 'clase contenido' + ( ) excepto : cuando tb tenga la clase "visiblePorDefecto" 
+document.querySelectorAll('.contenido').forEach(contenido => {     contenido.style.display = 'none';     }); 
 
 
 
-// [1]: Encuentra todos los elementos html con la clase '.clicableParaExpandir' -y: [2]: a cada uno - añadirles un "EventListener" 
-document.querySelectorAll('.clicableParaExpandir').forEach((clicable_para_expandir, índice) => 
+
+
+
+// [[[ 2 ]]] 
+// [1]: Encuentra todos los elementos html con la clase '.contenedor' -y: [2]: a cada uno - añadirles un "EventListener" -y: [3] ??? 
+document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir => 
 {
 
-    // Set the title attribute to display the index on hover = " mira que número de indice es cada elemento "
-    clicable_para_expandir.setAttribute('title', `Índice: ${índice}`);
-
-    clicable_para_expandir.addEventListener('click', () => {
+    // [2]: Añade un "EventListener" -a: cada uno de los elementos html con la clase '.contenedor'
+    contenedor_para_expandir.addEventListener('click', () => {
         
-        // Crea una variable que "guarde" el índice de : [ cada uno de 'los elementos html -con: la clase 'inciso'' ] - según su orden en el documento
+        // usa el atributo "data-*" -para: saber : cual es el índice de los elementos con la clase '.contenido' que tiene que {aparecer -o: desaparecer}.
+        // obten el ID ( -o: índice(?) ) de : el elemento 'contenedor_para_expandir' actual con el atributo 'data-contenidor-id' - del elemento clicado.
+        // 1. obtiene el valor del atributo 'data-contenidor-id' del elemento en el que se hizo clic (contenedor_para_expandir). Este valor (valor del atributo 'data-contenidor-id' del elemento en el que se hizo clic --> contenidorIdActual) se utiliza para {identificar y seleccionar} los elementos '.contenido' correspondientes - que deben ser {mostrados -u: ocultados}
+        const contenidorIdActual = contenedor_para_expandir.dataset.contenidorId; 
+
+
+        // 2. Si el elemento clicalbe con la clase '.contenedor' no tiene un (atributo) 'data-contenido-id' ---> entonces : " nohacer nada " . 
+        if (!contenidorIdActual) {
+            // si NO hay contenidorIdActual -pq: no hay atributo 'data-contenido-id'  
+            console.warn("This clickable element is missing a 'data-contenido-id' attribute:", contenedor_para_expandir);
+            // la consola muestra la advertencia de arriva -y: el código se detiene aquí -sin hacer nada más
+            return;
+            // ell código se detiene aquí -sin hacer nada más 
+        }
+
+
+        // 3. Encuentra todos los elementos con la clase '.contenido' que tienen un 'data-contenidor-id' coincidente.
+        const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`); 
+
+         // 4. [1] Loop though = "Bulcea" = Repite cada uno de los elementos encontrados que tengan { el atributo data con el identificador coincidente con su contenedor } -y: [2] toggle = "alterna" su visibilidad.
+        contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenido => {
+            toggleDisplay(contenido);
+        });
+
+    }); /* fin de :     contenedor_para_expandir.addEventListener('click', () => {     */
+
+}); /* fin de :    document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir => 
+{     */
+
+
+
+
+
+
+
+
+
+
+/*
+
+
+
+
+//        CODIGO ANTERIOR -QUE FUNCIONABA :
         let incisoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll('.inciso')[índice];
 
-
-            /*// Mostrar los índices en la consola
-            console.log(`Índice del "expandible" clicado: ${índice}`);
-            console.log(`Elemento clicado:`, clicable_para_expandir);
-            console.log(`Índice del inciso asociado: ${índice}`);
-            console.log(`Elemento asociado (inciso):`, incisoActualQueTieneQueAparecerODesaparecer);*/
 
          // Comprueba si "el inciso que tiene que aparecer" - está escondido 
         if (incisoActualQueTieneQueAparecerODesaparecer.style.display === 'none') {
@@ -53,7 +92,7 @@ document.querySelectorAll('.clicableParaExpandir').forEach((clicable_para_expand
 
     });
 
-}); /* FIN DEL CÓDIGO DE "STRETCH.TEXT" */
+}); // FIN DEL CÓDIGO DE "STRETCH.TEXT" */
 
 
 
