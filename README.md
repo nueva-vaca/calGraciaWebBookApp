@@ -16,7 +16,9 @@
 
 <span style="color:red">pq salen los "puntos" de arriba en una misma linea <--- cuando yo los tengo/pongo en diferentes lineas adjuntas? </span>
 
-<span style="color:blue">no colorea el texto</span>
+<span style="color:blue">no colorea el texto</span> 
+
+$${\color{red}Red \space Text}$$
 
 ***
 
