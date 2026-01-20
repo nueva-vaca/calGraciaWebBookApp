@@ -14,7 +14,7 @@
 
 (-) [mark.down](https://www.markdownguide.org/cheat-sheet/)
 
-<span style="red">pq salen los "puntos" de arriba en una misma linea <--- cuando yo los tengo/pongo en diferentes lineas adjuntas? </span>
+<span style="color:red">pq salen los "puntos" de arriba en una misma linea <--- cuando yo los tengo/pongo en diferentes lineas adjuntas? </span>
 
 ***
 
