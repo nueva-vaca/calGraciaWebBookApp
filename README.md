@@ -4,9 +4,10 @@
 
 
 
-(-) ensenyar : "git.hub" <- para colaborar 
-(-) usar : google > { docs ; sheets ; meet ; gmail ; } 
-(-) usar : 'visual studio code' > "online" 
+(+) ensenyar : {git >y: "git.hub"} <- para colaborar 
+(+) usar : google > { docs ; sheets ; meet ; gmail ; } 
+(+) usar : 'visual studio code' > "online" 
+(-) [mark.down](https://www.markdownguide.org/cheat-sheet/)
 
 
 
