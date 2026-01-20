@@ -9,14 +9,14 @@
 (+) ensenyar : {git >y: "git.hub"} <- para colaborar  
 (+) usar : google > { docs ; sheets ; meet ; gmail ; }  
 (+) usar : 'visual studio code' > "online"  
-(-) <span style="color:grey">mark.down ( is quite shittty )</span>  
+(-) <span style="color:grey">mark.down ( is quite shitty )</span>  
  
 
 ***
 
 - torere de mierda +o-= bull.shit bull.fighter 
 - copia buena pasta +o-= copy good paste 
-- cultivar : pepitas de oro +o-= cultivate : gold nuggets 
+- cultivar/ndo : pepitas de oro +o-= cultivating : gold nuggets +o-= cultivador de pepitas de oro 
 
 ***
 
