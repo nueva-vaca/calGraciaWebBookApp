@@ -47,7 +47,9 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
                 const EtiquetaDelElementoActual = contenidoConIdCoincidente.tagName;
                 // [ Si la etiqueta HTML (ej: 'ul' ; 'ol' ; 'span') del elemento "contenido" actual -es: { 'ul' -ó: 'ol' } ] --> entonces : [ ponerle el 'style.display' > 'block' ] , -de otra forma: --> entonces : ponerle el 'style.display' > 'inline'
                 contenidoConIdCoincidente.style.display = (
-                    EtiquetaDelElementoActual === 'UL' || EtiquetaDelElementoActual === 'OL' || EtiquetaDelElementoActual === 'H1'
+                    EtiquetaDelElementoActual === 'UL' || 
+                    EtiquetaDelElementoActual === 'OL' || 
+                    EtiquetaDelElementoActual === 'H1'
                 ) ? 'block' : 'inline';
             // Si el elemento "contenido" ya es visible --> entonces : escondelo 
             } else {
