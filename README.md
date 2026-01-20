@@ -8,6 +8,7 @@
 (+) usar : google > { docs ; sheets ; meet ; gmail ; } 
 (+) usar : 'visual studio code' > "online" 
 (-) [mark.down](https://www.markdownguide.org/cheat-sheet/)
+pq salen los "puntos" de arriba en una misma linea <--- cuando yo los tengo en diferentes lineas? 
 
 
 
