@@ -19,6 +19,7 @@
 <span style="color:blue">no colorea el texto</span> 
 
 $${\color{red}Red \space Text}$$
+$\textcolor{gray}{This text is grey}$
 
 ***
 
