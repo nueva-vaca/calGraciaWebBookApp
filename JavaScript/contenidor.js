@@ -7,6 +7,7 @@
 
 
 
+
 // [[[ 1 ]]]
 // [1] Esconde : (casi) todos los elementos html >que: tengan la 'clase contenido' + ( ) excepto : cuando tb tenga la clase "visiblePorDefecto" 
 document.querySelectorAll('.contenido').forEach(contenido => {     contenido.style.display = 'none';     }); 
