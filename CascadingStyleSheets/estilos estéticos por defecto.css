@@ -68,8 +68,11 @@ p , span
     font-size: 13pt ; 
     }
 
-/* [ ] añadir 'hanging indent' a los párrafos */
-
+/* [ ] añadir 'hanging indent' a los párrafos */ 
+p {
+  text-indent: -1.618em;
+  padding-left: 1.618em;
+  }
 
 
 
