@@ -5,7 +5,6 @@
 
 
 (+) ensenyar : {git >y: "git.hub"} <- para colaborar 
-
 (+) usar : google > { docs ; sheets ; meet ; gmail ; } 
 
 (+) usar : 'visual studio code' > "online" 
