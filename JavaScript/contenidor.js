@@ -45,19 +45,19 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
             if (contenidoConIdCoincidente.style.display === 'none') { 
                 // obtiene la etiqueta HTML (ej: 'ul' ; 'ol' ; 'span') del elemento "contenido" actual
                 const EtiquetaDelElementoActual = contenidoConIdCoincidente.tagName;
-                // [ Si la etiqueta HTML (ej: 'ul' ; 'ol' ; 'span') del elemento "contenido" actual -es: { 'ul' -ó: 'ol' } ] --> entonces : [ ponerle el 'style.display' > 'block' ] , -de otra forma: --> entonces : ponerle el 'style.display' > 'inline'
+                // [ Si la etiqueta HTML (ej: 'ul' ; 'ol' ; 'span') del elemento "contenido" actual -es: { 'ul' -ó: 'ol' } ] --> entonces : [ ponerle el 'style.display' > 'block' ] , -de otra forma: --> entonces : ponerle el 'style.display' === 'inline'
                 contenidoConIdCoincidente.style.display = (
                     EtiquetaDelElementoActual === 'UL' || 
                     EtiquetaDelElementoActual === 'OL' || 
                     EtiquetaDelElementoActual === 'H1'
-                ) ? 'block' : 'inline';
+                ) ? 'block' : 'inline'  ;
             // Si el elemento "contenido" ya es visible --> entonces : escondelo 
             } else {
-                contenidoConIdCoincidente.style.display = 'none';
+                contenidoConIdCoincidente.style.display = 'none' ;
             }
-        }); // fin de :   contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenido => {
+        }); // fin de :    contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenido => {
 
-    }); // fin de :     contenedor_para_expandir.addEventListener('click', () => {     
+    }); // fin de :    contenedor_para_expandir.addEventListener('click', () => {     
 
 }); // fin de :    document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir => {
 
