@@ -5,11 +5,11 @@
 
 
 (+) ensenyar : {git >y: "git.hub"} <- para colaborar 
-
+---
 (+) usar : google > { docs ; sheets ; meet ; gmail ; } 
-
+___
 (+) usar : 'visual studio code' > "online" 
-
+***
 (-) [mark.down](https://www.markdownguide.org/cheat-sheet/)
 
 pq salen los "puntos" de arriba en una misma linea <--- cuando yo los tengo en diferentes lineas? 
