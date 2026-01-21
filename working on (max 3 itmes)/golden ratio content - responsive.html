@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>dimensión de la página</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            height: 100%;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        
+        .content {
+            border: 2px solid #333;
+            background-color: white;
+            /* Use min() to choose the smaller constraint */
+            height: min(100vh, 161.8vw);
+            width: min(61.8vh, 100vw);
+        }
+    </style>
+</head>
+<body>
+    <div class="content" style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 10px; font-family: monospace;">
+        <div style="border: 1px solid rgba(255, 0, 0, 0.437);">
+            <a style="border: 1px solid rgba(0, 0, 255, 0.502);" href="../index.html">index +o-= home.page</a>
+        </div>
+        <div style="font-size: 24px; font-weight: bold;">size</div>
+        <div id="dimensions" style="font-size: 14px; text-align: center; line-height: 1.6;"></div>
+    </div>
+    
+    <script>
+        function updateDimensions() {
+            const content = document.querySelector('.content');
+            const width = content.offsetWidth;
+            const height = content.offsetHeight;
+            
+            const dimensionsDiv = document.getElementById('dimensions');
+            dimensionsDiv.innerHTML = `
+                <strong>Width:</strong><br>
+                ${width}px | ${(width / 16).toFixed(2)}rem | ${(width * 0.75).toFixed(2)}pt<br>
+                <br>
+                <strong>Height:</strong><br>
+                ${height}px | ${(height / 16).toFixed(2)}rem | ${(height * 0.75).toFixed(2)}pt<br>
+                <br>
+                <strong>Ratio:</strong><br>
+                ${(height / width).toFixed(4)} (φ ≈ 1.618)
+            `;
+        }
+        
+        updateDimensions();
+        window.addEventListener('resize', updateDimensions);
+    </script>
+</body>
+</html>
