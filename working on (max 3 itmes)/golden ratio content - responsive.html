@@ -47,6 +47,7 @@
             const width = content.offsetWidth;
             const height = content.offsetHeight;
             
+            // Calculate and display dimensions in px, rem, pt, and ratio
             const dimensionsDiv = document.getElementById('dimensions');
             dimensionsDiv.innerHTML = `
                 <strong>Width:</strong><br>
@@ -57,11 +58,11 @@
                 <br>
                 <strong>Ratio:</strong><br>
                 ${(height / width).toFixed(4)} (φ ≈ 1.618)
-            `;
+            `; /* '.toFixed' -es: [ 'un método' que { redondea un número a un número específico de decimales -y: convierte el número a una cadena de texto ] */
         }
         
-        updateDimensions();
-        window.addEventListener('resize', updateDimensions);
+        updateDimensions() ; // Initial call (?)
+        window.addEventListener('resize', updateDimensions) ; // Cada vez que se redimensiona la ventana activa ( = 'window' ) , ---> el 'addEventListener' "monitorea" ( -con: 'resize' ) este "re.dimensionamiento" de la ventana -y: invoca la función ( call.back ) 'updateDimensions' , --> la cual captura la dimensiones -de: la clase '.content' ... bs 
     </script>
 </body>
 </html>
