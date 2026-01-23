@@ -11,4 +11,8 @@
 
 [ ] { limitar / poner / ... } el "contorno" "propoción aurea" ( de base ) en la página del index 
 
-[ ]  hacer aparecer el <header> <--- caundo : aprete / clique "el icono hamburguesa de índice"
+[ ] poner las partes -en: la barra de menu 
+
+[ ]  hacer aparecer el <header> <--- caundo : aprete / clique "el icono hamburguesa de índice" 
+
+[ ] dropup menu 
