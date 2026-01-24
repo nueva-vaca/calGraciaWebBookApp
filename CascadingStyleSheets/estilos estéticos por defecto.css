@@ -27,7 +27,7 @@ html {
     display: flex;
     justify-content: center;
     /*   align-content: center;  <- no se necesita?   */
-    align-items: center;
+    align-items: stretch;
     height: 100vh;
 
     }
@@ -49,7 +49,7 @@ body
 
 footer 
     {
-    position: sticky ; /* position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled.   -VS:   position: sticky; toggles between a relative and fixed position, depending on the scroll position */
+    position: sticky ; /* 'position: fixed;' - is positioned relative to 'the viewport' - and it always stays in the same place even if the page is scrolled.   -VS:   position: sticky; toggles between a relative and fixed position, depending on the scroll position */
     left: 0 ;
     bottom: 0 ; 
     width: 100% ; 
