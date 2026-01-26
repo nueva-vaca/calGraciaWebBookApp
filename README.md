@@ -6,14 +6,18 @@
 ---
 ---
 
+
+
 (!!!) libro 
+
+
 
 ***
 
 
 
 (+) ensenyar : {git >y: "git.hub"}   <- para colaborar  
-(+) usar : google > { docs ; sheets ; meet ; gmail ; }.  <- para colaborar
+(+) usar : google > { docs ; sheets ; meet ; gmail ; }  <- para colaborar 
 (+) usar : 'visual studio code' > "online"  
 (-) <span style="color:grey">mark.down ( is quite shitty -actually )</span>  
 
