@@ -36,6 +36,7 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
         }
 
 
+        
         // [5d6] Encuentra todos los elementos con la clase '.contenido' que tienen un 'data-contenidor-id' coincidente con el 'data-contenidor-id' del elemento '.contenedor' que fue clicado. Crea un array con esos elementos.  
         const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`); 
 
@@ -55,7 +56,8 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
             } else {
                 contenidoConIdCoincidente.style.display = 'none' ;
             }
-        }); // fin de :    contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenido => {
+        }); // fin de :    contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenidoConIdCoincidente => {
+            
 
     }); // fin de :    contenedor_para_expandir.addEventListener('click', () => {     
 
