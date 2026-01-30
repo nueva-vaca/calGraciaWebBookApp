@@ -121,7 +121,11 @@ header
 
 p , span 
     {
+
     font-size: 13pt ; 
+
+    white-space: pre-wrap ; /*   'white-space: pre-wrap;' - Sequences of whitespace are preserved. Lines are broken at newline characters, at <br>, and as necessary to fill line boxes.   */
+
     }
 
 /* 'hanging indent' a los párrafos */ 
