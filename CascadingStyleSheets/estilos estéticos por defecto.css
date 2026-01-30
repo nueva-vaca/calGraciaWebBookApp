@@ -55,12 +55,17 @@ footer
     bottom: 0 ; 
     width: 100% ; 
 
-    display: flex ; 
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    /*display: flex ; 
     flex-direction: row ; 
     flex-wrap: wrap ; 
     align-content: normal ; 
     justify-content: space-between ; 
-    align-items: center ; 
+    align-items: center ;*/
 
     }
 
