@@ -49,10 +49,19 @@ body
 
 footer 
     {
+
     position: sticky ; /* 'position: fixed;' - is positioned relative to 'the viewport' - and it always stays in the same place even if the page is scrolled.   -VS:   position: sticky; toggles between a relative and fixed position, depending on the scroll position */
     left: 0 ;
     bottom: 0 ; 
     width: 100% ; 
+
+    display: flex ; 
+    flex-direction: row ; 
+    flex-wrap: wrap ; 
+    align-content: normal ; 
+    justify-content: space-between ; 
+    align-items: center ; 
+
     }
 
 /*#menúPieDePantalla 
@@ -62,6 +71,29 @@ footer
     bottom: 0 ;
     width: 100%;
     }*/ 
+
+#menuIndice li {
+
+    list-style-type: none ; 
+
+    width: 35px ;
+    height: 5px ;
+    background-color: rgb(5, 113, 202) ;
+    margin: 6px 0 ;
+
+    } 
+
+#menuOpciones li {
+
+    list-style-type: none ; 
+
+    width: 5px ;
+    height: 5px ;
+    background-color: rgb(202, 5, 5) ;
+    margin: 6px 0 ;
+
+    }
+
 
 
 

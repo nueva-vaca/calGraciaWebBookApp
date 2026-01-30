@@ -68,7 +68,7 @@
 <header style=" border: 1px dashed blue ; background-color: rgba(0, 0, 255, 0.07) ; " >
     
 
-    <span class="contenedor" data-contenidor-id="n-sdg-sg" >las 3 masias </span><span class="contenido" data-contenidor-id="n-sdg-sg">> </span>
+    <span class="contenedor" data-contenidor-id="n-sdg-sg" >las 3 masias </span><span class="contenido" data-contenidor-id="n-sdg-sg">&gt; </span>
 
     <br><a href="test.html" >test</a>
     <br><a href="test copy.html" >test 2</a>
@@ -271,13 +271,35 @@ data-contenidor-id="calgracia123"
 <!-- main to footer -->
 <!-- main to footer -->
 <!-- main to footer -->
- <footer style=" border: 1px dashed red ; background-color: rgba(255, 0, 0, 0.205) ; " >
+<footer id="menúPieDePantalla"
+style=" border: 1px dashed red ; background-color: rgba(255, 0, 0, 0.205) ; " 
+>
 
-    <div style=" margin-top: 0.618em ; display:flex ; justify-content:space-around ; " id="menúPieDePantalla"
+    
+    <ul style="border: 1px solid black ; padding-left: 0 ; " id="menuIndice"><li></li><li></li><li></li></ul>
+    
+    <ul 
+    style=" border: solid red 1px  ; 
+    list-style-type: none ;
+    padding-left: 0 ;  
+    display: grid ; 
+    grid-template-columns: 1fr 1fr 1fr ; 
+    " 
+    >
+        <li>O</li>
+        <li>||</li>
+        <li>A</li>
+    </ul>
+
+    <ul style="border: 1px solid black ; padding-left: 0 ; " id="menuOpciones"><li></li><li></li><li></li></ul>
+
+
+    <!-- "ANTIGÜO": 
+    <div style=" margin-top: 0.618em ; display:flex ; justify-content:space-around ; " 
         class=" noEsExactamenteLoQueQuieroDecir "> <span class="colorGris">"footer" ±= </span> { índice + "3 acciones" +
         "opciones" }</div>
     <button id='botónParaResaltarLosExpandibles'>"high.light" "expandibles"</button>
-
+    -->
 
 </footer>
 
