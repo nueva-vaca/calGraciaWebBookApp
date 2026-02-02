@@ -117,6 +117,25 @@ header
 
 
 
+[data-clickable] { 
+    cursor: pointer;
+    } /* 'data-clickable' - Indica que un elemento es "clicable" */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 p , span 

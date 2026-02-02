@@ -1,5 +1,4 @@
 
-[ ] "re.activar" : el botón ' "high.light" "expandibles" '
  
 
 
