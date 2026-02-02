@@ -1,21 +1,10 @@
-.clicableParaExpandir{border: solid 0.5px rgba(211, 211, 211, 0);} 
-.clicableParaExpandir:hover
-    {
-    cursor: pointer; 
-    animation: resaltarClicableParaExpandir 1s ease-in-out 1; 
-    }
-@keyframes resaltarClicableParaExpandir 
-    {
-    0%, 100% { border-color: transparent; }
-    33%, 66% { border-color: lightgray; /* Change to desired color */}
-    } 
 .contenedor{border: solid 0.5px rgba(211, 211, 211, 0);} 
-.contenedor:hover
+.contenedor:hover , #botónParaResaltarLosContenedores:hover
     {
     cursor: pointer; 
-    animation: resaltarClicableParaExpandir 1s ease-in-out 1; 
+    animation: resaltarContenedor 1s ease-in-out 1; 
     }
-@keyframes resaltarClicableParaExpandir 
+@keyframes resaltarContenedor 
     {
     0%, 100% { border-color: transparent; }
     33%, 66% { border-color: lightgray; /* Change to desired color */}
