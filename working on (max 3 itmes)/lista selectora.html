@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Replacer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .sentence {
+            font-size: 24px;
+            line-height: 1.8;
+        }
+        
+        .word-choice {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+        
+        .word-choice:hover {
+            text-decoration: underline;
+        }
+        
+        .dropdown {
+            display: none;
+            position: absolute;
+            background: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 1000;
+            min-width: 100px;
+        }
+        
+        .dropdown.show {
+            display: block;
+        }
+        
+        .dropdown div {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        
+        .dropdown div:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <p><a href="/index.html">index</a></p>
+    <div class="sentence">
+        <span class="word-choice" id="wakeup">
+            <span class="selected">wake up</span>
+            <div class="dropdown">
+                <div data-value="wake up">wake up</div>
+                <div data-value="desvelarse">desvelarse</div>
+                <div data-value="realize">realize</div>
+            </div>
+        </span>
+        in the morning with the
+        <span class="word-choice" id="family">
+            <span class="selected">family</span>
+            <div class="dropdown">
+                <div data-value="family">family</div>
+                <div data-value="friends">friends</div>
+            </div>
+        </span>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.word-choice').forEach(choice => {
+            const selected = choice.querySelector('.selected');
+            const dropdown = choice.querySelector('.dropdown');
+            
+            choice.addEventListener('click', (e) => {
+                e.stopPropagation();
+                document.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) d.classList.remove('show');
+                });
+                dropdown.classList.toggle('show');
+            });
+            
+            dropdown.querySelectorAll('div').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    selected.textContent = option.dataset.value;
+                    dropdown.classList.remove('show');
+                });
+            });
+        });
+        
+        document.addEventListener('click', () => {
+            document.querySelectorAll('.dropdown').forEach(d => d.classList.remove('show'));
+        });
+    </script>
+</body>
+</html>
