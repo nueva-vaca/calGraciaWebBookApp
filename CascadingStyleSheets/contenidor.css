@@ -9,45 +9,6 @@
     0%, 100% { border-color: transparent; }
     33%, 66% { border-color: lightgray; /* Change to desired color */}
     }
- 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- span.level1 
-    {
- 	background-color: #8684a0;
- 	color: #000;
- 	border-radius: 10px;
- 	display: none;
-    }
- 	
-    
-span.level2 
-    { 
- 	background-color: #b1afc4;
- 	border-radius: 10px;
- 	}
-	 	
-    
-span.level3 
-    { 
-    background-color: #deddeb;
-    border-radius: 10px;
-    }
  
  
