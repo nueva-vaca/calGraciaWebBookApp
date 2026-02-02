@@ -7,7 +7,7 @@
 @keyframes resaltarContenedor 
     {
     0%, 100% { border-color: transparent; }
-    33%, 66% { border-color: lightgray; /* Change to desired color */}
+    33%, 66% { border-color: lightgray; } /* Change to desired color */
     }
 
  
