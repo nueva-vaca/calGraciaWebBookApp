@@ -125,7 +125,7 @@ if (hayBotónParaResaltarLosContenedores)
                 // [1] "resetea" "el intervalo"
                 // [2] pon "el clicable para expandir" en 'visible' < 'display' < 'style' 
                 clearInterval(interval);
-                clicable_para_expandir_actual.style.visibility = 'visible'; // <- para asegurarse que : [ "los clicables para expandir" - "end up" : visibles ] 
+                contenedor_actual.style.visibility = 'visible'; // <- para asegurarse que : [ "los clicables para expandir" - "end up" : visibles ] 
             } 
         }, 300); // intervalo de : { " intermmitente ; parpadeo " } 
     });
