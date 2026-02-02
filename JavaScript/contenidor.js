@@ -102,21 +102,21 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
 
 
 // [X] add: "if 'botónParaResaltarLosExpandibles' no esta presente → entonces : "desactivar este "script""" 
-const hayBotónParaResaltarLosContenedores = document.getElementById('botónParaResaltarLosExpandibles');
+const hayBotónParaResaltarLosContenedores = document.getElementById('botónParaResaltarLosContenedores') ;
     
 if (hayBotónParaResaltarLosContenedores) 
     { 
-    hayBotónParaResaltarLosContenedores.addEventListener('click' , ()=>
+    hayBotónParaResaltarLosContenedores.addEventListener( 'click' , () =>
     {
     
         // [1] "coge" todos los elementos que tengan la clase 'contenedor' 
     const todosLosContenedoresEnHTMLCollection = document.getElementsByClassName('contenedor'); 
     // [ convertir 'HTMCollection' a "Array" ] <---pq: [ ' el método .forEach' - no "soporta" : el tipo de datos 'HTMLCollection' ]
-     const todosLosContenedoresEnArray = Array.from(todosLosContenedoresEnHTMLCollection);
+     const todosLosContenedoresEnArray = Array.from(todosLosContenedoresEnHTMLCollection) ;
      
      
     
-     todosLosClicablesParaExpandirEnArray.forEach( contenedor_actual => {
+     todosLosContenedoresEnArray.forEach( contenedor_actual => {
         let times = 0;
         let interval = setInterval(() => {
             contenedor_actual.style.visibility = (contenedor_actual.style.visibility === 'hidden') ? 'visible' : 'hidden';
@@ -130,7 +130,8 @@ if (hayBotónParaResaltarLosContenedores)
         }, 300); // intervalo de : { " intermmitente ; parpadeo " } 
     });
 
-} ) }; 
+} ) /* FINAL DE: hayBotónParaResaltarLosContenedores.addEventListener( 'click' , () => {    */
+ }; /* FINAL DE: if (hayBotónParaResaltarLosContenedores)    */
 
 
 
