@@ -45,7 +45,32 @@ body
 
     }
 
-
+/*
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+*/
 
 footer 
     {
@@ -69,6 +94,8 @@ footer
 
     }
 
+
+
 /*#menúPieDePantalla 
     {
     background-color:rgba(255, 0, 0, 0.298)  ; 
@@ -77,7 +104,9 @@ footer
     width: 100%;
     }*/ 
 
-#menuIndice li {
+
+
+#menuÍndice li {
 
     list-style-type: none ; 
 
@@ -87,6 +116,8 @@ footer
     margin: 6px 0 ;
 
     } 
+
+
 
 #menuOpciones li {
 
@@ -100,6 +131,52 @@ footer
     }
 
 
+
+#botonesDeAcción {
+
+    list-style-type: none ;
+    
+    display: grid ; 
+    grid-template-columns: 1fr 1fr 1fr ; 
+    gap: 0 ; 
+    width: 100% ;
+
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box ; 
+
+    }
+
+#botonesDeAcción li {
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box ;
+    }
+
+
+
+/*
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+de FOOTER a HEADER
+
+*/
 
 
 header 
@@ -117,9 +194,6 @@ header
 
 
 
-[data-clickable] { 
-    cursor: pointer;
-    } /* 'data-clickable' - Indica que un elemento es "clicable" */
 
 
 
@@ -187,6 +261,20 @@ h1 p
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 /* COLORES */ /* COLORES */ /* COLORES */
 /* COLORES */ /* COLORES */ /* COLORES */
@@ -221,6 +309,8 @@ h1 p
 
 
 
+
+
 /* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
 /* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
 /* "DECORACIONES DE FUENTES" */ /* "DECORACIONES DE FUENTES" *//* "DECORACIONES DE FUENTES" */ 
@@ -228,6 +318,14 @@ h1 p
 
 
 .subrayado{text-decoration:underline;} 
+
+
+
+
+
+
+
+
 
 
 
