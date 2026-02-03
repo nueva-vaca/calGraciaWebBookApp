@@ -1,6 +1,6 @@
 // This -is: a clean little vanilla‑JavaScript router for a single‑page application. It - { 
 // [1.1] intercepts link clicks (in the html)   -and:   [1.2] calls the function route() 
-// [2] route() changes / updates the URL with pushState ( in the step 1.3 ) 
+// [2] route() changes / updates the URL with pushState ( in the step 1.3 )   -and:   [1.4] calls handleLocation()
 // [3] loads the corresponding HTML fragment into a container  
 // }
 
