@@ -95,7 +95,7 @@ const matchRoute = (path) => {
 
 
 
-// [4d?] handleLocation() function <- Fetches the HTML content for the current path -and: injects it into the main-page element 
+// [4d?] handleLocation() function <-| Fetches the HTML content for the current path -and: injects it into the main-page element 
 const handleLocation = async () => {
     
     // Gets the current hash from URL (e.g., #/about becomes /about) 
