@@ -1,4 +1,4 @@
-[ ] cambiar el orden -de: { "las 3 masias" de Gracia -y: despertar más familia }   ---> +o-=   familia, despertar más -con: "las 3 masias" de Gracia 
+
  
 
 
@@ -11,10 +11,12 @@
 
 
 
-[ ] {poner -o: añadir} : [ " el título -de: "las 3 masias de gracia" " -en: 'el <header>' ] 
+[ ]  " make : the "3 buttons" "length" - to dinamically adapt to the width of the available space "
+
+[ ]  {poner -o: añadir} : [ " el título -de: "las 3 masias de gracia" " -en: 'el <header>' ] 
 
 [ ]  hacer aparecer el <header> ( = "navigating" ) <--- caundo : aprete / clique "el icono hamburguesa de índice" 
 
-[ ] dropup menu 
+[ ]  dropup menu 
 
-[ ] A breadcrumb navigation - provide links back to each previous page the user navigated through, -and: shows the user's current location in a website.
+[ ]  A breadcrumb navigation - provide links back to each previous page the user navigated through, -and: shows the user's current location in a website.
