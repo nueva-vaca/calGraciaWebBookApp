@@ -1,7 +1,8 @@
-// This -is: a clean little vanilla‑JS router for a single‑page application. It - { 
-// [1] intercepts link clicks ( in the html -and: calls the function route() )
-// [2] updates the URL with pushState ( in the step 1.3 ) 
+// This -is: a clean little vanilla‑JavaScript router for a single‑page application. It - { 
+// [1.1] intercepts link clicks (in the html)   -and:   [1.2] calls the function route() 
+// [2] route() changes / updates the URL with pushState ( in the step 1.3 ) 
 // [3] loads the corresponding HTML fragment into a container  
+// }
 
 // Let’s break it down - so you can see exactly : { how it works -and: where you might want to improve or extend it }.
 
@@ -9,7 +10,7 @@
 
 
 
-// [1.0] route() function <- Handles navigation clicks -by: { [1.2] preventing default link behavior -and: using the History API to update the URL without a page reload, [1.4] then - calls handleLocation() <- to render the new content } 
+// [1.0] route() function <-| Handles navigation clicks -by: { [1.2] preventing default link behavior -and: using the History API to update the URL without a page reload, [1.4] then - calls handleLocation() <- to render the new content } 
 // [1.1] [ crea una (variable) constante -llamada: 'route' ] - que equivale a : [ una función tipo flecha = 'arrow function' ] 
 const route = (event) => {
     // [1.2] Prevents the browser from doing a full page reload
