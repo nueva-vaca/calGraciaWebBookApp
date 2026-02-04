@@ -52,7 +52,8 @@ const route = (event) => {
 const routes = {
 
     404:       "/pages/404.html"          ,
-    "/":       "/pages/landingPage.html"        ,
+    "/":       "/landing page.html"        , /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch :  ???.html   <-| value   */
+    
     "/about":  "/pages/about.html"        ,
     "/lorem":  "/pages/lorem.html"        ,
 
