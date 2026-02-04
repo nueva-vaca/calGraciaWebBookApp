@@ -50,11 +50,12 @@ const route = (event) => {
 // [2.0] routes 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected). ( Includes a 404 fallback for unmatched routes. )  
 // [2.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
 const routes = {
-    404:        "/pages/404.html"          ,
-    "/":        "/pages/index.html"        ,
-    "/about":   "/pages/about.html"        ,
-    "/lorem":   "/pages/lorem.html"        ,
-    "/working on (max 3 itmes)/selector desde una lista.html":  "/pages/working-on-lista-1.html"  ,
+
+    404:       "/pages/404.html"          ,
+    "/":       "/pages/landingPage.html"        ,
+    "/about":  "/pages/about.html"        ,
+    "/lorem":  "/pages/lorem.html"        ,
+
     }; 
 
 
@@ -66,7 +67,7 @@ const routes = {
 
 
 // [3d3]
-// [3.0] the function handleLocation() -fetches: the HTML content for the current path -and: injects it into the main-page element. 
+// [3.0] the function handleLocation() -fetches: the HTML content for the current path -and: injects it into "the main-page" element = <main id="contenidoPrincipal". 
 // [3.1] crea una función (en una constante) -llamada: 'handleLocation' 
 const handleLocation = async () => {
     // [3.2] Reads the current URL path 
@@ -75,8 +76,8 @@ const handleLocation = async () => {
     const route = routes[path] || routes[404];
     // [3.4] Fetches the corresponding HTML file 
     const html = await fetch(route).then((data) => data.text());
-    // [3.5] Injects it into the element with id 'main-page' 
-    document.getElementById("main-page").innerHTML = html;
+    // [3.5] Injects it into the element with id 'contenidoPrincipal' 
+    document.getElementById("contenidoPrincipal").innerHTML = html;
     };
 
 
