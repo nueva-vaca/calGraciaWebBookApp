@@ -54,6 +54,7 @@ const routes = {
     "/":        "/pages/index.html"        ,
     "/about":   "/pages/about.html"        ,
     "/lorem":   "/pages/lorem.html"        ,
+    "/working on (max 3 itmes)/selector desde una lista.html":  "/pages/working-on-lista-1.html"  ,
     }; 
 
 
@@ -65,7 +66,7 @@ const routes = {
 
 
 // [3d3]
-// [3.0] handleLocation() function -fetches: the HTML content for the current path -and: injects it into the main-page element. 
+// [3.0] the function handleLocation() -fetches: the HTML content for the current path -and: injects it into the main-page element. 
 // [3.1] crea una función (en una constante) -llamada: 'handleLocation' 
 const handleLocation = async () => {
     // [3.2] Reads the current URL path 
@@ -85,11 +86,6 @@ const handleLocation = async () => {
 
 // Back/forward button support - via 'onpopstate' 
 window.onpopstate = handleLocation;
-
-
-
-
-
 // Expose 'route()' globally - for use in your HTML links
 window.route = route;
 
