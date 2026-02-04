@@ -51,13 +51,16 @@ const route = (event) => {
 // [2.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
 const routes = {
 
-    404:       "/pages/404.html"          ,
-    "/":       "/landing page.html"        , /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch :  ???.html   <-| value   */
+    404:       "/404.html"          ,
+    "/":       "/inicio.html"        , /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html'   <-| value   */
     
-    "/about":  "/pages/about.html"        ,
-    "/lorem":  "/pages/lorem.html"        ,
+    "/test1":  "test.html"               ,
+
+    "/about":  "/DespetarMásFamilia/about.html",
 
     }; 
+
+
 
 
 
