@@ -53,10 +53,15 @@ const routes = {
 
     404:       "/404.html"          ,
     "/":       "/inicio.html"        , /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html'   <-| value   */
-    
-    "/test1":  "test.html"               ,
+    "/inicio":  "/inicio.html"        ,
+
+    "/test":  "/test.html"               ,
 
     "/about":  "/DespetarMásFamilia/about.html",
+
+    "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
+    "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
+    "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
 
     }; 
 
