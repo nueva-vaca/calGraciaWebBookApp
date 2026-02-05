@@ -36,7 +36,7 @@ const routes = {
 
     "/test01":  "/test.html"               ,
 
-    "/about":  "/DespertarMasFamilia/about.html"   ,
+    "/about":  "/DespertarMásFamilia/about.html"   ,
 
     "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
     "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
