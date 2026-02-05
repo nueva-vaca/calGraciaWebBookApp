@@ -14,6 +14,56 @@
 
 
 
+
+
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+
+// [1.0] routes 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected). ( Includes a 404 fallback for unmatched routes. )  
+// [1.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
+const routes = { 
+
+    // clave/key = rute url -ó: URL path ( = lo que ves en la barra de direcciones )   -y:   valor/value = el archivo HTML que se va a cargar para esa ruta
+
+    404:       "/404.html"          ,   /*   + fallback route -for: unmatched routes. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
+    "/":       "/inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
+    "/inicio":  "/inicio.html"        ,
+
+    "/test01":  "/test.html"               ,
+
+    "/about":  "/DespertarMasFamilia/about.html"   ,
+
+    "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
+    "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
+    "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
+
+}; // fin -de:   const routes = { 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // [1d3] 
 // !!!!!!!! This function is meant to be used in your HTML like: <a href="/about" onclick="route()">About</a>
 // When you click a link, ---> this function runs
@@ -45,25 +95,6 @@ const route = (event) => {
 
 
 
-
-// [2d3]
-// [2.0] routes 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected). ( Includes a 404 fallback for unmatched routes. )  
-// [2.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
-const routes = {
-
-    404:       "/404.html"          ,
-    "/":       "/inicio.html"        , /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html'   <-| value   */
-    "/inicio":  "/inicio.html"        ,
-
-    "/test":  "/test.html"               ,
-
-    "/about":  "/DespetarMásFamilia/about.html",
-
-    "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
-    "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
-    "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
-
-    }; 
 
 
 

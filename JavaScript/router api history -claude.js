@@ -16,7 +16,7 @@
 // [1.0] routes 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected). ( Includes a 404 fallback for unmatched routes. )  
 // [1.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
 const routes = {
-    404:       "/404.html",
+    404:       "/404.html", 
     "/":       "/inicio.html",        /* when the page first loads at the root path = "/" it tries to fetch : 'inicio.html' */
     "/inicio": "/inicio.html",
     "/test":   "/test.html",
