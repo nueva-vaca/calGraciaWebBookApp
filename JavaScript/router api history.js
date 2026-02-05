@@ -14,7 +14,7 @@
 
 
 
-// [1d3]
+// [1d3] 
 // !!!!!!!! This function is meant to be used in your HTML like: <a href="/about" onclick="route()">About</a>
 // When you click a link, ---> this function runs
 // [1.0] the route() function - handles navigation clicks <-by: { [1.2] preventing default link behavior   -and:   [1.3] using 'the History API' to update the URL without a page reload, then : [1.4] calls handleLocation() <--- to render the new content } 
