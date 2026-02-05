@@ -30,13 +30,13 @@ const routes = {
 
     // clave/key = rute url -ó: URL path ( = lo que ves en la barra de direcciones )   -y:   valor/value = el archivo HTML que se va a cargar para esa ruta
 
-    404:       "/404.html"          ,   /*   + fallback route -for: unmatched routes. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
-    "/":       "/test copy.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
-    "/inicio":  "/inicio.html"        ,
+    404:       "/404.html"           ,   /*   + fallback route -for: unmatched routes. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
+    "/":       "/inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
+    "/inicio": "/inicio.html"        ,
 
     "/test01":  "/test.html"               ,
 
-    "/about":  "/DespertarMásFamilia/about.html"   ,
+    "/about":  "/DespetarMasFamilia/about.html"   ,
 
     "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
     "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
