@@ -28,7 +28,7 @@
 // [1.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
 const routes = { 
 
-    // clave/key = rute url -ó: URL path ( = lo que ves en la barra de direcciones )   -y:   valor/value = el archivo HTML que se va a cargar para esa ruta
+    // clave/key = nombre en el href del <a> = rute url -ó: URL path ( = lo que ves en la barra de direcciones )   -y:   valor/value = el archivo HTML que se va a cargar para esa ruta
 
     404:       "/404.html"           ,   /*   + fallback route -for: unmatched routes. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
     "/":       "/inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
