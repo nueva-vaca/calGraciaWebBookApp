@@ -70,25 +70,12 @@ const routes = {
 
 
 
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
 
 // !!!!!!!! This function is meant to be used in your HTML like: <a href="/about" onclick="route()">About</a>
 // When you click a link, ---> this function runs
 // [1.0] the route() function - handles navigation clicks <---by: { [1.2] preventing default link behavior   -and:   [1.3] using 'the History API' to update the URL without a page reload, then : [1.4] calls handleLocation() <--- to render the new content } 
 
 // [1.1] [ crea una (variable) constante -llamada: 'route' ] - que equivale a : [ una función tipo flecha = 'arrow function' ] 
-// llamrle "enrutar" 
 const route = (event) => {
 
     // [1.2] Prevents the browser from doing a full page reload, which is it's normal thing to do 
@@ -123,18 +110,7 @@ const route = (event) => {
 
 
 
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
-// HANDLE.LOCATION()
+
 
 // [3d3]
 // [3.0] the function handleLocation() -fetches: the HTML content for the current path -and: injects it into "the main-page" element = <main id="contenidoPrincipal". 

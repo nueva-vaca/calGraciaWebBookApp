@@ -33,9 +33,21 @@ const routes = {
 
 
 
-
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
+// ROUTE()
 // [2d3]
-// [2.0] the route() function - handles navigation <-by: { [2.1] using 'the History API' to update the URL without a page reload, then : [2.2] calls handleLocation() <--- to render the new content } 
+// [2.0] the route() function - handles navigation <---by: { [2.1] using 'the History API' to update the URL without a page reload, then : [2.2] calls handleLocation() <--- to render the new content } 
+
 // [2.1] [ crea una (variable) constante -llamada: 'route' ] - que equivale a : [ una función tipo flecha = 'arrow function' ] 
 const route = (href) => {
     // [2.2] Pushes a new URL -into: the browser history   +o-=   cambia la url que ves en la barra de direcciones 
@@ -56,6 +68,18 @@ const route = (href) => {
 
 
 
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
+// HANDLE.LOCATION()
 
 // [3d3]
 // [3.0] the function handleLocation() -fetches: the HTML content for the current path -and: injects it into "the main-page" element = <main id="contenidoPrincipal". 
@@ -80,10 +104,11 @@ const handleLocation = async () => {
 
 
 // [4d4] ✨ AUTOMATIC LINK INTERCEPTION ✨
-// This is the magic part! It automatically catches ALL clicks on <a> tags
+// This automatically catches ALL clicks on <a> tags
 // No need for onclick="route(event)" in your HTML anymore!
 
 document.addEventListener("click", (event) => {
+
     // [4.1] Find the closest <a> tag (in case user clicked on something inside the link)
     const anchor = event.target.closest("a");
     
