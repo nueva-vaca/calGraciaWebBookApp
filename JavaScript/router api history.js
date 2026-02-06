@@ -18,8 +18,6 @@
 
 
 
-
-
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
@@ -67,6 +65,9 @@ const colaDeRutaURL = {
 // fin de "configuración" de RUTAS "hard.wired" 
 // fin de "configuración" de RUTAS "hard.wired" 
 // fin de "configuración" de RUTAS "hard.wired"
+
+
+
 
 
 
@@ -147,28 +148,6 @@ document.addEventListener("click", (event) => {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // inyectarPáginaEnrutada()
 // inyectarPáginaEnrutada()
 // inyectarPáginaEnrutada()
@@ -225,3 +204,4 @@ window.onpopstate = inyectarPáginaEnrutada;
 
 // Loads the correct page when the site first opens.
 inyectarPáginaEnrutada();
+
