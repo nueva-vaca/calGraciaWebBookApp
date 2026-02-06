@@ -83,7 +83,6 @@ const routes = {
 // ROUTE()
 // ROUTE()
 
-// !!!!!!!! This function is meant to be used in your HTML like: <a href="/about" onclick="route()">About</a>
 // When you click a link, ---> this function runs
 // [1.0] the route() function - handles navigation clicks <---by: { [1.2] preventing default link behavior   -and:   [1.3] using 'the History API' to update the URL without a page reload, then : [1.4] calls handleLocation() <--- to render the new content } 
 
@@ -105,7 +104,7 @@ const route = (event) => {
     handleLocation()   ;
 
     }; // fin -de:   const route = (event) => {
-// !!!!!!!! This function is meant to be used in your HTML like: <a href="/about" onclick="route()">About</a>
+
 
 
 
@@ -136,18 +135,19 @@ const route = (event) => {
 // HANDLE.LOCATION()
 // HANDLE.LOCATION()
 
-// [3d3]
+// [3d3] [1] reads the current URL path (the part after the domain) -and:   [2] looks it up in the routes object to find the corresponding HTML file, then : [3] fetches that HTML file and [4] injects it into the page.
 // [3.0] the function handleLocation() -fetches: the HTML content for the current path -and: injects it into "the main-page" element = <main id="contenidoPrincipal". 
 // [3.1] crea una función (en una constante) -llamada: 'handleLocation' 
 const handleLocation = async () => {
-    // [3.2] Reads the current URL path 
-    const path = window.location.pathname;
-    // [3.3] Looks it up in the routes object 
-    const route = routes[path] || routes[404];
+    // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'path' 
+    const path = window.location.pathname ; 
+    //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
+    // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the routes object 
+    const route = routes[path] || routes[404] ;
     // [3.4] Fetches the corresponding HTML file 
-    const html = await fetch(route).then((data) => data.text());
+    const html = await fetch(route).then((data) => data.text()) ;
     // [3.5] Injects it into the element with id 'contenidoPrincipal' 
-    document.getElementById("contenidoPrincipal").innerHTML = html;
+    document.getElementById("contenidoPrincipal").innerHTML = html ;
     };
 
 
