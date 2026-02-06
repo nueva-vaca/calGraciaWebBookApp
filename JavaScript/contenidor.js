@@ -80,6 +80,35 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
 
 
 
+    
+
+
+
+
+
+
+// re-initialize : "event listeners" <--- after new content is injected by the router 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -145,3 +174,11 @@ if (hayBotónParaResaltarLosContenedores)
 
 
 
+
+
+
+
+
+
+
+ 
