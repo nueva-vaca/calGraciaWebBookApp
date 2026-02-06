@@ -4,7 +4,6 @@
 // [3] loads the corresponding HTML fragment -into: the main section with the id contenidoPrincial  
 // }
 
-// Let’s break it down - so you can see exactly : { how it works -and: where you might want to improve or extend it }.
 
 
 
@@ -20,6 +19,12 @@
 
 
 
+
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
@@ -50,7 +55,18 @@ const colaDeRutaURL = {
 
 }; // fin -de:   const colaDeRutaURL = { 
 
-
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired" 
+// fin de "configuración" de RUTAS "hard.wired"
 
 
 
