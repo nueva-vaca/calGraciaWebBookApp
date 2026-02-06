@@ -28,7 +28,7 @@
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 
-// [1.0] routes 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
+// [0.0] routes 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
 // [1.1] crea una (variable) constante -llamada: 'routes' - que es un objeto 
 const routes = { 
 
@@ -82,7 +82,7 @@ const routes = {
 // INTERCEPTAR CLICS EN LOS ENLACES
 // INTERCEPTAR CLICS EN LOS ENLACES
 
-// Ya NO necesitas poner onclick="route(event)" en cada <a>.
+
 // Este listener escucha TODOS los clics en la página.
 // Si el clic fue en un <a> con href que empieza por "/", lo intercepta.
 document.addEventListener("click", (event) => {
