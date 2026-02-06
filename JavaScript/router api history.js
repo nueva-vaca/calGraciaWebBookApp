@@ -150,42 +150,7 @@ document.addEventListener("click", (event) => {
 
 
 
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
-// ROUTE()
 
-// When you click a link, ---> this function runs
-// [1.0] the route() function - handles navigation clicks <---by: { [1.2] preventing default link behavior   -and:   [1.3] using 'the History API' to update the URL without a page reload, then : [1.4] calls inyectarPáginaEnrutada() <--- to render the new content } 
- 
-// [1.1] [ crea una (variable) constante -llamada: 'route' ] - que equivale a : [ una función tipo flecha = 'arrow function' ] 
-// llamarle "enrutar" 
-const route = (event) => { 
-
-    // [1.2] Prevents the browser from doing a full page reload, which is it's normal thing to do 
-    event.preventDefault()   ; 
-
-    // [1.3] Pushes: a new URL -into: the browser history  
-    window.history.pushState({}, "", event.target.href)   ;
-    // 'window.history.pushState()' -is: part of the History API -and: it allows you to change the URL in the browser without reloading the page
-    // The pushState() method of the History interface -adds: an entry to the browser's session history stack.
-        // The first argument ({}) -is: the state object (not used here)
-        // The second argument ("") -is: the title (also not used here)
-        // The third argument (event.target.href) -is: the new URL to set (taken from the clicked link's href attribute)
-        // The third argument (event.target.href) - toma la URL del enlace que fue clicado -y: la establece como la nueva URL en la barra de direcciones 
-
-    // [1.4] "llama" a la función 'inyectarPáginaEnrutada()' <- para cargar el contenido de la página web correcta 
-    inyectarPáginaEnrutada()   ;
-
-    }; // fin -de:   const route = (event) => {
 
 
 
