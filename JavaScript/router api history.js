@@ -194,14 +194,14 @@ const inyectarPáginaEnrutada = async () => {
 
 
 
+// Loads the correct page when the site first opens.
+inyectarPáginaEnrutada();
+
+
+
+
+
 // Back/forward button support - via 'onpopstate' 
 window.onpopstate = inyectarPáginaEnrutada;
 
-
-
-
-
-
-// Loads the correct page when the site first opens.
-inyectarPáginaEnrutada();
 
