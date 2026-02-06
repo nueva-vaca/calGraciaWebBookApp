@@ -120,7 +120,7 @@ document.addEventListener("click", (event) => {
 
     // 2.1: Si el <a> { no tiene href -o: es un enlace externo (http...) } --->entonces: déjalo funcionar normal 
     if (!hrefDelAnchorReciénClicado || !hrefDelAnchorReciénClicado.startsWith("/")) return ;
-    // si : ( no tiene href  |ó|  el href no empieza con "/" ) --->entonces:  return +o-= deja que el enlace funcione normalmente 
+    // si : ( no tiene href  |ó|  el href no empieza con "/" ) --->entonces:  return +o-= la función termina inmediatamente con return, permitiendo que el navegador maneje el clic de manera predeterminada. 
 
     // 3: Evita que el navegador recargue la página
     event.preventDefault() ; 
