@@ -162,7 +162,7 @@ document.addEventListener("click", (event) => {
 
 // When you click a link, ---> this function runs
 // [1.0] the route() function - handles navigation clicks <---by: { [1.2] preventing default link behavior   -and:   [1.3] using 'the History API' to update the URL without a page reload, then : [1.4] calls inyectarPáginaEnrutada() <--- to render the new content } 
-
+ 
 // [1.1] [ crea una (variable) constante -llamada: 'route' ] - que equivale a : [ una función tipo flecha = 'arrow function' ] 
 // llamarle "enrutar" 
 const route = (event) => {
