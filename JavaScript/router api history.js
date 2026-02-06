@@ -158,8 +158,25 @@ const handleLocation = async () => {
 // Back/forward button support - via 'onpopstate' 
 window.onpopstate = handleLocation;
 
+
+
+
+
+
 // Loads the correct page when the site first opens.
 handleLocation();
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Ya NO necesitas poner onclick="route(event)" en cada <a>.
 // Este listener escucha TODOS los clics en la página.
@@ -167,16 +184,17 @@ handleLocation();
 document.addEventListener("click", (event) => {
 
     // 1. Busca si lo que se clicó es un <a> (o está dentro de uno)
-    const link = event.target.closest("a");
+    const linkReciénClicado = event.target.closest("a");
 
     // 2. Si no es un enlace, no hagas nada
-    if (!link) return;
+    if (!linkReciénClicado) return;
 
     // 3. Obtén el href del enlace
-    const href = link.getAttribute("href");
+    const href = linkReciénClicado.getAttribute("href");
 
     // 4. Si no tiene href, o es un enlace externo (http...), déjalo funcionar normal
     if (!href || !href.startsWith("/")) return;
+    // si : ( no tiene href  |ó|  el href no empieza con "/" ) --->entonces:  return +o-= deja que el enlace funcione normalmente 
 
     // 5. Evita que el navegador recargue la página
     event.preventDefault();
