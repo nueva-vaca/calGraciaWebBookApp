@@ -102,9 +102,11 @@ const colaDeRutaURL = {
 // Este listener escucha TODOS los clics en la página.
 // Si el clic fue en un <a> con href que empieza por "/", lo intercepta.
 document.addEventListener("click", (event) => {
+// event = 'a MouseEvent object' ( automatically passed by the browser when someone clicks anywhere on the page ) 
 
     // 1. Busca si lo que se clicó es un <a> (o está dentro de uno)
-    const linkReciénClicado = event.target.closest("a");
+    const linkReciénClicado = event.target.closest("a"); 
+    // event.target = the exact html element that was clicked 
 
     // 2. Si no es un enlace, no hagas nada
     if (!linkReciénClicado) return;
@@ -117,7 +119,8 @@ document.addEventListener("click", (event) => {
     // si : ( no tiene href  |ó|  el href no empieza con "/" ) --->entonces:  return +o-= deja que el enlace funcione normalmente 
 
     // 5. Evita que el navegador recargue la página
-    event.preventDefault();
+    event.preventDefault(); 
+    // event.preventDefault() = method to stop the default browser behavior ( = navigating away from the current page ) when a link is clicked 
 
     // 6. Cambia la URL en la barra de direcciones (sin recargar)
     window.history.pushState({}, "", href);
@@ -165,18 +168,19 @@ document.addEventListener("click", (event) => {
  
 // [1.1] [ crea una (variable) constante -llamada: 'route' ] - que equivale a : [ una función tipo flecha = 'arrow function' ] 
 // llamarle "enrutar" 
-const route = (event) => {
+const route = (event) => { 
 
     // [1.2] Prevents the browser from doing a full page reload, which is it's normal thing to do 
     event.preventDefault()   ; 
 
-    // [1.3] Pushes a new URL -into: the browser history   +o-=   cambia la url que ves en la barra de direcciones 
+    // [1.3] Pushes: a new URL -into: the browser history  
     window.history.pushState({}, "", event.target.href)   ;
     // 'window.history.pushState()' -is: part of the History API -and: it allows you to change the URL in the browser without reloading the page
-    // The first argument ({}) -is: the state object (not used here)
-    // The second argument ("") -is: the title (also not used here)
-    // The third argument (event.target.href) -is: the new URL to set (taken from the clicked link's href attribute)
-    // The third argument (event.target.href) - toma la URL del enlace que fue clicado -y: la establece como la nueva URL en la barra de direcciones 
+    // The pushState() method of the History interface -adds: an entry to the browser's session history stack.
+        // The first argument ({}) -is: the state object (not used here)
+        // The second argument ("") -is: the title (also not used here)
+        // The third argument (event.target.href) -is: the new URL to set (taken from the clicked link's href attribute)
+        // The third argument (event.target.href) - toma la URL del enlace que fue clicado -y: la establece como la nueva URL en la barra de direcciones 
 
     // [1.4] "llama" a la función 'inyectarPáginaEnrutada()' <- para cargar el contenido de la página web correcta 
     inyectarPáginaEnrutada()   ;
