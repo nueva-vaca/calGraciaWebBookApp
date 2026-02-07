@@ -15,23 +15,23 @@ document.querySelectorAll('.contenido').forEach(contenido => {     contenido.sty
 
 // [[[ 2 ]]] "TOGGLEA" LA VISIBILIDAD DE '.contenido' - AL HACER CLICK EN '.contenedor'
 // [1d6]: Encuentra todos los elementos html con la clase '.contenedor' -y: a cada unos de ellos...:
-document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir => 
+document.querySelectorAll('.contenedor').forEach( un_contenedor_para_expandir_clicado => 
 {
 // + 'document' = the entire web page - loaded in the browser window 
 
     // [2d6]: Añade un "EventListener" -a: cada uno de los elementos html con la clase '.contenedor', y caundo se clique en ellos...:
-    contenedor_para_expandir.addEventListener( 'click' , () => {
+    un_contenedor_para_expandir_clicado.addEventListener( 'click' , () => {
         
         // [ se usa el atributo "data-*" ] -para: [ saber : cual es el identificador (ID) de los elementos con la clase '.contenido' que tiene que {aparecer -o: desaparecer} ]
         // [3d6] obten el valor del atributo 'data-contenidor-id' actual del elemento clicado. Este valor (valor del atributo 'data-contenidor-id' del elemento en el que se hizo clic ---> contenidorIdActual) se utiliza para {identificar -y: seleccionar} los elementos '.contenido' correspondientes - que deben ser {mostrados -u: ocultados}
-        const contenidorIdActual = contenedor_para_expandir.dataset.contenidorId   ; 
+        const contenidorIdActual = un_contenedor_para_expandir_clicado.dataset.contenidorId   ; 
 
 
         // [4d6] Si el elemento clicalbe con la clase '.contenedor' no tiene un (atributo) 'data-contenido-id' ---> entonces : " no hacer nada "  
         // si : NO hay contenidorIdActual -pq: no hay atributo 'data-contenidor-id' --->entonces...:
         if (!contenidorIdActual) {
             // la consola muestra la advertencia de arriba -y: el código se detiene aquí -sin hacer nada más 
-            console.warn("This clickable element is missing a 'data-contenidor-id' attribute:" , contenedor_para_expandir )   ;
+            console.warn("This clickable element is missing a 'data-contenidor-id' attribute:" , un_contenedor_para_expandir_clicado )   ;
             // el código se detiene aquí - sin hacer nada más 
             return; 
         }
@@ -61,9 +61,9 @@ document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir =>
         }); // fin de :    contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenidoConIdCoincidente => {
             
 
-    }); // fin de :    contenedor_para_expandir.addEventListener('click', () => {     
+    }); // fin de :    un_contenedor_para_expandir_clicado.addEventListener('click', () => {     
 
-}); // fin de :    document.querySelectorAll('.contenedor').forEach( contenedor_para_expandir => {
+}); // fin de :    document.querySelectorAll('.contenedor').forEach( un_contenedor_para_expandir_clicado => {
 
 
 
@@ -268,39 +268,44 @@ document.body.addEventListener('click', (seHaClicadoAlgo) => {
 // + 'document' = the entire web page - loaded in the browser window 
 // + the .body 'property' - specifically gives you : direct access to 'the <body> tag / element(?)' 
 
+
+
     // Busca: si lo que se clicó -es: un '.contenedor' (o está dentro de uno)
-    const contenedor_para_expandir = seHaClicadoAlgo.target.classList.contains('contenedor')  ?   seHaClicadoAlgo.target   :    null   ; 
-    // + [1] It checks if the clicked element (event.target) has the class 'contenedor' -and: {   [1y] if yes, it assigns that element to contenedor_para_expandir   -vs:   [1n] if not, it assigns null   } 
-
-
+    const un_contenedor_para_expandir_clicado = seHaClicadoAlgo.target.classList.contains('contenedor')  ?   seHaClicadoAlgo.target   :    null   ; 
+    // + [1] It checks if the clicked element (= seHaClicadoAlgo.target) has the class 'contenedor' -and: {   [1y] if yes, it assigns that element to 'the variable un_contenedor_para_expandir_clicado'   -vs:   [1n] if not, it assigns null   } 
 
     // Si no se clicó en un '.contenedor', no hagas nada
-    if (!contenedor_para_expandir) return   ;
+    if (!un_contenedor_para_expandir_clicado) return   ;
 
-    // [3d6] obten el valor del atributo 'data-contenidor-id' actual del elemento clicado
-    const contenidorIdActual = contenedor_para_expandir.dataset.contenidorId   ;
+
+
+
+    // [3d6] obten el valor del atributo 'data-contenidor-id' del elemento '.contenedor' clicado actual 
+    const contenidorIdActual = un_contenedor_para_expandir_clicado.dataset.contenidorId   ;
 
     // [4d6] Si no tiene 'data-contenidor-id' --> no hacer nada
-    if (!contenidorIdActual) {
-        console.warn("This clickable element is missing a 'data-contenidor-id' attribute:", contenedor_para_expandir)   ;
-        return;
-    }
+    if (!contenidorIdActual) {   return   ;   }
 
+
+
+    
     // [5d6] Encuentra todos los '.contenido' con el mismo 'data-contenidor-id'
-    const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`);
+    const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`)   ;
+
+
 
     // [6d6] Toggle su visibilidad
     contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenidoConIdCoincidente => {
-        if (contenidoConIdCoincidente.style.display === 'none') {
+        if (contenidoConIdCoincidente.style.display === 'none') { 
             const EtiquetaDelElementoActual = contenidoConIdCoincidente.tagName;
             contenidoConIdCoincidente.style.display = (
                 EtiquetaDelElementoActual === 'UL' ||
                 EtiquetaDelElementoActual === 'OL' ||
                 EtiquetaDelElementoActual === 'H1' ||
                 EtiquetaDelElementoActual === 'P'
-            ) ? 'block' : 'inline';
+            ) ? 'block' : 'inline'   ;
         } else {
-            contenidoConIdCoincidente.style.display = 'none';
+            contenidoConIdCoincidente.style.display = 'none'   ;
         }
     });
 
