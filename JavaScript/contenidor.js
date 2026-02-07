@@ -159,3 +159,17 @@ if (hayBotónParaResaltarLosContenedores)
 
 
  
+
+
+
+
+/* [1] the script 'contenidor.js' runs immediately <--- when index.html first loads. Later pages (like inicio.html) - are injected later <-by: the "router api history". Because contenidor.js has already finished running by the time inicio.html arrives, the new elements (like "landing page" and its expandable content) don't get the event listeners they need.
+
+Here is the recommended Lifecycle Approach to fix this using your specific files.
+
+Step 1: Wrap the Logic in contenidor.js
+You need to turn your code into a reusable function
+
+
+
+*/

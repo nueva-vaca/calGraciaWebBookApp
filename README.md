@@ -38,4 +38,13 @@
 
 
 
+"ENSEÑAR": 
++ parsing (verb) = resolve - a sentence - into its component parts -and: describe their syntactic roles. + " {think -and express} one.self better " @ James Burke < @ 'Common Sense with Dan Carlin' > " el episodio que no se llama (algo así como) "a fly on the wall with James Burke" " 
+
+
+
+***
+
+
+
 (!) aps > { "medité" ; "torere de bulshit" ; "la Pepita de oro" ; ... ; } 
