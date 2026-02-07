@@ -1,0 +1,49 @@
+HTML elements reference 
+@ https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements 
+
+
+
+
+
+[+] Main root = <html> 
+[+] Document metadata = {     <head> ; <title> ; <meta> ; <link> ; <style> ; <base>     } 
+[+] Sectioning root = < body> 
+[+] Content sectioning = {     <header> ; <main> ; <footer> ; <nav> ; ...     } 
+[+] Text content = {     
+    <div> ; 
+    <p> ; 
+    {<li> -vs: <ul> -vs: <ol>} ; 
+    <pre> ; <hr> ; 
+    {<dd> -vs: <dt> -vs: <dl>} ; 
+    ...  
+    }
+[+] Inline text semantics = {     
+    <span> ; 
+    <a> ; 
+    <u> ; 
+    <br> ; 
+    {<sub> -vs: <sup>} ; 
+    <var> ; 
+    ...        
+    } 
+[+] Scripting = {     <script> ; ...     } 
+[+] Forms = {...}
+[+] Table content = {
+    <caption>
+    <thead>
+    <colgroup>
+    <col>
+    <table>
+    <th>
+    <tbody>
+    <tr>
+    <td>
+    <tfoot>
+    } 
+[+] Image and multimedia = {     <img> ; <video> ; <map> ; <area> ; <audio> ; <track>     }
+[+] Embedded content = {     <embed> ; <fencedframe> ; <iframe>	; <object> ; <picture> ; <source>     } 
+[+] <svg>
+[+] <math> <-| every valid 'MathML' instance must be wrapped in it 
+[+] Demarcating edits = {<del> -vs: <ins>}
+[+] Interactive elements = {...} 
+[+] Web Components = {...} 

@@ -288,11 +288,9 @@ document.body.addEventListener('click', (seHaClicadoAlgo) => {
 
 
 
-    
-    // [5d6] Encuentra todos los '.contenido' con el mismo 'data-contenidor-id'
-    const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`)   ;
-
-
+    // [5d6] Encuentra : [ todos los elementos html con la classe '.contenido' que también tengan el mismo 'data-contenidor-id' (en la variable 'contenidorIdActual' justo arriba) ] 
+    const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`)   ; 
+    // template literals < { backticks -and> ${} } <---to: dynamically insert the value of the variable 'contenidorIdActual' into the attribute selector.
 
     // [6d6] Toggle su visibilidad
     contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenidoConIdCoincidente => {
