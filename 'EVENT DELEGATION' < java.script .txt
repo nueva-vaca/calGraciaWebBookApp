@@ -1,0 +1,5 @@
++- 'EVENT DELEGATION' -is: a JavaScript technique for improving {performance :and<--- memory usage} <--by: attaching a single event listener to a parent element -rather than: [ (to attaching) multiple listeners -to: individual child elements ] .
+
+
+
++ Event delegation is a JavaScript technique for improving performance and memory usage by attaching a single event listener to a parent element rather than multiple listeners to individual child elements.
