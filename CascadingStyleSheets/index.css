@@ -1,0 +1,222 @@
+
+html , body 
+    {     
+    box-sizing: border-box; /*   'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height}   */ 
+    padding: 0 ; 
+    margin: 0 ;  
+    /*   white-space:   */   /*   Whitespace refers to characters which are used to provide horizontal or vertical space between other characters.    */
+    }
+
+
+
+html {
+    display: flex ; 
+    justify-content: center ; 
+    align-items: center ; 
+    min-height: 100vh ; 
+    } 
+
+
+
+body 
+    {
+    
+    display:grid ;
+    /*   min-height:100dvh; dvh ±= todo el height del view "por dinámico" ( <- es el 'd' -en: 'dvh' )   */
+    grid-template-rows: auto 1fr auto ; /*   grid-template-rows: auto 1fr auto = 3 filas > { "contenido" ocupa : 'el header' tanto como su contenido + toda la altura restante + 'el footer' tanto como su contenido }   */
+    
+    /*height: min(100vh, 161.8vw); width: min(61.8vh, 100vw);/* "golden ratio" = use min() to choose the smaller constraint - and achieve a responsive "golden ratio" layout */
+    height: 100vh ; 
+    width: min(61.8vh, 100vw) ;
+
+    }
+
+/*
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+PÁGINA COMPLETA -a: HEADER
+*/
+
+header 
+    {
+    position: sticky ; 
+    top: 0 ;
+    width: 100% ; 
+    }
+
+
+
+
+
+
+/*
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+de HEADER a MAIN
+*/
+
+
+
+
+main {
+    box-sizing: border-box; /*   'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height}   */ 
+    padding: 0 ; 
+    margin: 0 ; 
+    }   
+
+
+
+
+/*
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+de MAIN a FOOTER
+*/
+
+footer 
+    {
+
+    position: sticky ; /* 'position: fixed;' - is positioned relative to 'the viewport' - and it always stays in the same place even if the page is scrolled.   -VS:   position: sticky; toggles between a relative and fixed position, depending on the scroll position */
+    left: 0 ;
+    bottom: 0 ; 
+    width: 100% ; 
+
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr;
+    align-items: center;
+    justify-items: center;
+
+    /*display: flex ; 
+    flex-direction: row ; 
+    flex-wrap: wrap ; 
+    align-content: normal ; 
+    justify-content: space-between ; 
+    align-items: center ;*/
+
+    }
+
+
+
+
+
+/*#menúPieDePantalla 
+    {
+    background-color:rgba(255, 0, 0, 0.298)  ; 
+    position:sticky ; 
+    bottom: 0 ;
+    width: 100%;
+    }*/ 
+
+
+
+
+
+#menúÍndice li {
+
+    list-style-type: none ; 
+
+    width: 35px ;
+    height: 5px ;
+    background-color: rgb(5, 113, 202) ;
+    margin: 6px 0 ;
+
+    } 
+
+
+
+
+#menúOpciones li {
+
+    list-style-type: none ; 
+
+    width: 5px ;
+    height: 5px ;
+    background-color: rgb(202, 5, 5) ;
+    margin: 6px 0 ;
+
+    }
+
+
+
+
+
+#botonesDeAcción {
+    
+    list-style-type: none ;
+    
+    display: flex ; 
+    flex-direction: row ; 
+    flex-wrap: wrap ; 
+    align-content: normal ; 
+    justify-content: space-between ; 
+    align-items: center ;
+    width: 66% ;
+
+    padding: 0 ;
+    margin: 0 ;
+    box-sizing: border-box ;
+
+    }
