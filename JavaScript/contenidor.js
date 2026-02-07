@@ -4,6 +4,17 @@
 
 
 
+
+
+
+
+
+
+
+/*
+
+
+
 // [[[ 1 ]]]:  ESCONDE '.contenido' - al cargar la página
 // [1d1]: Esconde : (casi) todos los elementos html >que: tengan la 'clase contenido' + ( ) excepto : cuando tb tenga la clase "visiblePorDefecto" 
 document.querySelectorAll('.contenido').forEach(contenido => {     contenido.style.display = 'none';     })   ; 
@@ -67,7 +78,7 @@ document.querySelectorAll('.contenedor').forEach( el_contenedor_clicado_para_exp
 
 
 
-
+*/
 
 
 
