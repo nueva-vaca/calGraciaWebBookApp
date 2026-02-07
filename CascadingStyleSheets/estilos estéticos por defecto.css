@@ -18,7 +18,7 @@ html , body
     box-sizing: border-box ; /*   'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height}   */ 
     padding: 0 ; 
     margin: 0 ;  
-    
+
     /*   white-space:   */   /*   Whitespace refers to characters which are used to provide horizontal or vertical space between other characters.    */
 
     }
@@ -291,6 +291,34 @@ h1 p
     content: '"' ;
     color:rgb(255, 0, 0) ;
     }
+
+.bloqueDeTierra::before 
+    {
+    content: '[ ' ;
+    color:rgb(255, 0, 0) ;
+    }
+.bloqueDeTierra::after 
+    {
+    content: ' ]' ;
+    color:rgb(255, 0, 0) ;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
