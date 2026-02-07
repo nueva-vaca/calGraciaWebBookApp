@@ -51,4 +51,4 @@
 
 
 
-*** creo que no voy a cargar / inyectar las páginas nuevas con un enrutador tipo 'single page aplication' 
+*** creo que igual no no voy a cargar / inyectar las páginas nuevas con un enrutador tipo 'single page aplication' <---pq: me está costando conseguirlo "bien" -y: me dá bastanes problemas 
