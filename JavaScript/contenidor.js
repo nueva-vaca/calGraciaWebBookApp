@@ -264,19 +264,21 @@ observadorDeContenido.observe(document.body, { childList: true, subtree: true })
 // [[[ 2 ]]] "TOGGLEA" LA VISIBILIDAD DE '.contenido' - AL HACER CLICK EN '.contenedor'
 // DELEGACIÓN DE EVENTOS: Un solo listener en 'document.body'(!) ( = the <body> element of the current HTML document ) que funciona para CUALQUIER '.contenedor', >incluyendo: los que se inyectan después (ej: inicio.html inyectado por el router) 
 // - añade un 'event listener' -en: 'el body de la página web cargada en la ventana'
-document.body.addEventListener('click', (event) => {
+document.body.addEventListener('click', (seHaClicadoAlgo) => { 
 // + 'document' = the entire web page - loaded in the browser window 
 // + the .body 'property' - specifically gives you : direct access to 'the <body> tag / element(?)' 
 
     // Busca: si lo que se clicó -es: un '.contenedor' (o está dentro de uno)
-    const contenedor_para_expandir = event.target.closest('.contenedor')   ; 
-    // '.closest' = method on an element node -to find: find the nearest ancestor (including itself too) that matches a given CSS selector  - 
+    const contenedor_para_expandir = seHaClicadoAlgo.target.classList.contains('contenedor')  ?   seHaClicadoAlgo.target   :    null   ; 
+    // + [1] It checks if the clicked element (event.target) has the class 'contenedor' -and: {   [1y] if yes, it assigns that element to contenedor_para_expandir   -vs:   [1n] if not, it assigns null   } 
+
+
 
     // Si no se clicó en un '.contenedor', no hagas nada
     if (!contenedor_para_expandir) return   ;
 
     // [3d6] obten el valor del atributo 'data-contenidor-id' actual del elemento clicado
-    const contenidorIdActual = contenedor_para_expandir.dataset.contenidorId;
+    const contenidorIdActual = contenedor_para_expandir.dataset.contenidorId   ;
 
     // [4d6] Si no tiene 'data-contenidor-id' --> no hacer nada
     if (!contenidorIdActual) {
