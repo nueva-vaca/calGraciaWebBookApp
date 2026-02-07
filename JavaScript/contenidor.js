@@ -221,8 +221,8 @@ Step 2: Trigger it in router api history.js
 
 
 // INSTRUCCIONES e información:  
-// [1]: Esconde : los elementos de la clase 'contenido' 
-// [2]: Añade 'EventListeners' a los elementos con clase '.contenedor' -y: "expandir" o "colapsar" los elementos '.contenido' correspondientes 
+// [1]: Esconde : los elementos de la clase 'contenido' >   [1a] primero en 'index.html' -y: [1b] después en : ...?
+// [2]: "delegación de eventos"(?) [2a] Añade 'EventListeners' a los elementos con clase '.contenedor' -y: [2b] {"expandir" o "colapsar"} : los elementos '.contenido' correspondientes 
 
 
 
@@ -234,7 +234,8 @@ Step 2: Trigger it in router api history.js
 // [1a] Esconde los '.contenido' 
 document.querySelectorAll('.contenido').forEach(contenido => { contenido.style.display = 'none'; });
 
-// [1b] Observa el DOM: cada vez que se inyecta HTML nuevo, esconde los '.contenido' nuevos automáticamente
+// [1b] esconde los '.contenido' nuevos automáticamente <--- cada vez que se inyecta HTML nuevo <--- observando el DOM 
+// + new - create an 'instance' of an 'object' (from a 'constructor')
 const observadorDeContenido = new MutationObserver((mutaciones) => {
     mutaciones.forEach(mutacion => {
         mutacion.addedNodes.forEach(nodo => {
@@ -252,19 +253,20 @@ const observadorDeContenido = new MutationObserver((mutaciones) => {
         });
     });
 });
+
 observadorDeContenido.observe(document.body, { childList: true, subtree: true });
 
 
 
 
 
-
 // [[[ 2 ]]] "TOGGLEA" LA VISIBILIDAD DE '.contenido' - AL HACER CLICK EN '.contenedor'
-// DELEGACIÓN DE EVENTOS: Un solo listener en document.body que funciona para CUALQUIER '.contenedor',
-// incluyendo los que se inyectan después (ej: inicio.html inyectado por el router)
+// DELEGACIÓN DE EVENTOS: Un solo listener en 'document.body'(!) ( = the <body> element of the current HTML document ) que funciona para CUALQUIER '.contenedor', >incluyendo: los que se inyectan después (ej: inicio.html inyectado por el router) 
 document.body.addEventListener('click', (event) => {
+// + 'document' = the entire web page - loaded in the browser window 
+// + the .body 'property' - specifically gives you : direct access to 'the <body> tag / element(?)' 
 
-    // Busca si lo que se clicó es un '.contenedor' (o está dentro de uno)
+    // Busca: si lo que se clicó -es: un '.contenedor' (o está dentro de uno)
     const contenedor_para_expandir = event.target.closest('.contenedor');
 
     // Si no se clicó en un '.contenedor', no hagas nada
