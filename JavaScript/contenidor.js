@@ -163,13 +163,36 @@ if (hayBotónParaResaltarLosContenedores)
 
 
 
-/* [1] the script 'contenidor.js' runs immediately <--- when index.html first loads. Later pages (like inicio.html) - are injected later <-by: the "router api history". Because contenidor.js has already finished running by the time inicio.html arrives, the new elements (like "landing page" and its expandable content) don't get the event listeners they need.
+/* 
 
-Here is the recommended Lifecycle Approach to fix this using your specific files.
+- how to apply the centenidor.js in the inicio.html ? 
 
-Step 1: Wrap the Logic in contenidor.js
-You need to turn your code into a reusable function
++- the script 'contenidor.js' runs immediately <--- when index.html first loads. Later pages (like inicio.html) - are injected later <-by: the "router api history". Because : [ contenidor.js has already ran by the time inicio.html arrives ] ---> the new { injected / inserted } elements (like "the landing page" and its "expandable" content) don't get the event listeners they need -bc: ... ?
 
 
+
+
++ Here is the recommended 'Lifecycle Approach' <--- to fix this using your specific files.
+
+Step 1: "Wrap" : 'the "Logic" in contenidor.js'
+    You need : to turn your code -into: a reusable function   - so : you can "call" it - every time a new page loads. 
+    Modify contenidor.js - to look like "this". We "wrap" "the logic" -in: a function attached to window ---> so : it's globally accessible:
+    +-   1. Define the function globally +o-= 'window'."aplicarLogicaContenidor" = function() {   "writing of : la función principal de contenidor.js "   } 
+    + // 2. document.addEventListener('DOMContentLoaded', window.aplicarLogicaContenidor);   --->   Run it once for the initial page load (index.html content) 
+const btnResaltar = document.getElementById('botónParaResaltarLosContenedores');
+if (btnResaltar) {
+    // ... your existing button logic ...
+}
+
+Step 2: Trigger it in router api history.js 
+    Now update your router to "re-apply" this logic instantly after it injects the new HTML.
+    Look for the inyectarPáginaEnrutada function -and: add the call at the end:
+
+(t) Why this works:
+    ] Index Loads --> contenidor.js defines the function 'aplicarLogicaContenidor'.
+    ] User clicks "About".
+    ] Router Fetches: router api history.js gets the new HTML and puts it in the page.
+    ] Router Calls: inyectarPáginaEnrutada calls aplicarLogicaContenidor().
+    ] Script Applies: The function finds the new .contenedor elements from the new page and makes them clickable.
 
 */

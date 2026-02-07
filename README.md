@@ -48,3 +48,7 @@
 
 
 (!) aps > { "medité" ; "torere de bulshit" ; "la Pepita de oro" ; ... ; } 
+
+
+
+*** creo que no voy a cargar / inyectar las páginas nuevas con un enrutador tipo 'single page aplication' 
