@@ -78,7 +78,7 @@ document.querySelectorAll('.contenedor').forEach( el_contenedor_clicado_para_exp
 
 
 
-*/
+*/ 
 
 
 
