@@ -163,7 +163,7 @@ if (hayBotónParaResaltarLosContenedores)
 
 
 
-/* 
+/* abandoned ( bc I think I found something better )
 
 - how to apply the centenidor.js in the inicio.html ? 
 
@@ -208,6 +208,125 @@ Step 2: Trigger it in router api history.js
 
 
 
+
+
+
+
+
 /*
-+ you can replace the direct event listeners with event delegation. This means you attach one listener on a parent that never gets replaced, and it automatically works for any injected content — no re-initialization needed.
++ you can replace "the direct event listeners" -with: "event delegation" ( > one listener, works forever, zero maintenance). This means = you attach one listener on "a parent - that never gets replaced", --->and: it automatically works for any injected content   +and:   no "re-initialization" needed. 
+
 */
+
+
+
+// INSTRUCCIONES e información:  
+// [1]: Esconde : los elementos de la clase 'contenido' 
+// [2]: Añade 'EventListeners' a los elementos con clase '.contenedor' -y: "expandir" o "colapsar" los elementos '.contenido' correspondientes 
+
+
+
+// [[[ 1 ]]]:  ESCONDE '.contenido' - al cargar la página
+// [1d1]: Esconde : (casi) todos los elementos html >que: tengan la 'clase contenido' + ( ) excepto : cuando tb tenga la clase "visiblePorDefecto" 
+// NOTA: Ahora usamos un MutationObserver para esconder automáticamente cualquier '.contenido' nuevo que aparezca en el DOM
+// (esto reemplaza el querySelectorAll inicial que sólo corría una vez)
+
+// [1a] Esconde los '.contenido' 
+document.querySelectorAll('.contenido').forEach(contenido => { contenido.style.display = 'none'; });
+
+// [1b] Observa el DOM: cada vez que se inyecta HTML nuevo, esconde los '.contenido' nuevos automáticamente
+const observadorDeContenido = new MutationObserver((mutaciones) => {
+    mutaciones.forEach(mutacion => {
+        mutacion.addedNodes.forEach(nodo => {
+            // Si el nodo añadido es un elemento
+            if (nodo.nodeType === 1) {
+                // Si el propio nodo es '.contenido', escóndelo
+                if (nodo.classList && nodo.classList.contains('contenido')) {
+                    nodo.style.display = 'none';
+                }
+                // También esconde cualquier '.contenido' dentro del nodo añadido
+                nodo.querySelectorAll && nodo.querySelectorAll('.contenido').forEach(contenido => {
+                    contenido.style.display = 'none';
+                });
+            }
+        });
+    });
+});
+observadorDeContenido.observe(document.body, { childList: true, subtree: true });
+
+
+
+
+
+
+// [[[ 2 ]]] "TOGGLEA" LA VISIBILIDAD DE '.contenido' - AL HACER CLICK EN '.contenedor'
+// DELEGACIÓN DE EVENTOS: Un solo listener en document.body que funciona para CUALQUIER '.contenedor',
+// incluyendo los que se inyectan después (ej: inicio.html inyectado por el router)
+document.body.addEventListener('click', (event) => {
+
+    // Busca si lo que se clicó es un '.contenedor' (o está dentro de uno)
+    const contenedor_para_expandir = event.target.closest('.contenedor');
+
+    // Si no se clicó en un '.contenedor', no hagas nada
+    if (!contenedor_para_expandir) return;
+
+    // [3d6] obten el valor del atributo 'data-contenidor-id' actual del elemento clicado
+    const contenidorIdActual = contenedor_para_expandir.dataset.contenidorId;
+
+    // [4d6] Si no tiene 'data-contenidor-id' --> no hacer nada
+    if (!contenidorIdActual) {
+        console.warn("This clickable element is missing a 'data-contenidor-id' attribute:", contenedor_para_expandir);
+        return;
+    }
+
+    // [5d6] Encuentra todos los '.contenido' con el mismo 'data-contenidor-id'
+    const contenidoActualQueTieneQueAparecerODesaparecer = document.querySelectorAll(`.contenido[data-contenidor-id="${contenidorIdActual}"]`);
+
+    // [6d6] Toggle su visibilidad
+    contenidoActualQueTieneQueAparecerODesaparecer.forEach(contenidoConIdCoincidente => {
+        if (contenidoConIdCoincidente.style.display === 'none') {
+            const EtiquetaDelElementoActual = contenidoConIdCoincidente.tagName;
+            contenidoConIdCoincidente.style.display = (
+                EtiquetaDelElementoActual === 'UL' ||
+                EtiquetaDelElementoActual === 'OL' ||
+                EtiquetaDelElementoActual === 'H1' ||
+                EtiquetaDelElementoActual === 'P'
+            ) ? 'block' : 'inline';
+        } else {
+            contenidoConIdCoincidente.style.display = 'none';
+        }
+    });
+
+}); // fin de : document.body.addEventListener('click', ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS .CONTENEDOR" 
+// ...existing code... (this section stays exactly the same)
