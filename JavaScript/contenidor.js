@@ -135,25 +135,18 @@ if (hayBotónParaResaltarLosContenedores)
     todosLosContenedoresEnArray.forEach( contenedor_actual => {
         
         // [2.1] Aplica un borde rojo de 0.681px
-        contenedor_actual.style.outline = '0.681px solid #fb0017 ';
+        contenedor_actual.style.transition = 'none'   ;
+        contenedor_actual.style.border = '0.681px solid #fb0017 ';
         
 
         // [2.2] Fuerza un "reflow" para que el navegador registre el estilo inicial antes de la transición
         contenedor_actual.offsetHeight  ;
 
         // [2.3] Inicia el fade-out del borde (de rojo a transparente)
-        contenedor_actual.style.transition = 'outline-color 0.77s ease-out' ;
-        contenedor_actual.style.outlineColor = 'transparent'    ;
-
-        // [2.4] Cuando la transición termina, limpia los estilos inline
-        contenedor_actual.addEventListener('transitionend', function limpiar() {
-            contenedor_actual.style.outline = ''    ;
-            contenedor_actual.style.transition = '' ;
-            contenedor_actual.removeEventListener('transitionend', limpiar) ;
-        });
+        contenedor_actual.style.transition = 'border-color 0.77s ease-out' ;
+        contenedor_actual.style.borderColor = 'transparent'    ;
 
     } // FIN DE :   contenedor_actual => {
-        
     ); // FIN DE :   todosLosContenedoresEnArray.forEach( 
      
     
