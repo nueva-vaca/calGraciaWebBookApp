@@ -1,0 +1,11 @@
+[ ] "fuck around" with: "the router thing" <-| to see if : I could make it work 
+
+
+
+
+
+
+
+
+
+[-] tengo un enrutador funcionando - pero no funciona el script de 'contenidor.js' - en la páginas inyectadas 

@@ -196,3 +196,18 @@ Step 2: Trigger it in router api history.js
     ] Script Applies: The function finds the new .contenedor elements from the new page and makes them clickable.
 
 */
+
+
+
+
+
+
+
+
+
+
+
+
+/*
++ you can replace the direct event listeners with event delegation. This means you attach one listener on a parent that never gets replaced, and it automatically works for any injected content — no re-initialization needed.
+*/
