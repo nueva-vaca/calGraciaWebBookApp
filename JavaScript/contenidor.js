@@ -119,22 +119,45 @@ document.querySelectorAll('.contenedor').forEach( el_contenedor_clicado_para_exp
 // BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS .CONTENEDOR"
 
 
-// [X] add: "if 'botónParaResaltarLosExpandibles' no esta presente → entonces : "desactivar este "script""" 
-const hayBotónParaResaltarLosContenedores = document.getElementById('botónParaResaltarLosContenedores') ;
+// [X] add: "if 'botónParaResaltarLosExpandibles' no esta presente ---> entonces : "desactivar este "script""" 
+const hayBotónParaResaltarLosContenedores = document.getElementById('botónParaResaltarLosContenedores')  ;
     
 if (hayBotónParaResaltarLosContenedores) 
     { 
     hayBotónParaResaltarLosContenedores.addEventListener( 'click' , () =>
     {
     
-        // [1] "coge" todos los elementos que tengan la clase 'contenedor' 
-    const todosLosContenedoresEnHTMLCollection = document.getElementsByClassName('contenedor'); 
+    // [1] "coge" todos los elementos que tengan la clase 'contenedor' 
+    const todosLosContenedoresEnHTMLCollection = document.getElementsByClassName('contenedor')  ; 
     // [ convertir 'HTMCollection' a "Array" ] <---pq: [ ' el método .forEach' - no "soporta" : el tipo de datos 'HTMLCollection' ]
-     const todosLosContenedoresEnArray = Array.from(todosLosContenedoresEnHTMLCollection) ;
-     
+    const todosLosContenedoresEnArray = Array.from(todosLosContenedoresEnHTMLCollection)  ;
+    // [2] aplica "la animación" "deseada" 
+    todosLosContenedoresEnArray.forEach( contenedor_actual => {
+        
+        // [2.1] Aplica un borde rojo de 0.681px
+        contenedor_actual.style.outline = '0.681px solid #fb0017 ';
+        
+
+        // [2.2] Fuerza un "reflow" para que el navegador registre el estilo inicial antes de la transición
+        contenedor_actual.offsetHeight  ;
+
+        // [2.3] Inicia el fade-out del borde (de rojo a transparente)
+        contenedor_actual.style.transition = 'outline-color 0.77s ease-out' ;
+        contenedor_actual.style.outlineColor = 'transparent'    ;
+
+        // [2.4] Cuando la transición termina, limpia los estilos inline
+        contenedor_actual.addEventListener('transitionend', function limpiar() {
+            contenedor_actual.style.outline = ''    ;
+            contenedor_actual.style.transition = '' ;
+            contenedor_actual.removeEventListener('transitionend', limpiar) ;
+        });
+
+    } // FIN DE :   contenedor_actual => {
+        
+    ); // FIN DE :   todosLosContenedoresEnArray.forEach( 
      
     
-     todosLosContenedoresEnArray.forEach( contenedor_actual => {
+    /*todosLosContenedoresEnArray.forEach( contenedor_actual => {
         let times = 0;
         let interval = setInterval(() => {
             contenedor_actual.style.visibility = (contenedor_actual.style.visibility === 'hidden') ? 'visible' : 'hidden';
@@ -146,7 +169,7 @@ if (hayBotónParaResaltarLosContenedores)
                 contenedor_actual.style.visibility = 'visible'; // <- para asegurarse que : [ "los clicables para expandir" - "end up" : visibles ] 
             } 
         }, 300); // intervalo de : { " intermmitente ; parpadeo " } 
-    });
+    });*/
 
 } ) /* FINAL DE: hayBotónParaResaltarLosContenedores.addEventListener( 'click' , () => {    */
  }; /* FINAL DE: if (hayBotónParaResaltarLosContenedores)    */
