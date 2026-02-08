@@ -301,6 +301,8 @@ a {
     color:rgb(255, 0, 0) ;
     }
 
+
+
 .bloqueDeTierra::before 
     {
     content: '[ ' ;
@@ -310,6 +312,19 @@ a {
     {
     content: ' ]' ;
     color:rgb(255, 0, 0) ;
+    }
+
+
+
+.burbuja::before 
+    {
+    content: '( ' ;
+    color: #1080d6 ;
+    }
+.burbuja::after 
+    {
+    content: ' )' ;
+    color:#1080d6 ;
     }
 
 

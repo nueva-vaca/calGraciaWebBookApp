@@ -298,9 +298,9 @@ document.body.addEventListener('click', (seHaClicadoAlgo) => {
 
 
     // Busca: si lo que se clicó -es: un '.contenedor' (o está dentro de uno)
-        const el_contenedor_clicado_para_expandir = seHaClicadoAlgo.target.classList.contains('contenedor')  ?   seHaClicadoAlgo.target   :    null   ; 
+        // const el_contenedor_clicado_para_expandir = seHaClicadoAlgo.target.classList.contains('contenedor')  ?   seHaClicadoAlgo.target   :    null   ; 
         // + [1] It checks if the clicked element (= seHaClicadoAlgo.target) has the class 'contenedor' -and: {   [1y] if yes, it assigns that element to 'the variable el_contenedor_clicado_para_expandir'   -vs:   [1n] if not, it assigns null   } 
-    //const el_contenedor_clicado_para_expandir = seHaClicadoAlgo.target.closest('.contenedor')   ;
+        const el_contenedor_clicado_para_expandir = seHaClicadoAlgo.target.closest('.contenedor')   ;
 
     // Si no se clicó en un '.contenedor', no hagas nada
     if (!el_contenedor_clicado_para_expandir) return   ;
