@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
             header.classList.remove("expandido");
             header.classList.add("contraído");
         }
-    });
+    }); 
 }); 
 
 

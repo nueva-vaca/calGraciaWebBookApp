@@ -64,11 +64,15 @@ PÁGINA COMPLETA -a: HEADER
 PÁGINA COMPLETA -a: HEADER
 */
 
-header 
+header#cabeceraÍndice 
     {
+    
     position: sticky ; 
     top: 0 ;
     width: 100% ; 
+
+    z-index: 2 ;
+
     }
 
 
@@ -104,10 +108,14 @@ de HEADER a MAIN
 
 
 
-main {
+main#contenidoPrincipal {
+    
     box-sizing: border-box; /*   'The CSS box-sizing property' - allows to include : the {padding and border} in an element's total {width and height}   */ 
     padding: 0 ; 
     margin: 0 ; 
+
+    z-index: 5 ;
+
     }   
 
 
@@ -147,6 +155,8 @@ footer#menúDePieDePantalla
     left: 0 ;
     bottom: 0 ; 
     width: 100% ; 
+
+    z-index: 1 ;
 
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
