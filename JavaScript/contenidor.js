@@ -288,6 +288,14 @@ observadorDeContenido.observe(document.body, { childList: true, subtree: true })
 
 
 
+
+
+
+
+
+
+
+
 // [[[ 2 ]]] "TOGGLEA" LA VISIBILIDAD DE '.contenido' - AL HACER CLICK EN '.contenedor'
 // DELEGACIÓN DE EVENTOS: Un solo listener en 'document.body'(!) ( = the <body> element of the current HTML document ) que funciona para CUALQUIER '.contenedor', >incluyendo: los que se inyectan después (ej: inicio.html inyectado por el router) 
 // - añade un 'event listener' -en: 'el body de la página web cargada en la ventana'
