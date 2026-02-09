@@ -10,12 +10,9 @@
 
 
 
-
 [ ] when I click { -or: main -or: footer }   --->   header - "goes back" to "3 lines" 
 
-[ ]  {poner -o: añadir} : [ " el título -de: "las 3 masias de gracia" " -en: 'el <header>' ] 
-
-[ ]  hacer aparecer o desaparecer el <header> ( = "navigating" ) <--- caundo : aprete / clique "el icono hamburguesa de índice" 
+[ ]  hacer : [ {aparecer -o: desaparecer} -vs: {expandir -o: contraer} ] el <header> ( = "navigating" ) <--- caundo : aprete / clique "el icono hamburguesa de índice" 
 
 [ ]  dropup menu 
 
