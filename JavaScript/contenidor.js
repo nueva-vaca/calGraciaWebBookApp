@@ -368,5 +368,38 @@ document.body.addEventListener('click', (seHaClicadoAlgo) => {
 
 
 
-// BOTÓN QUE HACE QUE "SE RESALTEN" "LOS ELEMENTOS .CONTENEDOR" 
-// ...existing code... (this section stays exactly the same)
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+// Oculta '.burbuja' al hacer clic fuera de ella
+
+document.addEventListener('click', function(event) {
+    // Si el clic fue dentro de un '.contenedor', no ocultar la burbuja
+    // (porque el listener del body ya se encargó de toggle.arla)
+    if (event.target.closest('.contenedor')) return ;
+
+    // Oculta todas las '.burbuja' visibles
+    document.querySelectorAll('.burbuja').forEach(burbuja => {
+        if (burbuja.style.display !== 'none') {
+            burbuja.style.display = 'none'  ;
+        }
+    });
+});
