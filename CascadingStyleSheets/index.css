@@ -78,6 +78,25 @@ header#cabeceraÍndice
 
 
 
+#breadcrumb {
+  display: inline-flex;
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#breadcrumb li {
+  display: inline;
+}
+
+#breadcrumb li + li::before {
+  content: "/";
+  margin: 0 0.5rem;
+  color: #666;
+}
+
+
 
 
 /*
