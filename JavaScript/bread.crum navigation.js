@@ -1,10 +1,28 @@
 
-  // Obtener la ruta y dividirla en segmentos
-  const path = window.location.pathname;
-  const segments = path.split('/').filter(Boolean);
+  // [1] Obtener la ruta -y: [2] dividir la ruta en segmentos
 
-  const breadcrumb = document.getElementById('breadcrumb');
-  let accumulatedPath = '';
+  const rutaUrlSinDominio = window.location.pathname    ; 
+  // 'window.location' -es: 'un objeto global' > que contiene información sobre la URL actual. '.pathname' -es: una propiedad (del objeto 'window.location') que devuelve : la parte de la URL que sigue al dominio ( e incluyendo el primer '/' ). Por ejemplo, si la URL es "https://www.ejemplo.com/productos/electronica", entonces window.location.pathname devolverá "/productos/electronica".
+
+  // [2] obtiene un array ( de segmentos de la ruta URL (sin el dominio) )
+  const segmentosDeLaRutaUrlSinDominio = rutaUrlSinDominio.split('/').filter(Boolean) ; // ---> array ( de "segmentos" de la ruta sin el dominio )
+    // '.split('/')' -es: un método de cadena <-que: [ divide la cadena en : un array de subcadenas <---utilizando: el carácter '/' como separador ]. Por ejemplo: si : [ rutaUrlSinDominio -es: "/productos/electronica" ] --->entonces:  [ 'rutaUrlSinDominio.split('/')' -devolverá: ["", "productos", "electronica"] ].
+    // '.filter(Boolean)' -es: un método de array <-que: filtra los elementos del array, manteniendo solo aquellos que son "verdaderos" (truthy). En este caso, se utiliza para eliminar los elementos vacíos que resultan de la división. Por ejemplo: si : [ el resultado de split -es: ["", "productos", "electronica"] ] --->entonces: [ filter(Boolean) -devolverá: ["productos", "electronica"] ].
+    // En resumen: esta línea de código - [1] toma la ruta de la URL sin el dominio,[2] la divide en segmentos utilizando '/' como separador, y luego [3] filtra los segmentos -para: eliminar cualquier elemento vacío, [4] resultando en : un array de segmentos de la ruta.
+
+  // obtiene la referencia a:l elemento del DOM > cuyo atributo id es 'breadcrumb'
+  const breadcrumb = document.getElementById('breadcrumb')  ;
+  //  Este elemento será el contenedor donde se insertarán dinámicamente los elementos de la navegación breadcrumb, permitiendo mostrar al usuario la ruta de navegación actual dentro del sitio web. 
+  
+  let accumulatedPath = ''  ;
+
+
+
+
+
+
+
+
 
   // Agregar el enlace a la página de inicio
   const homeLi = document.createElement('li');
@@ -14,11 +32,20 @@
   homeLi.appendChild(homeLink);
   breadcrumb.appendChild(homeLi);
 
+
+
+
+
+
+
+
+
+
   // Agregar los demás segmentos
-  segments.forEach((segment, idx) => {
+  segmentosDeLaRutaUrlSinDominio.forEach((segment, idx) => {
     accumulatedPath += '/' + segment;
     const li = document.createElement('li');
-    if (idx === segments.length - 1) {
+    if (idx === segmentosDeLaRutaUrlSinDominio.length - 1) {
       // Último segmento, solo texto
       li.textContent = decodeURIComponent(segment);
     } else {
