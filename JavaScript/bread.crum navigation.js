@@ -11,9 +11,10 @@
     // En resumen: esta línea de código - [1] toma la ruta de la URL sin el dominio,[2] la divide en segmentos utilizando '/' como separador, y luego [3] filtra los segmentos -para: eliminar cualquier elemento vacío, [4] resultando en : un array de segmentos de la ruta.
 
   // obtiene la referencia a:l elemento del DOM > cuyo atributo id es 'breadcrumb'
-  const breadcrumb = document.getElementById('breadcrumb')  ;
-  //  Este elemento será el contenedor donde se insertarán dinámicamente los elementos de la navegación breadcrumb, permitiendo mostrar al usuario la ruta de navegación actual dentro del sitio web. 
-  
+  const eslabónDeLaCadenaDeRutaUrlSinDominio = document.getElementById('breadcrumb')  ;
+  //  Este { elemento / variable / constante } -será: el contenedor donde se insertarán dinámicamente : los elementos de la navegación "ruta en cadena", permitiendo mostrar al usuario : la ruta de navegación actual < dentro del sitio web. 
+
+  // declara / define una variable ( para acumular la ruta a medida que se construye la navegación en cadena ) -e: inicializa esa variable con una cadena vacía
   let accumulatedPath = ''  ;
 
 
@@ -30,7 +31,7 @@
   homeLink.href = '/';
   homeLink.textContent = 'Inicio';
   homeLi.appendChild(homeLink);
-  breadcrumb.appendChild(homeLi);
+  eslabónDeLaCadenaDeRutaUrlSinDominio.appendChild(homeLi);
 
 
 
@@ -55,5 +56,5 @@
       link.textContent = decodeURIComponent(segment);
       li.appendChild(link);
     }
-    breadcrumb.appendChild(li);
+    eslabónDeLaCadenaDeRutaUrlSinDominio.appendChild(li);
   });
