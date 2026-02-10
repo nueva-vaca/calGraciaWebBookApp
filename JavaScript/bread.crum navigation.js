@@ -68,17 +68,18 @@ function actualizarBreadcrumb() {
 
 
   // Agregar los demás segmentos
-  segmentosDeLaRutaUrlSinDominio.forEach((segment, idx) => {
-    eslabonesEnLaCadenaDeRutaActual += '/' + segment;
+  segmentosDeLaRutaUrlSinDominio.forEach((segmentoOEslabónActual, idx) => {
+    console.log('segmentosDeLaRutaUrlSinDominio:', eslabonesEnLaCadenaDeRutaActual); // Depuración: muestra el segmento actual en la consola
+    eslabonesEnLaCadenaDeRutaActual += '/' + segmentoOEslabónActual;
     const li = document.createElement('li');
     if (idx === segmentosDeLaRutaUrlSinDominio.length - 1) {
       // Último segmento, solo texto
-      li.textContent = decodeURIComponent(segment);
+      li.textContent = decodeURIComponent(segmentoOEslabónActual);
     } else {
       // Segmentos intermedios, enlaces
       const link = document.createElement('a');
       link.href = eslabonesEnLaCadenaDeRutaActual;
-      link.textContent = decodeURIComponent(segment);
+      link.textContent = decodeURIComponent(segmentoOEslabónActual);
       li.appendChild(link);
     }
     cadenaDeRutaActual.appendChild(li);
