@@ -1,12 +1,12 @@
 // código "vainilla" en java.script -para: enrutar páginas html - en "single‑page application". 
 // It - { 
-// [1] define : las rutas a los archivos html < ( en el objeto 'colaDeRutaURL' )
+// [1] define : las rutas a los archivos html < ( en el objeto 'rutaUrlSinDominio' )
 // [2] intercepta los clics   -y:   "llama" a la función 'inyectarPáginaEnrutada()' 
 // [3] lee la "cola de url" 
 // loads the corresponding HTML fragment -into: the main section with the id contenidoPrincial  
 // }
 
-// [3.0] the function inyectarPáginaEnrutada() [3.2] reads the current URL path (the part after the domain) -and:   [3.3] looks it up in the colaDeRutaURL object to find the corresponding HTML file, then : [3.4] fetches that HTML file and [3.5] injects it into the page
+// [3.0] the function inyectarPáginaEnrutada() [3.2] reads the current URL path (the part after the domain) -and:   [3.3] looks it up in the rutaUrlSinDominio object to find the corresponding HTML file, then : [3.4] fetches that HTML file and [3.5] injects it into the page
 
 
 
@@ -33,15 +33,15 @@
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 
-// [0.0] colaDeRutaURL 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
-// [1.1] crea una (variable) constante -llamada: 'colaDeRutaURL' - que es un objeto 
-const colaDeRutaURL = { 
+// [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
+// [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
+const rutaUrlSinDominio = { 
 
     // clave/key = nombre en el href del <a> ( = lo que ves en la barra de direcciones )   
     // -y:   
     // valor/value = el archivo HTML que se va a cargar para esa ruta 
 
-    404:            "/404.html"           ,   /*   + fallback route -for: unmatched colaDeRutaURL. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
+    404:            "/404.html"           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
     "/":            "/inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
     "/inicio":      "/inicio.html"        ,
     "/index.html":  "/inicio.html"        , 
@@ -56,7 +56,7 @@ const colaDeRutaURL = {
     "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
     "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
 
-}; // fin -de:   const colaDeRutaURL = { 
+}; // fin -de:   const rutaUrlSinDominio = { 
 
 // fin de "configuración" de RUTAS "hard.wired" 
 // fin de "configuración" de RUTAS "hard.wired" 
@@ -184,21 +184,23 @@ document.addEventListener("click", (event) => {
 // inyectarPáginaEnrutada()
 
 // [3d3] 
-// [3.0] the function inyectarPáginaEnrutada() [3.2] reads the current URL path (the part after the domain) -and:   [3.3] looks it up in the colaDeRutaURL object to find the corresponding HTML file, then : [3.4] fetches that HTML file and [3.5] injects it into the page.
+// [3.0] the function inyectarPáginaEnrutada() [3.2] reads the current URL path (the part after the domain) -and:   [3.3] looks it up in the rutaUrlSinDominio object to find the corresponding HTML file, then : [3.4] fetches that HTML file and [3.5] injects it into the page.
 // 
 // -fetches: the HTML content for the current path -and: injects it into "the main-page" element = <main id="contenidoPrincipal".
 
 // [3.1] crea una función (en una constante) -llamada: 'inyectarPáginaEnrutada' 
 const inyectarPáginaEnrutada = async () => {
     // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'path' 
-    const path = window.location.pathname ; 
+    const path = window.location.pathname   ; 
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
-    // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the colaDeRutaURL object 
-    const route = colaDeRutaURL[path] || colaDeRutaURL[404] ;
+    // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the rutaUrlSinDominio object 
+    const route = rutaUrlSinDominio[path] || rutaUrlSinDominio[404] ;
     // [3.4] Fetches the corresponding HTML file 
     const html = await fetch(route).then((data) => data.text()) ;
     // [3.5] Injects it into the element with id 'contenidoPrincipal' 
     document.getElementById("contenidoPrincipal").innerHTML = html ;
+    // [3.X] Actualiza el breadcrumb después de inyectar el contenido
+    if (window.actualizarBreadcrumb) window.actualizarBreadcrumb();
     };
 
 

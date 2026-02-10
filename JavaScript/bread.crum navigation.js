@@ -1,4 +1,8 @@
-
+function actualizarBreadcrumb() {
+// convertir la lógica del breadcrumb en una función y llamarla cada vez que se navegue a una nueva ruta
+  
+  
+  
   // [1] Obtener la ruta -y: [2] dividir la ruta en segmentos
 
   const rutaUrlActualSinDominio = window.location.pathname   ; 
@@ -11,13 +15,17 @@
     // En resumen: esta línea de código - [1] toma la ruta de la URL sin el dominio,[2] la divide en segmentos utilizando '/' como separador, y luego [3] filtra los segmentos -para: eliminar cualquier elemento vacío, [4] resultando en : un array de segmentos de la ruta.
 
 
-    
+
   // obtiene la referencia a:l elemento del DOM > cuyo atributo id es 'breadcrumb'
-  const eslabónDeLaCadenaDeRutaUrlSinDominio = document.getElementById('breadcrumb')   ;
-  //  Este { elemento / variable / constante } -será: el contenedor donde se insertarán dinámicamente : los elementos de la navegación "ruta en cadena", permitiendo mostrar al usuario : la ruta de navegación actual < dentro del sitio web. 
+  const cadenaDeRutaActual = document.getElementById('breadcrumb')   ;
+  //  Este { elemento / variable / constante } -será: el contenedor donde se insertarán(!) dinámicamente : los elementos de la navegación "ruta en cadena", permitiendo mostrar al usuario : la ruta de navegación actual < dentro del sitio web. 
+  
+  // Limpia el breadcrumb anterior antes de reconstruirlo
+  if (!cadenaDeRutaActual) return;
+  cadenaDeRutaActual.innerHTML = '';
 
   // { declara / define } una variable ( para acumular la ruta a medida que se construye la navegación en cadena ) -e: inicializa esa variable con una cadena vacía
-  let eslabonesDeLaCadenaDeRutaActual = ''   ;
+  let eslabonesEnLaCadenaDeRutaActual = ''   ;
     // Esta variable se utilizará para ir acumulando progresivamente cada segmento de la ruta a medida que se construyen los enlaces de la breadcrumb. Así, cada vez que se agregue un nuevo segmento, se actualizará esta variable para reflejar la ruta parcial correspondiente, facilitando la creación de enlaces navegables para cada nivel de la ruta.
 
 
@@ -30,10 +38,11 @@
   // Agregar el enlace a la página de inicio
   const homeLi = document.createElement('li')   ;
   const homeLink = document.createElement('a')   ;
+
   homeLink.href = '/'   ;
   homeLink.textContent = 'Inicio'   ;
   homeLi.appendChild(homeLink)   ;
-  eslabónDeLaCadenaDeRutaUrlSinDominio.appendChild(homeLi)   ;
+  cadenaDeRutaActual.appendChild(homeLi)   ;
 
 
 
@@ -46,7 +55,7 @@
 
   // Agregar los demás segmentos
   segmentosDeLaRutaUrlSinDominio.forEach((segment, idx) => {
-    eslabonesDeLaCadenaDeRutaActual += '/' + segment;
+    eslabonesEnLaCadenaDeRutaActual += '/' + segment;
     const li = document.createElement('li');
     if (idx === segmentosDeLaRutaUrlSinDominio.length - 1) {
       // Último segmento, solo texto
@@ -54,9 +63,24 @@
     } else {
       // Segmentos intermedios, enlaces
       const link = document.createElement('a');
-      link.href = eslabonesDeLaCadenaDeRutaActual;
+      link.href = eslabonesEnLaCadenaDeRutaActual;
       link.textContent = decodeURIComponent(segment);
       li.appendChild(link);
     }
-    eslabónDeLaCadenaDeRutaUrlSinDominio.appendChild(li);
+    cadenaDeRutaActual.appendChild(li);
   });
+
+
+
+
+
+} // FIN DE : function actualizarBreadcrumb() {
+
+
+
+
+// Ejecutar al cargar la página
+actualizarBreadcrumb();
+
+// Exportar la función para usarla en otros archivos si es necesario
+window.actualizarBreadcrumb = actualizarBreadcrumb;
