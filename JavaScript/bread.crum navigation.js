@@ -22,7 +22,8 @@ function actualizarBreadcrumb() {
 
 
 
-  // [2] obtiene un array ( de segmentos de la ruta URL (sin el dominio) )
+
+  // obtiene un array ( de segmentos de la ruta URL (sin el dominio) )
   const segmentosDeLaRutaUrlSinDominio = rutaUrlActualSinDominio.split('/').filter(Boolean)   ; // ---> array ( de "segmentos" de la ruta sin el dominio )
     // '.split('/')' -es: un método de cadena <-que: [ divide la cadena en : un array de subcadenas <---utilizando: el carácter '/' como separador ]. Por ejemplo: si : [ rutaUrlActualSinDominio -es: "/productos/electronica" ] --->entonces:  [ 'rutaUrlActualSinDominio.split('/')' -devolverá: ["", "productos", "electronica"] ].
     // '.filter(Boolean)' -es: un método de array <-que: filtra los elementos del array, manteniendo solo aquellos que son "verdaderos" (truthy). En este caso, se utiliza para eliminar los elementos vacíos que resultan de la división. Por ejemplo: si : [ el resultado de split -es: ["", "productos", "electronica"] ] --->entonces: [ filter(Boolean) -devolverá: ["productos", "electronica"] ].
@@ -45,12 +46,17 @@ function actualizarBreadcrumb() {
 
   // Agregar el enlace a la página de inicio
   const homeLi = document.createElement('li')   ;
-  const homeLink = document.createElement('a')   ;
+ if (segmentosDeLaRutaUrlSinDominio.length === 0) {
+    homeLi.textContent = 'Inicio';
+    homeLi.setAttribute('aria-current', 'page');
+  } else {
+    const homeLink = document.createElement('a');
+    homeLink.href = '/';
+    homeLink.textContent = 'Inicio';
+    homeLi.appendChild(homeLink);
+  }
+  cadenaDeRutaActual.appendChild(homeLi);
 
-  homeLink.href = '/'   ;
-  homeLink.textContent = 'Inicio'   ;
-  homeLi.appendChild(homeLink)   ;
-  cadenaDeRutaActual.appendChild(homeLi)   ;
 
 
 
