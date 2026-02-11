@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<body> 
+
+    <!-- Aquí tienes un ejemplo solo con HTML+JS en el navegador: permite subir el test.html, procesarlo para conservar los <span style="color:..."> y descargar un test_colored.html simplificado. -->
+  <input type="file" id="fileInput" accept=".html">
+  <button id="processBtn">Procesar y descargar</button>
+
+  <script>
+  document.getElementById('processBtn').onclick = async () => {
+    const file = document.getElementById('fileInput').files[0];
+    if (!file) return alert('Selecciona un archivo HTML');
+
+    const text = await file.text();
+
+    // Parsear el HTML
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    const body = doc.body;
+
+    // Permitir solo span (con color), b, i, u, br, p
+    const allowed = new Set(['SPAN','B','I','U','BR','P']);
+    const walker = document.createTreeWalker(body, NodeFilter.SHOW_ELEMENT, null);
+    const toRemove = [];
+    while (walker.nextNode()) {
+      const el = walker.currentNode;
+      if (!allowed.has(el.tagName)) { toRemove.push(el); continue; }
+      if (el.tagName === 'SPAN') {
+        const color = (el.style && el.style.color) || '';
+        el.removeAttribute('class');
+        el.removeAttribute('id');
+        el.removeAttribute('style');
+        if (color) el.setAttribute('style', `color:${color}`);
+      } else {
+        // limpiar atributos en otras etiquetas
+        [...el.attributes].forEach(attr => el.removeAttribute(attr.name));
+      }
+    }
+    toRemove.forEach(el => el.replaceWith(...el.childNodes)); // quita la etiqueta, deja su contenido
+
+    // Limpiar espacios dobles y líneas vacías
+    body.innerHTML = body.innerHTML
+      .replace(/[ \t]+\n/g, '\n')
+      .replace(/\n{3,}/g, '\n\n')
+      .trim();
+
+    const result = `<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Texto simplificado con colores</title></head>
+<body>
+${body.innerHTML}
+</body>
+</html>`;
+
+    // Descargar
+    const blob = new Blob([result], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'test_colored.html';
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+  </script>
+</body>
+</html>
