@@ -1,4 +1,4 @@
-function actualizarBreadcrumb() {
+function actualizarRutaDeNavegaciónEnEslabonesDeCadena() {
 // { convertir / englobar / wrap } la lógica del breadcrumb en una función y llamarla cada vez que se navegue a una nueva ruta
   
   
@@ -89,7 +89,7 @@ function actualizarBreadcrumb() {
 
 
 
-} // FIN DE : function actualizarBreadcrumb() {
+} // FIN DE : function actualizarRutaDeNavegaciónEnEslabonesDeCadena() {
 
 
 
@@ -111,7 +111,7 @@ function actualizarBreadcrumb() {
 
 
 // Ejecutar al cargar la página
-actualizarBreadcrumb()   ;
+actualizarRutaDeNavegaciónEnEslabonesDeCadena()   ;
 
 
 
@@ -128,8 +128,8 @@ actualizarBreadcrumb()   ;
 
 
 
-// Hacer la función 'actualizarBreadcrumb()' global ( para usarla en otros archivos (si es necesario) )
-window.actualizarBreadcrumb = actualizarBreadcrumb   ;
+// Hacer la función 'actualizarRutaDeNavegaciónEnEslabonesDeCadena()' global ( para usarla en otros archivos (si es necesario) )
+window.actualizarRutaDeNavegaciónEnEslabonesDeCadena = actualizarRutaDeNavegaciónEnEslabonesDeCadena   ;
 // 'window' = 'objeto' que representa la ventana abierta del navegador
-// '.actualizarBreadcrumb' = 'una propiedad' del 'objeto' 'window' 
-// se le asigna la función 'actualizarBreadcrumb' -a: 'window.actualizarBreadcrumb' ---> y esto hace que : la función sea accesible globalmente, lo que permite que otros scripts en la página/ventana/navegador puedan llamarla/invocarla para actualizar el "breadcrumb" cuando sea necesario, como p.ej. después de una navegación o cambio de ruta.
+// '.actualizarRutaDeNavegaciónEnEslabonesDeCadena' = 'una propiedad' del 'objeto' 'window' 
+// se le asigna la función 'actualizarRutaDeNavegaciónEnEslabonesDeCadena' -a: 'window.actualizarRutaDeNavegaciónEnEslabonesDeCadena' ---> y esto hace que : la función sea accesible globalmente, lo que permite que otros scripts en la página/ventana/navegador puedan llamarla/invocarla para actualizar el "breadcrumb" cuando sea necesario, como p.ej. después de una navegación o cambio de ruta.

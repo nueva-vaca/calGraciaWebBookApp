@@ -200,7 +200,7 @@ const inyectarPáginaEnrutada = async () => {
     // [3.5] Injects it into the element with id 'contenidoPrincipal' 
     document.getElementById("contenidoPrincipal").innerHTML = html ;
     // [3.X] Actualiza el breadcrumb después de inyectar el contenido
-    if (window.actualizarBreadcrumb) window.actualizarBreadcrumb();
+    if (window.actualizarRutaDeNavegaciónEnEslabonesDeCadena) window.actualizarRutaDeNavegaciónEnEslabonesDeCadena();
     };
 
 
