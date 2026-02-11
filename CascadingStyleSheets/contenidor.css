@@ -1,13 +1,13 @@
 .contenedor{border: solid 0.5px rgba(211, 211, 211, 0);} 
 .contenedor:hover , #botónParaResaltarLosContenedores:hover
     {
-    cursor: pointer; 
-    animation: resaltarContenedor 1s ease-in-out 1; 
+    cursor: pointer   ; 
+    animation: resaltarContenedor 0.618s ease-in-out 1   ; /*     'animation' = 'propiedad abreviada' + secuencia de animación llamada resaltarContenedor + 1segundo de duración + 'ease-in-out' significa que el movimiento o cambio comenzará lento, acelerará en el medio y frenará suavemente al final para un efecto más natural + 1 sola "loop"       */
     }
-@keyframes resaltarContenedor 
+@keyframes resaltarContenedor /* dicta qué propiedades cambian */
     {
     0%, 100% { border-color: transparent; }
-    33%, 66% { border-color: lightgray; } /* Change to desired color */
+    33%, 66% { border-color: #fb0017 ; } /* Change to desired color */
     }
 
  
