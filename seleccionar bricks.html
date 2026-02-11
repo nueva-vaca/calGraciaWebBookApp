@@ -49,26 +49,118 @@
     }
   </style>
 </head>
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
+<!--neck-->
 <body>
 
+
+
+
+
   <h1>Seleccionar Bricks</h1>
+
   <button id="load-btn">Cargar y Extraer Brackets de test.html</button>
+
   <p id="status"></p>
+
   <div id="results"></div>
 
-  <script>
-    document.getElementById('load-btn').addEventListener('click', async () => {
-      const status = document.getElementById('status');
-      const results = document.getElementById('results');
-      status.textContent = 'Cargando test.html…';
-      results.innerHTML = '';
 
+
+
+
+
+
+
+
+
+
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+<!--script-->
+  <script>
+    
+    
+    
+    
+    
+    document.getElementById('load-btn').addEventListener('click', async () => {
+      
+      
+      const status   =   document.getElementById('status')   ;
+      const results   =   document.getElementById('results')   ;
+      status.textContent   =   'Cargando test.html…'   ;
+      results.innerHTML   =   ''   ;
+
+
+
+      // + a try block -is used to: wrap code that might throw an error during execution.if an error occurs, control is passed to a corresponding catch block (if present)
       try {
+
+
+
+
+
+
         const resp = await fetch('test.html');
         if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
         const html = await resp.text();
 
         // Parse into a temporary hidden DOM so we can walk styled nodes
+                // + "Walk" in "parse and walk" -means: to {traverse or iterate} through the {elements or nodes} of a data structure (such as the DOM tree of an HTML document) one by one, >ej: usually to {inspect, process, or extract} information from each node. In this context, after parsing the HTML, "walk" refers to : systematically visiting each text node in the DOM <-to: {find and process} bracketed text.
         const container = document.createElement('div');
         container.style.display = 'none';
         document.body.appendChild(container);
@@ -141,7 +233,28 @@
 
         status.textContent = `Se encontraron ${entries.length} bloques entre corchetes.`;
 
-        // Build table
+
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+// Build table
+
         const table = document.createElement('table');
         const thead = document.createElement('thead');
         thead.innerHTML = `<tr>
@@ -172,10 +285,42 @@
         table.appendChild(tbody);
         results.appendChild(table);
 
+
+
+
+
+
+
+    // end of try {
+    // end of try {
+    // end of try {
+    // end of try {
+    // end of try {
+    // end of try {
+    // end of try {
+    // end of try {
+    // end of try {
       } catch (err) {
         status.textContent = 'Error: ' + err.message;
       }
-    });
+   
+   
+   
+
+
+   
+   
+}); // END OF: document.getElementById('load-btn').addEventListener('click', async () => {
+
+
+
+
+
+
+
+
+
+
 
     function getComputedColor(el) {
       if (!el || !el.style) return 'rgb(0, 0, 0)';
@@ -190,10 +335,88 @@
       return 'rgb(0, 0, 0)';
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     function escapeHtml(str) {
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
-  </script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+end
+*/
+</script>
 </body>
 </html>
