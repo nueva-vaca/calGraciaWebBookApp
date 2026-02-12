@@ -55,6 +55,9 @@ const rutaUrlSinDominio = {
     "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
     "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
     "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
+    "/seleccionar-bricks": "/seleccionar bricks.html" ,
+
+
 
 }; // fin -de:   const rutaUrlSinDominio = { 
 
