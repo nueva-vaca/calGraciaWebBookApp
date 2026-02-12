@@ -27,8 +27,9 @@
 ***
 
 
-(+) -vs: corcehtes = ladrillos -vs: parétesis = burbujas -vs: llaves = "abrazos"? -vs: "corchetes angulares" = "flechas"   
 
+<u>"SÍMBOLOS"</u>  
+(+) -vs: corcehtes = ladrillos -vs: parétesis = burbujas -vs: llaves = "abrazos"? -vs: "corchetes angulares" = "flechas"?  
 
 
 
