@@ -1,5 +1,5 @@
 {
-    "liveServer.settings.port": 5503,
+    "liveServer.settings.port": 5504,
     "chat.agent.enabled": false,
     "chat.agent.maxRequests": 0,
     "chat.useAgentsMdFile": false,

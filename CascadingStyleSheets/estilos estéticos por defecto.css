@@ -104,13 +104,18 @@ p , span
 
 h1 , h1 *
     { 
-    font-size:9vw !important ; 
+
+    font-size: 5em !important ; 
     text-decoration-line: underline overline ; 
     /* display:flex ; 
     justify-content:center ; */ 
     text-align:center ;
-    /* width: 100% ; */ 
+     max-width: 100% ;  
     /* max-height: 222px; */
+    
+    overflow-wrap: break-word ; /* 'overflow-wrap: break-word;' - To prevent overflow, the browser may break a line inside an otherwise unbreakable string, such as a long word or URL. */
+    word-break: break-word ; /* 'word-break: break-word;' = To prevent overflow, the browser may break a word at an arbitrary point if there are no otherwise acceptable break points in the line. */ 
+
     } 
 
 

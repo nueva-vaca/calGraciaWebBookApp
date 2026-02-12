@@ -1,10 +1,10 @@
 document.getElementById('load-btn').addEventListener('click', async () => {
       
       
-      const status   =   document.getElementById('status')   ;
-      const results   =   document.getElementById('results')   ;
-      status.textContent   =   'Cargando test.html…'   ;
-      results.innerHTML   =   ''   ;
+      const status   =   document.getElementById('status')   ; 
+      const results   =   document.getElementById('results')   ; 
+      status.textContent   =   'Cargando test.html…'   ; 
+      results.innerHTML   =   ''   ; 
 
 
 
