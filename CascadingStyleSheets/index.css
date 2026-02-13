@@ -73,6 +73,8 @@ header#cabeceraÍndice
 
     z-index: 2 ;
 
+    background-color: rgb(170, 210, 236) ;
+
     }
 
 
@@ -133,7 +135,7 @@ main#contenidoPrincipal {
     padding: 0 ; 
     margin: 0 ; 
 
-    z-index: 98 ;
+    z-index: 1 ;
 
     max-width: inherit ;
 
@@ -177,7 +179,9 @@ footer#menúDePieDePantalla
     bottom: 0 ; 
     max-width: inherit ; 
 
-    z-index: 99 ;
+    z-index: 3 ;
+
+    background-color: rgb(244, 191, 191) ;
 
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
