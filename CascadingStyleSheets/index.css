@@ -192,7 +192,7 @@ footer#menúDePieDePantalla
     align-items: center ;*/
 
     }
-
+   
 
 
 #menúÍndice , 
@@ -203,13 +203,8 @@ footer#menúDePieDePantalla
     }
 
 
-/*#menúDePieDePantalla 
-    {
-    background-color:rgba(255, 0, 0, 0.298)  ; 
-    position:sticky ; 
-    bottom: 0 ;
-    width: 100%;
-    }*/ 
+
+
 
 
 
@@ -229,16 +224,6 @@ footer#menúDePieDePantalla
 
 
 
-#menúOpciones li {
-
-    list-style-type: none ; 
-
-    width: 5px ;
-    height: 5px ;
-    background-color: rgb(202, 5, 5) ;
-    margin: 6px 0 ;
-
-    }
 
 
 
@@ -261,3 +246,23 @@ footer#menúDePieDePantalla
     box-sizing: border-box ;
 
     }
+
+
+
+
+
+
+
+
+    
+#menúOpciones li {
+
+    list-style-type: none ; 
+
+    width: 5px ;
+    height: 5px ;
+    background-color: rgb(202, 5, 5) ;
+    margin: 6px 0 ;
+
+    }
+
