@@ -102,6 +102,10 @@ p , span
 
 
 
+
+
+
+
 h1 , h1 *
     { 
 
@@ -114,18 +118,38 @@ h1 , h1 *
     /* max-height: 222px; */
     
     overflow-wrap: break-word ; /* 'overflow-wrap: break-word;' - To prevent overflow, the browser may break a line inside an otherwise unbreakable string, such as a long word or URL. */
-    word-break: break-word ; /* 'word-break: break-word;' = To prevent overflow, the browser may break a word at an arbitrary point if there are no otherwise acceptable break points in the line. */ 
+    /* word-break: break-word ; 'word-break: break-word;' = To prevent overflow, the browser may break a word at an arbitrary point if there are no otherwise acceptable break points in the line. */ 
 
     } 
-
-
-
 
 h1 span,
 h1 p 
     {
     font-size: inherit;
+    } 
+
+
+
+h2 , h2 *
+    { 
+    text-decoration: underline ; 
+    text-align: center ; 
+    font-size: 1.618em ;
     }
+
+
+
+h3 , h3 *
+    { 
+    text-decoration: underline ; 
+    text-align: left ; 
+    font-size: 1em ;
+    }
+
+    
+
+
+
 
 
 

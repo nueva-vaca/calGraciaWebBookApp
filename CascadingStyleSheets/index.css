@@ -249,12 +249,19 @@ footer#menúDePieDePantalla
 
 
 
+#botonesDeAcción li {   
+    height: 66% ; 
+    font-size: 2em ;   
+    } 
 
 
 
 
 
-    
+
+
+
+
 #menúOpciones li {
 
     list-style-type: none ; 
