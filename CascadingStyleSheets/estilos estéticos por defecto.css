@@ -109,7 +109,7 @@ p , span
 h1 , h1 *
     { 
 
-    font-size: 5em !important ; 
+    font-size: 3em !important ; 
     text-decoration-line: underline overline ; 
     /* display:flex ; 
     justify-content:center ; */ 
