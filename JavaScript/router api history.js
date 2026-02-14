@@ -33,18 +33,27 @@
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 
+
+
+
+
+
 // [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
+
+
 const isGitHub = window.location.hostname.includes('github.io');
 const basePath = isGitHub ? '/calGraciaWebBookApp' : '';
 
 const rutaUrlSinDominio = { 
 
-    // clave/key = nombre en el href del <a> ( = lo que ves en la barra de direcciones )   
+    // 'objeto' = { "clave" + 'valor' }
+    // "clave"/"key" = 'nombre en el href del <a>' ( ---> lo que ves en la barra de direcciones )   
     // -y:   
-    // valor/value = el archivo HTML que se va a cargar para esa ruta 
+    // 'valor'/'value' = el archivo HTML que se va a cargar para esa ruta 
 
-    // The dot (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
+    //+ 'basePath' = { 'path prefix' -or: base URL }
+    // a dot -in: "the / of the "relative"(?) path" (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
 
     404:            `${basePath}/404.html`           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
     "/":            `${basePath}/inicio.html`        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
@@ -57,10 +66,10 @@ const rutaUrlSinDominio = {
 
     "/about":  `${basePath}/DespetarMásFamilia/about.html`   ,
 
-    "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
-    "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
-    "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
-    "/seleccionar-bricks": "/seleccionar bricks.html" ,
+    "/working-on/lista1": `${basePath}/working on (max 3 itmes)/selector desde una lista.html`,
+    "/working-on/lista2": `${basePath}/working on (max 3 itmes)/item aleatorio dentro de lista.html`,
+    "/working-on/lista3": `${basePath}/working on (max 3 itmes)/lista selectora.html`,
+    "/seleccionar-bricks": `${basePath}/seleccionar bricks.html`,
 
 
 
