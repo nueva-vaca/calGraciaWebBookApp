@@ -35,6 +35,9 @@
 
 // [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
+const isGitHub = window.location.hostname.includes('github.io');
+const basePath = isGitHub ? '/calGraciaWebBookApp' : '';
+
 const rutaUrlSinDominio = { 
 
     // clave/key = nombre en el href del <a> ( = lo que ves en la barra de direcciones )   
@@ -43,16 +46,16 @@ const rutaUrlSinDominio = {
 
     // The dot (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
 
-    404:            "./404.html"           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
-    "/":            "./inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
-    "/inicio":      "./inicio.html"        ,
-    "/index.html":  "./inicio.html"        , 
+    404:            `${basePath}/404.html`           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
+    "/":            `${basePath}/inicio.html`        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
+    "/inicio":      `${basePath}/inicio.html`        ,
+    "/index.html":  `${basePath}/inicio.html`        , 
 
-    "/1":           "/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html"      ,
+    "/1":           `${basePath}/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html`      ,
 
-    "/test1":  "./test.html"               ,
+    "/test1":  `${basePath}/test.html`               ,
 
-    "/about":  "/DespetarMásFamilia/about.html"   ,
+    "/about":  `${basePath}/DespetarMásFamilia/about.html`   ,
 
     "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
     "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
