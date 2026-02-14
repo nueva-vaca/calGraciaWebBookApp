@@ -199,9 +199,9 @@ footer#menúDePieDePantalla
    
 
 
-#menúÍndice , 
-#menúOpciones , 
-#botonesDeAcción li 
+#menúÍndice ,  
+#botonesDeAcción li ,
+#menúReglas 
     {
     cursor: pointer;
     }
@@ -266,7 +266,7 @@ footer#menúDePieDePantalla
 
 
 
-#menúOpciones li {
+#menúReglas li {
 
     list-style-type: none ; 
 
@@ -275,14 +275,17 @@ footer#menúDePieDePantalla
     background-color: rgb(202, 5, 5) ;
     margin: 6px 0 ;
 
+    display: grid ;
+    align-content: center ;
+
     } 
 
-#menúOpciones li:nth-child(2) {
-    width: 20px;
-    height: 20px;
-    background: #309603; /* or any color you want */
-    border-radius: 50%;
+#menúReglas li:nth-child(2) {
+    width: 6px ;
+    height: 6px ;
+    background: rgb(202, 5, 5) ; 
+    border-radius: 50% ;         /*   ( The border-radius: 50% ; CSS property ) < makes > [ the corners of an element ] : fully rounded, --> turning it into : a circle. When applied to a square element (where width and height are equal), ( this property ) <creates> [ a perfect circle ]   */
     display: inline-block;
-    margin: 6px 0;
+    margin: 0;
 }
 
