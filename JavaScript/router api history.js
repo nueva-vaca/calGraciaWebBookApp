@@ -41,7 +41,7 @@ const rutaUrlSinDominio = {
     // -y:   
     // valor/value = el archivo HTML que se va a cargar para esa ruta 
 
-    // The dot -means: "current directory" 
+    // The dot (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
 
     404:            "./404.html"           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
     "/":            "./inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
