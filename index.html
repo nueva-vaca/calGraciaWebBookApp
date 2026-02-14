@@ -7,7 +7,7 @@
 
 
 
-            <base href="https://nueva-vaca.github.io/calGraciaWebBookApp/"><!--    + The <base> element -defines/sepcify: the "base url" for resolving all relative urls = the name of the default browsing context for the purposes of following hyperlinks   -->
+            <!--    <base href="https://nueva-vaca.github.io/calGraciaWebBookApp/">+ The <base> element -defines/sepcify: the "base url" for resolving all relative urls = the name of the default browsing context for the purposes of following hyperlinks   -->
             <link rel="stylesheet" href="./CascadingStyleSheets/estilos estéticos por defecto.css" > 
 
             <link rel="stylesheet" href="/CascadingStyleSheets/index.css">
@@ -23,7 +23,13 @@
             <!-- Asegúrate de que el script del breadcrumb se carga después del router -->
             <script src="./JavaScript/bread.crum navigation.js" defer></script>
 
-
+ <script>
+  // Set base dynamically based on environment
+  const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  if (!isLocal) {
+    document.querySelector('base').href = 'https://nueva-vaca.github.io/calGraciaWebBookApp/';
+  }
+</script>
 
 
 
