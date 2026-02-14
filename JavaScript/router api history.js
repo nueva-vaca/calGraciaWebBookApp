@@ -43,8 +43,8 @@ const rutaUrlSinDominio = {
 
     404:            "/404.html"           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
     "/":            "/inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
-    "/inicio":      "/inicio.html"        ,
-    "/index.html":  "/inicio.html"        , 
+    "./inicio":      "/inicio.html"        ,
+    "./index.html":  "/inicio.html"        , 
 
     "/1":           "/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html"      ,
 
