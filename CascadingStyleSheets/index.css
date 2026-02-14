@@ -275,5 +275,14 @@ footer#menúDePieDePantalla
     background-color: rgb(202, 5, 5) ;
     margin: 6px 0 ;
 
-    }
+    } 
+
+#menúOpciones li:nth-child(2) {
+    width: 20px;
+    height: 20px;
+    background: #309603; /* or any color you want */
+    border-radius: 50%;
+    display: inline-block;
+    margin: 6px 0;
+}
 
