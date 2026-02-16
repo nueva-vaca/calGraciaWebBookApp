@@ -239,8 +239,10 @@ const inyectarPáginaEnrutada = async () => {
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
 
 
+    
 
-    // la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
+
+    // [??] la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
      // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye basePath, quitarlo
     if (!isGitHub && path.startsWith('/calGraciaWebBookApp')) {
