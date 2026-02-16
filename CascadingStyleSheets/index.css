@@ -73,6 +73,8 @@ header#cabeceraÍndice
 
     z-index: 2 ;
 
+    background-color: rgb(170, 210, 236) ;
+
     }
 
 
@@ -133,7 +135,7 @@ main#contenidoPrincipal {
     padding: 0 ; 
     margin: 0 ; 
 
-    z-index: 98 ;
+    z-index: 1 ;
 
     max-width: inherit ;
 
@@ -177,7 +179,9 @@ footer#menúDePieDePantalla
     bottom: 0 ; 
     max-width: inherit ; 
 
-    z-index: 99 ;
+    z-index: 3 ;
+
+    background-color: rgb(244, 191, 191) ;
 
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
@@ -192,24 +196,19 @@ footer#menúDePieDePantalla
     align-items: center ;*/
 
     }
+   
 
 
-
-#menúÍndice , 
-#menúOpciones , 
-#botonesDeAcción li 
+#menúÍndice ,  
+#botonesDeAcción li ,
+#menúReglas 
     {
     cursor: pointer;
     }
 
 
-/*#menúDePieDePantalla 
-    {
-    background-color:rgba(255, 0, 0, 0.298)  ; 
-    position:sticky ; 
-    bottom: 0 ;
-    width: 100%;
-    }*/ 
+
+
 
 
 
@@ -229,16 +228,6 @@ footer#menúDePieDePantalla
 
 
 
-#menúOpciones li {
-
-    list-style-type: none ; 
-
-    width: 5px ;
-    height: 5px ;
-    background-color: rgb(202, 5, 5) ;
-    margin: 6px 0 ;
-
-    }
 
 
 
@@ -261,3 +250,42 @@ footer#menúDePieDePantalla
     box-sizing: border-box ;
 
     }
+
+
+
+#botonesDeAcción li {   
+    height: 66% ; 
+    font-size: 2em ;   
+    } 
+
+
+
+
+
+
+
+
+
+#menúReglas li {
+
+    list-style-type: none ; 
+
+    width: 5px ;
+    height: 5px ;
+    background-color: rgb(202, 5, 5) ;
+    margin: 6px 0 ;
+
+    display: grid ;
+    align-content: center ;
+
+    } 
+
+#menúReglas li:nth-child(2) {
+    width: 6px ;
+    height: 6px ;
+    background: rgb(202, 5, 5) ; 
+    border-radius: 50% ;         /*   ( The border-radius: 50% ; CSS property ) < makes > [ the corners of an element ] : fully rounded, --> turning it into : a circle. When applied to a square element (where width and height are equal), ( this property ) <creates> [ a perfect circle ]   */
+    display: inline-block;
+    margin: 0;
+}
+

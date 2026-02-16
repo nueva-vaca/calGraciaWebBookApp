@@ -62,4 +62,12 @@
 
 
 
-*** creo que igual no no voy a cargar / inyectar las páginas nuevas con un enrutador tipo 'single page aplication' <---pq: me está costando conseguirlo "bien" -y: me dá bastanes problemas 
+*** 
+
+
+
+- make : " a "go-back" button <- at the top left of the page / papyrrus / web.page "   
+
+
+
++ git fetch - is used ( in 'Git' ) to : download the latest changes from a remote repository ( in like GitHub or something ) to your local machine<span style="color:rgb(127, 127, 127)">, but it does not automatically merge those changes into your current branch</span>. <span style="color:rgb(211, 211, 211)"> It updates your local copy of the remote branches, allowing you to see what others have pushed without affecting your own work. This is useful for checking for updates before deciding to merge or rebase them into your branch.</span> 

@@ -33,29 +33,43 @@
 // "configuración" de RUTAS "hard.wired" 
 // "configuración" de RUTAS "hard.wired" 
 
+
+
+
+
+
 // [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
+
+
+const isGitHub = window.location.hostname.includes('github.io');
+const basePath = isGitHub ? '/calGraciaWebBookApp' : '';
+
 const rutaUrlSinDominio = { 
 
-    // clave/key = nombre en el href del <a> ( = lo que ves en la barra de direcciones )   
+    // 'objeto' = { "clave" + 'valor' }
+    // "clave"/"key" = 'nombre en el href del <a>' ( ---> lo que ves en la barra de direcciones )   
     // -y:   
-    // valor/value = el archivo HTML que se va a cargar para esa ruta 
+    // 'valor'/'value' = el archivo HTML que se va a cargar para esa ruta 
 
-    404:            "/404.html"           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
-    "/":            "/inicio.html"        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
-    "/inicio":      "/inicio.html"        ,
-    "/index.html":  "/inicio.html"        , 
+    //+ 'basePath' = { 'path prefix' -or: base URL }
+    // a dot -in: "the / of the "relative"(?) path" (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
 
-    "/1":           "/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html"      ,
+    404:            `${basePath}/404.html`           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
+    [`${basePath}/`]:            `${basePath}/inicio.html`        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
+    [`${basePath}/inicio`]:      `${basePath}/inicio.html`        ,
+    [`${basePath}/index.html`]:  `${basePath}/inicio.html`        , 
 
-    "/test1":  "/test.html"               ,
+    [`${basePath}/1`]:           `${basePath}/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html`      ,
 
-    "/about":  "/DespetarMásFamilia/about.html"   ,
+    [`${basePath}/test1`]:  `${basePath}/test.html`               ,
 
-    "/working-on/lista1": "/working on (max 3 itmes)/selector desde una lista.html",
-    "/working-on/lista2": "/working on (max 3 itmes)/item aleatorio dentro de lista.html",
-    "/working-on/lista3": "/working on (max 3 itmes)/lista selectora.html",
-    "/seleccionar-bricks": "/seleccionar bricks.html" ,
+    [`${basePath}/about`]:  `${basePath}/DespetarMásFamilia/about.html`   ,
+
+    [`${basePath}/working-on/lista1`]: `${basePath}/working on (max 3 itmes)/selector desde una lista.html`,
+    [`${basePath}/working-on/lista2`]: `${basePath}/working on (max 3 itmes)/item aleatorio dentro de lista.html`,
+    [`${basePath}/working-on/lista3`]: `${basePath}/working on (max 3 itmes)/lista selectora.html`,
+    [`${basePath}/seleccionar-bricks`]: `${basePath}/seleccionar bricks.html`,
 
 
 
@@ -132,8 +146,13 @@ document.addEventListener("click", (event) => {
     event.preventDefault() ; 
     // event.preventDefault() = method to stop the default browser behavior ( = navigating away from the current page ) when a link is clicked 
 
+    // + If the href - doesn't already include : 'the basePath', 'prepend' "it" = 'the basePath'
+    const hrefDelAnchorReciénClicadoConBasePath = hrefDelAnchorReciénClicado.startsWith(basePath) 
+        ? hrefDelAnchorReciénClicado 
+        : basePath + hrefDelAnchorReciénClicado;
+
     // 4: Cambia la URL en la barra de direcciones (sin recargar)
-    window.history.pushState({}, "", hrefDelAnchorReciénClicado) ; 
+    window.history.pushState( {} , "" , hrefDelAnchorReciénClicadoConBasePath ) ; 
     // The pushState() method of the History interface -adds: an entry to the browser's session history stack.
         // The first argument ({}) -is: the state object (not used here)
         // The second argument ("") -is: the title (also not used here)

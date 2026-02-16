@@ -11,6 +11,8 @@
 
 
 
+
+
 [ ] when I click { -or: main -or: footer }   --->   header - "goes back" to "3 lines" 
 
 [ ]  hacer : [ {aparecer -o: desaparecer} -vs: {expandir -o: contraer} ] el <header> ( = "navigating" ) <--- caundo : aprete / clique "el icono hamburguesa de índice" 
