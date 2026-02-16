@@ -23,7 +23,7 @@
 const isGitHub =   window.location.hostname.includes('github.io')   ; 
 const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 //  'basePath' +o-= { 'path prefix' -or: base URL }
-// ( The base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
+// ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
 
 
 
@@ -55,12 +55,14 @@ const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 // [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
 
+// ruta url sin dominio = 'path' ( -vs: 'base path' (-vs: 'url' = {'base path' + 'path'}) ) 
 const rutaUrlSinDominio = { 
+// 'objeto' = { "clave" + 'valor' }
+// "clave"/"key" = 'nombre en el href del <a>' ( ---> lo que ves en la barra de direcciones )   
+// -y:   
+// 'valor'/'value' = el archivo HTML que se va a cargar para esa ruta 
 
-    // 'objeto' = { "clave" + 'valor' }
-    // "clave"/"key" = 'nombre en el href del <a>' ( ---> lo que ves en la barra de direcciones )   
-    // -y:   
-    // 'valor'/'value' = el archivo HTML que se va a cargar para esa ruta 
+
 
     //+ 'basePath' = { 'path prefix' -or: base URL }
     // a dot -in: "the / of the "relative"(?) path" (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
@@ -238,11 +240,11 @@ const inyectarPáginaEnrutada = async () => {
 
 
 
-    // la ia - me hace añadir esto para poder cargar en abmos : github pages y live server
+    // la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
      // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye basePath, quitarlo
     if (!isGitHub && path.startsWith('/calGraciaWebBookApp')) {
-        path = path.replace('/calGraciaWebBookApp', '') || '/';
+        path = path.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el basePath, usar '/' como ruta raíz
     }
     
     // Si estamos en GitHub y la ruta NO incluye basePath, agregarlo
@@ -258,13 +260,17 @@ const inyectarPáginaEnrutada = async () => {
 
     // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the rutaUrlSinDominio object 
     const route = rutaUrlSinDominio[path] || rutaUrlSinDominio[404] ;
+
     // [3.4] Fetches the corresponding HTML file 
     const html = await fetch(route).then((data) => data.text()) ;
     // [3.5] Injects it into the element with id 'contenidoPrincipal' 
     document.getElementById("contenidoPrincipal").innerHTML = html ;
     // [3.X] Actualiza el breadcrumb después de inyectar el contenido
     if (window.actualizarRutaDeNavegaciónEnEslabonesDeCadena) window.actualizarRutaDeNavegaciónEnEslabonesDeCadena();
-    };
+    
+
+
+}; // FIN DE : const inyectarPáginaEnrutada = async () => {
 
 
 
