@@ -235,7 +235,7 @@ document.addEventListener("click", (event) => {
 // [3.1] crea una función (en una constante) -llamada: 'inyectarPáginaEnrutada' 
 const inyectarPáginaEnrutada = async () => {
     // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'path' 
-    const path = window.location.pathname   ; 
+    let path = window.location.pathname   ; 
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
 
 

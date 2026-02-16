@@ -9,7 +9,25 @@
 
 
 
-            <base href="https://nueva-vaca.github.io/calGraciaWebBookApp/"><!--    + The <base> element -defines/sepcify: the "base url" for resolving all relative urls = the name of the default browsing context for the purposes of following hyperlinks   -->
+            <!--    <base href="https://nueva-vaca.github.io/calGraciaWebBookApp/">+ The <base> element -defines/sepcify: the "base url" for resolving all relative urls = the name of the default browsing context for the purposes of following hyperlinks   -->
+            <!-- BASE DINÁMICA: se establece con JS según el entorno -->
+            <base id="dynamicBase" href="./">
+            <script>
+              (function() {
+                var isGitHub = window.location.hostname.includes('github.io');
+                if (isGitHub) {
+                  document.getElementById('dynamicBase').href = '/calGraciaWebBookApp/';
+                } else {
+                  document.getElementById('dynamicBase').href = './';
+                }
+              })();
+            </script>
+
+
+
+
+
+
             
             <link rel="stylesheet" href="./CascadingStyleSheets/estilos estéticos por defecto.css" > 
 
