@@ -42,8 +42,12 @@
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
 
 
-const isGitHub = window.location.hostname.includes('github.io');
-const basePath = isGitHub ? '/calGraciaWebBookApp' : '';
+
+//  'basePath' = { 'path prefix' -or: base URL }
+const isGitHub =   window.location.hostname.includes('github.io')   ;
+const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
+
+
 
 const rutaUrlSinDominio = { 
 
