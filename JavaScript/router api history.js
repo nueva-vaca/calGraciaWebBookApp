@@ -44,8 +44,8 @@
 
 
 // + si el sitio se está sirviendo desde GitHub Pages, entonces: el 'basePath' es '/calGraciaWebBookApp' (o el nombre de tu repositorio) -de lo contrario, el 'basePath' es una cadena vacía '' (lo que significa que las rutas son relativas a la raíz del servidor)
-const elSitioSeEstáSirviendoDesdeGithubPages =   window.location.hostname.includes('github.io')   ; 
-const basePath =   elSitioSeEstáSirviendoDesdeGithubPages   ?   '/calGraciaWebBookApp'   :   ''   ;
+const isGitHub =   window.location.hostname.includes('github.io')   ; 
+const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 //  'basePath' = { 'path prefix' -or: base URL }
 
 
