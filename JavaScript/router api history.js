@@ -18,6 +18,20 @@
 
 
 
+// Detectar el entorno correctamente
+// + si el sitio se está sirviendo desde GitHub Pages, entonces: el 'basePath' es '/calGraciaWebBookApp' (o el nombre de tu repositorio) -de lo contrario, el 'basePath' es una cadena vacía '' (lo que significa que las rutas son relativas a la raíz del servidor)
+const isGitHub =   window.location.hostname.includes('github.io')   ; 
+const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
+//  'basePath' +o-= { 'path prefix' -or: base URL }
+// ( The base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
+
+
+
+
+
+
+
+
 
 
 // "configuración" de RUTAS "hard.wired" 
@@ -40,17 +54,6 @@
 
 // [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
-
-
-
-// + si el sitio se está sirviendo desde GitHub Pages, entonces: el 'basePath' es '/calGraciaWebBookApp' (o el nombre de tu repositorio) -de lo contrario, el 'basePath' es una cadena vacía '' (lo que significa que las rutas son relativas a la raíz del servidor)
-const isGitHub =   window.location.hostname.includes('github.io')   ; 
-const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
-//  'basePath' = { 'path prefix' -or: base URL }
-
-
-
-
 
 const rutaUrlSinDominio = { 
 
@@ -94,6 +97,11 @@ const rutaUrlSinDominio = {
 // fin de "configuración" de RUTAS "hard.wired" 
 // fin de "configuración" de RUTAS "hard.wired" 
 // fin de "configuración" de RUTAS "hard.wired"
+
+
+
+
+
 
 
 
@@ -189,6 +197,11 @@ document.addEventListener("click", (event) => {
 
 
 
+
+
+
+
+
 // inyectarPáginaEnrutada()
 // inyectarPáginaEnrutada()
 // inyectarPáginaEnrutada()
@@ -222,6 +235,27 @@ const inyectarPáginaEnrutada = async () => {
     // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'path' 
     const path = window.location.pathname   ; 
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
+
+
+
+    // la ia - me hace añadir esto para poder cargar en abmos : github pages y live server
+
+     // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye basePath, quitarlo
+    if (!isGitHub && path.startsWith('/calGraciaWebBookApp')) {
+        path = path.replace('/calGraciaWebBookApp', '') || '/';
+    }
+    
+    // Si estamos en GitHub y la ruta NO incluye basePath, agregarlo
+    if (isGitHub && !path.startsWith('/calGraciaWebBookApp')) {
+        path = '/calGraciaWebBookApp' + path;
+    }
+    
+    console.log('Ruta normalizada:', path); // Para depuración
+    
+
+
+
+
     // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the rutaUrlSinDominio object 
     const route = rutaUrlSinDominio[path] || rutaUrlSinDominio[404] ;
     // [3.4] Fetches the corresponding HTML file 
