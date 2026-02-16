@@ -51,16 +51,12 @@ const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 
 
 
-
+// 'url' = 'ruta base' + 'ruta'(!) 
 // [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected). 
-/*
-Path: The path is the specific endpoint you want to access within the base path.It is appended to the base path to form a complete endpoint URL.
+// "ruta url sin dominio" = the 'path' ( -vs: 'base path' (-vs: 'url' = {'base path' + 'path'}) )   < -is: >   [ the specific 'endpoint' you want to access ] <-appended to: 'the base path' <--- to form a complete endpoint URL.
 
-Example: /users or /orders/{orderId}
 
-Note: The path should be the endpoint part that specifies the resource, without the base path included.
-3. URL The URL (Uniform Resource Locator) is the complete address used to access a resource on the internet. It combines the base path and path to form the full address.
-*/
+
 
 
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
