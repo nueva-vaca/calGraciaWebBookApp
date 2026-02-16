@@ -23,7 +23,7 @@
 const isGitHub =   window.location.hostname.includes('github.io')   ; 
 const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 //  'basePath' +o-= { 'path prefix' -or: base URL }
-// ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
+// + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
 
 
 
@@ -52,7 +52,17 @@ const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 
 
 
-// [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected).   
+// [0.0] rutaUrlSinDominio 'object' -maps: URL paths to their corresponding HTML files (that will(!) be fetched and injected). 
+/*
+Path: The path is the specific endpoint you want to access within the base path.It is appended to the base path to form a complete endpoint URL.
+
+Example: /users or /orders/{orderId}
+
+Note: The path should be the endpoint part that specifies the resource, without the base path included.
+3. URL The URL (Uniform Resource Locator) is the complete address used to access a resource on the internet. It combines the base path and path to form the full address.
+*/
+
+
 // [1.1] crea una (variable) constante -llamada: 'rutaUrlSinDominio' - que es un objeto 
 
 // ruta url sin dominio = 'path' ( -vs: 'base path' (-vs: 'url' = {'base path' + 'path'}) ) 
@@ -239,7 +249,7 @@ const inyectarPáginaEnrutada = async () => {
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
 
 
-    
+
 
 
     // [??] la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 

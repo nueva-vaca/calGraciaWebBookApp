@@ -9,9 +9,9 @@
 
 
 
-            <!--   + ( The <base> element )   < -defines/sepcify: >   [ the "base url" for resolving all relative urls = the name of the default browsing context for the purposes of following hyperlinks ]   -->
+            <!--   + ( The <base> element )   < -defines/sepcifies: >   [ the "base url" for resolving all relative urls = the name of the default browsing context <- for the purposes of : following hyperlinks ]   -->
             <base id="dynamicBase" href="./">
-            <!-- BASE DINÁMICA: se establece con JS según el entorno -->
+            <!-- BASE DINÁMICA del 'base path' : se establece con JS según el entorno -->
             <script>
               (function() {
                 var isGitHub = window.location.hostname.includes('github.io');
@@ -21,7 +21,8 @@
                   document.getElementById('dynamicBase').href = './';
                 }
               })();
-            </script>
+            </script> 
+            <!--   + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .   -->
             <!--   base (in feb.'26) href="https://nueva-vaca.github.io/calGraciaWebBookApp/"   -->
 
 
