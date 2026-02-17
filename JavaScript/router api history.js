@@ -1,4 +1,4 @@
-// código "vainilla" en java.script -para: enrutar páginas html - en "single‑page application". 
+// código "vainilla" en java.script -para: enrutar páginas html - como en "single‑page application". 
 // It - { 
 // [1] define : las rutas a los archivos html < ( en el objeto 'rutaUrlSinDominio' )
 // [2] intercepta los clics   -y:   "llama" a la función 'inyectarPáginaEnrutada()' 
@@ -6,7 +6,8 @@
 // loads the corresponding HTML fragment -into: the main section with the id contenidoPrincial  
 // }
 
-// [3.0] the function inyectarPáginaEnrutada() [3.2] reads the current URL path (the part after the domain) -and:   [3.3] looks it up in the rutaUrlSinDominio object to find the corresponding HTML file, then : [3.4] fetches that HTML file and [3.5] injects it into the page
+
+
 
 
 
