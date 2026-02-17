@@ -19,19 +19,6 @@
 
 
 
-// (en 2026) Estoy "desarrollando" este sitio web desde 'git.hub code.spaces' -y: no me dejaba abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} , ---> por lo tanto : añadí código para poder abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} 
-// [1] detectar : si el sitio / entorno se está sirviendo desde GitHub Pages o no
-const isGitHub =   window.location.hostname.includes('github.io')   ; 
-// [2] +- [ si el sitio se está sirviendo desde GitHub Pages ] ---> entonces : [ el 'rutaBase' -es: '/calGraciaWebBookApp' (o el nombre de tu repositorio) ] <> -de lo contrario: ---> [ el 'rutaBase' -es: una cadena vacía '' ( <- lo que significa que las rutas son relativas a la raíz del servidor ) ]
-const rutaBase =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ; 
-// ruta base = protocolo + dominio ( +- puerto)
-// 'url' = 'ruta base' + 'ruta'(!) = protocolo://dominio[:puerto]/ruta
-//  'basePath' +o-= { 'path prefix' -or: base URL }
-// + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
-
-
-// rutaBaseIgualAProtocoloYDominio
-// rutaBaseLiteralmente 
 
 
 
@@ -193,13 +180,13 @@ document.addEventListener("click", (event) => {
     event.preventDefault() ; 
     // event.preventDefault() = method to stop the default browser behavior ( = navigating away from the current page ) when a link is clicked 
 
-    // + If the href - doesn't already include : 'the basePath', 'prepend' "it" = 'the basePath'
-    const hrefDelAnchorReciénClicadoConBasePath = hrefDelAnchorReciénClicado.startsWith(rutaBase) 
+    // + If the href - doesn't already include : 'the basePath', 'prepend' "it"(<- 'the basePath')
+    const hrefDelAnchorReciénClicadoConRutaBase = hrefDelAnchorReciénClicado.startsWith(rutaBase) 
         ? hrefDelAnchorReciénClicado 
         : rutaBase + hrefDelAnchorReciénClicado;
 
     // 4: Cambia la URL en la barra de direcciones (sin recargar)
-    window.history.pushState( {} , "" , hrefDelAnchorReciénClicadoConBasePath ) ; 
+    window.history.pushState( {} , "" , hrefDelAnchorReciénClicadoConRutaBase ) ; 
     // The pushState() method of the History interface -adds: an entry to the browser's session history stack.
         // The first argument ({}) -is: the state object (not used here)
         // The second argument ("") -is: the title (also not used here)
@@ -275,12 +262,12 @@ const inyectarPáginaEnrutada = async () => {
     // [??] la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
      // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye rutaBase, quitarlo
-    if (!isGitHub && path.startsWith('/calGraciaWebBookApp')) {
+    if (!esGitHub && path.startsWith('/calGraciaWebBookApp')) {
         path = path.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el rutaBase, usar '/' como ruta raíz
     }
     
     // Si estamos en GitHub y la ruta NO incluye rutaBase, agregarlo
-    if (isGitHub && !path.startsWith('/calGraciaWebBookApp')) {
+    if (esGitHub && !path.startsWith('/calGraciaWebBookApp')) {
         path = '/calGraciaWebBookApp' + path;
     }
     
