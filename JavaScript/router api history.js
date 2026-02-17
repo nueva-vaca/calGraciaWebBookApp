@@ -19,17 +19,19 @@
 
 
 
-// (en 2026) Estoy "desarrollando" este sitio web desde 'git.hub code.spaces' -y: no me dejaba abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} , ---> por lo tanto : añadí código para abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} 
+// (en 2026) Estoy "desarrollando" este sitio web desde 'git.hub code.spaces' -y: no me dejaba abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} , ---> por lo tanto : añadí código para poder abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} 
 // [1] detectar : si el sitio / entorno se está sirviendo desde GitHub Pages o no
 const isGitHub =   window.location.hostname.includes('github.io')   ; 
-// [2] +- [ si el sitio se está sirviendo desde GitHub Pages ] ---> entonces : [ el 'basePath' -es: '/calGraciaWebBookApp' (o el nombre de tu repositorio) ] <> -de lo contrario: ---> [ el 'basePath' -es: una cadena vacía '' ( <- lo que significa que las rutas son relativas a la raíz del servidor ) ]
-const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
-// 'url' = 'ruta base' + 'ruta'(!)
+// [2] +- [ si el sitio se está sirviendo desde GitHub Pages ] ---> entonces : [ el 'rutaBase' -es: '/calGraciaWebBookApp' (o el nombre de tu repositorio) ] <> -de lo contrario: ---> [ el 'rutaBase' -es: una cadena vacía '' ( <- lo que significa que las rutas son relativas a la raíz del servidor ) ]
+const rutaBase =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ; 
+// ruta base = protocolo + dominio ( +- puerto)
+// 'url' = 'ruta base' + 'ruta'(!) = protocolo://dominio[:puerto]/ruta
 //  'basePath' +o-= { 'path prefix' -or: base URL }
 // + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
 
 
-// rutaBase=ProtocoloDominio
+// rutaBaseIgualAProtocoloYDominio
+// rutaBaseLiteralmente 
 
 
 
@@ -95,21 +97,21 @@ const rutaUrlSinDominio = {
     //+ 'basePath' = { 'path prefix' -or: base URL }
     // a dot -in: "the / of the "relative"(?) path" (   in -ej: ' "./inicio.html" '   ) -means: "current directory" 
 
-    404:            `${basePath}/404.html`           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
-    [`${basePath}/`]:            `${basePath}/inicio.html`        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
-    [`${basePath}/inicio`]:      `${basePath}/inicio.html`        ,
-    [`${basePath}/index.html`]:  `${basePath}/inicio.html`        , 
+    404:            `${rutaBase}/404.html`           ,   /*   + fallback route -for: unmatched rutaUrlSinDominio. If a user tries to navigate to a path that doesn't exist, they'll get this 404 page.   */ 
+    [`${rutaBase}/`]:            `${rutaBase}/inicio.html`        ,   /*    [1] when the page first loads at the root path = "/" <-| key   --->  [2] it tries to fetch : 'inicio.html' <-| value   */
+    [`${rutaBase}/inicio`]:      `${rutaBase}/inicio.html`        ,
+    [`${rutaBase}/index.html`]:  `${rutaBase}/inicio.html`        , 
 
-    [`${basePath}/1`]:           `${basePath}/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html`      ,
+    [`${rutaBase}/1`]:           `${rutaBase}/DespetarMásFamilia/las masías del Gracia/1.0] SABIDURÍA/SABIDURIAinicio.html`      ,
 
-    [`${basePath}/test1`]:  `${basePath}/test.html`               ,
+    [`${rutaBase}/test1`]:  `${rutaBase}/test.html`               ,
 
-    [`${basePath}/about`]:  `${basePath}/DespetarMásFamilia/about.html`   ,
+    [`${rutaBase}/about`]:  `${rutaBase}/DespetarMásFamilia/about.html`   ,
 
-    [`${basePath}/working-on/lista1`]: `${basePath}/working on (max 3 itmes)/selector desde una lista.html`,
-    [`${basePath}/working-on/lista2`]: `${basePath}/working on (max 3 itmes)/item aleatorio dentro de lista.html`,
-    [`${basePath}/working-on/lista3`]: `${basePath}/working on (max 3 itmes)/lista selectora.html`,
-    [`${basePath}/seleccionar-bricks`]: `${basePath}/seleccionar bricks.html`,
+    [`${rutaBase}/working-on/lista1`]: `${rutaBase}/working on (max 3 itmes)/selector desde una lista.html`,
+    [`${rutaBase}/working-on/lista2`]: `${rutaBase}/working on (max 3 itmes)/item aleatorio dentro de lista.html`,
+    [`${rutaBase}/working-on/lista3`]: `${rutaBase}/working on (max 3 itmes)/lista selectora.html`,
+    [`${rutaBase}/seleccionar-bricks`]: `${rutaBase}/seleccionar bricks.html`,
 
 
 
@@ -192,9 +194,9 @@ document.addEventListener("click", (event) => {
     // event.preventDefault() = method to stop the default browser behavior ( = navigating away from the current page ) when a link is clicked 
 
     // + If the href - doesn't already include : 'the basePath', 'prepend' "it" = 'the basePath'
-    const hrefDelAnchorReciénClicadoConBasePath = hrefDelAnchorReciénClicado.startsWith(basePath) 
+    const hrefDelAnchorReciénClicadoConBasePath = hrefDelAnchorReciénClicado.startsWith(rutaBase) 
         ? hrefDelAnchorReciénClicado 
-        : basePath + hrefDelAnchorReciénClicado;
+        : rutaBase + hrefDelAnchorReciénClicado;
 
     // 4: Cambia la URL en la barra de direcciones (sin recargar)
     window.history.pushState( {} , "" , hrefDelAnchorReciénClicadoConBasePath ) ; 
@@ -272,12 +274,12 @@ const inyectarPáginaEnrutada = async () => {
 
     // [??] la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
-     // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye basePath, quitarlo
+     // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye rutaBase, quitarlo
     if (!isGitHub && path.startsWith('/calGraciaWebBookApp')) {
-        path = path.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el basePath, usar '/' como ruta raíz
+        path = path.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el rutaBase, usar '/' como ruta raíz
     }
     
-    // Si estamos en GitHub y la ruta NO incluye basePath, agregarlo
+    // Si estamos en GitHub y la ruta NO incluye rutaBase, agregarlo
     if (isGitHub && !path.startsWith('/calGraciaWebBookApp')) {
         path = '/calGraciaWebBookApp' + path;
     }
