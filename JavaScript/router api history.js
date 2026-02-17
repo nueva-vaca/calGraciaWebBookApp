@@ -17,6 +17,10 @@
 
 
 
+// Asegúrate de que 'rutaBase' está disponible:
+const rutaBase =   window.rutaBase   ||   ''   ;
+const esGitHub =   window.esGitHub   ||   false   ;
+
 
 
 
