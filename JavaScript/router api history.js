@@ -19,14 +19,17 @@
 
 
 
-// Detectar el entorno correctamente
-// + si el sitio se está sirviendo desde GitHub Pages, entonces: el 'basePath' es '/calGraciaWebBookApp' (o el nombre de tu repositorio) -de lo contrario, el 'basePath' es una cadena vacía '' (lo que significa que las rutas son relativas a la raíz del servidor)
+// (en 2026) Estoy "desarrollando" este sitio web desde 'git.hub code.spaces' -y: no me dejaba abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} , ---> por lo tanto : añadí código para abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} 
+// [1] detectar : si el sitio / entorno se está sirviendo desde GitHub Pages o no
 const isGitHub =   window.location.hostname.includes('github.io')   ; 
+// [2] +- [ si el sitio se está sirviendo desde GitHub Pages ] ---> entonces : [ el 'basePath' -es: '/calGraciaWebBookApp' (o el nombre de tu repositorio) ] <> -de lo contrario: ---> [ el 'basePath' -es: una cadena vacía '' ( <- lo que significa que las rutas son relativas a la raíz del servidor ) ]
 const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
+// 'url' = 'ruta base' + 'ruta'(!)
 //  'basePath' +o-= { 'path prefix' -or: base URL }
 // + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
 
 
+// rutaBase=ProtocoloDominio
 
 
 
@@ -35,19 +38,37 @@ const basePath =   isGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
 
 
 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
-// "configuración" de RUTAS "hard.wired" 
 
+
+
+
+
+
+
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired" 
+// "configuración" de RUTAS "hard.wired"
 
 
 
