@@ -16,6 +16,7 @@
             background: #e0edff;
             transition: background 0.2s;
             border-bottom: 1px solid #2563eb;
+            text-decoration: underline double #2563eb;
             }
 
         .lista-de-selección-única select {
@@ -26,7 +27,6 @@
             width: 100%;
             height: 100%;
             cursor: pointer;
-            font-size: 16px;
             }
             
    </style>
@@ -52,7 +52,7 @@
                 <option>realize</option>
             </select>
         </span>
-        in the morning with the
+        <span>in the morning with the </span>
         <span class="lista-de-selección-única">
             <span>family</span>
             <select> 
@@ -64,11 +64,17 @@
     </div>
 
     <script>
-        document.querySelectorAll('.lista-de-selección-única select').forEach(select => {
-            select.addEventListener('change', () => {
-                select.previousElementSibling.textContent = select.value;
+
+
+
+        document.querySelectorAll('.lista-de-selección-única select').forEach(ítemDeLaLista => {
+            ítemDeLaLista.addEventListener('change', () => {
+                ítemDeLaLista.previousElementSibling.textContent = ítemDeLaLista.value;
             });
         });
+
+
+
     </script>
 </body>
 </html>
