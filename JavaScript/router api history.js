@@ -255,34 +255,34 @@ document.addEventListener("click", (event) => {
 
 // [3.1] crea una función (en una constante) -llamada: 'inyectarPáginaEnrutada' 
 const inyectarPáginaEnrutada = async () => {
-    // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'path' 
-    let path = window.location.pathname   ; 
+    // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'rutaDelArchivoDeLaUrlActual' 
+    let rutaDelArchivoDeLaUrlActual = window.location.pathname   ; 
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
 
 
 
 
 
-    // [??] la ia - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
+    // [3.?y1/2] la "ia" - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
-     // Normalizar la ruta: si NO estamos en GitHub y la ruta incluye rutaBase, quitarlo
-    if (!esGitHub && path.startsWith('/calGraciaWebBookApp')) {
-        path = path.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el rutaBase, usar '/' como ruta raíz
+     // "Normalizar"(?) la ruta: si NO estamos en GitHub y la ruta incluye rutaBase, quitarlo
+    if (!esGitHub && rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
+        rutaDelArchivoDeLaUrlActual = rutaDelArchivoDeLaUrlActual.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el rutaBase, usar '/' como ruta raíz
     }
     
     // Si estamos en GitHub y la ruta NO incluye rutaBase, agregarlo
-    if (esGitHub && !path.startsWith('/calGraciaWebBookApp')) {
-        path = '/calGraciaWebBookApp' + path;
+    if (esGitHub && !rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
+        rutaDelArchivoDeLaUrlActual = '/calGraciaWebBookApp' + rutaDelArchivoDeLaUrlActual;
     }
     
-    console.log('Ruta normalizada:', path); // Para depuración
+    console.log('Ruta normalizada:', rutaDelArchivoDeLaUrlActual); // Para depuración
     
 
 
 
 
     // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the rutaUrlSinDominio object 
-    const route = rutaUrlSinDominio[path] || rutaUrlSinDominio[404] ;
+    const route = rutaUrlSinDominio[rutaDelArchivoDeLaUrlActual] || rutaUrlSinDominio[404] ;
 
     // [3.4] Fetches the corresponding HTML file 
     const html = await fetch(route).then((data) => data.text()) ;
