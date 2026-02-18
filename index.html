@@ -1,365 +1,74 @@
-<!DOCTYPE html > 
-<html lang="es" >
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Word Replacer</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<head><title>ca'l Gracia</title> 
-            <meta charset="UTF-8"> 
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <style>
+        .lista-de-selección-única {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;  
+            }
 
-            <!--         [ ]"dots" in " ./"paths" " ]   =   'relative paths'   <-|This: <work> on both environments ( = { "live Server" -and: 'Git.Hub Pages' } ) <-because: they're relative to the HTML file's location         -->
+        .lista-de-selección-única:hover {
+            background: #e0edff;
+            transition: background 0.2s;
+            border-bottom: 1px solid #2563eb;
+            }
 
-
-
-            <!--   + ( The <base> element )   < -defines/sepcifies: >   [ the "base url" for resolving all relative urls = the name of the default browsing context <- for the purposes of : following hyperlinks ]   -->
-            <base id="rutaBaseDinámica" href="./">
-            <!-- 'RUTA BASE' DINÁMICA del 'base path' : se establece con JS según el entorno -->
-            <script>
-              // (en 2026) Estoy "desarrollando" este sitio web desde 'git.hub code.spaces' -y: no me dejaba abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} , ---> por lo tanto : añadí código para poder abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} 
-              (function() {
-
-                // [1] detectar : si el sitio / entorno se está sirviendo desde GitHub Pages o no
-                window.esGitHub = window.location.hostname.includes('github.io')   ; 
-                // ( 'window.esGitHub =' )   < explicitly assigns to >   [ the global window object ] Accessible everywhere, including from other scripts. 
-                // 'window.location.hostname' = nombre del host de la URL actual -devuelve: el nombre de dominio de la URL actual (sin incluir el protocolo ni el puerto) -y: 'github.io' indica que estamos en 'GitHub Pages' 
-
-                // [2] +- [ si el sitio se está sirviendo desde GitHub Pages ] ---> entonces : [ la 'rutaBase' -es: '/calGraciaWebBookApp' (o el nombre de tu repositorio) ] <> -de lo contrario: ---> [ la 'rutaBase' -es: una cadena vacía '' ( <- lo que significa que : las rutas son relativas a la raíz del servidor ) ] 
-                window.rutaBase = window.esGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
-                // ruta base = protocolo + dominio ( +- puerto)
-                // 'url' = 'ruta base' + 'ruta'(!) = protocolo://dominio[:puerto]/ruta
-                //  'basePath' +o-= { 'path prefix' -or: base URL }
-                // + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
-
-                if (window.esGitHub) {
-                  document.getElementById('rutaBaseDinámica').href = '/calGraciaWebBookApp/'   ;
-                } else {
-                  document.getElementById('rutaBaseDinámica').href = './'   ;
-                }
-              })();
-            </script> 
-            <!--   + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the 'endpoints' you will be calling ] <-| ( It typically includes : { the protocol -and:  the domain name, -and sometimes: the port number } ) .   -->
-            <!--   base (in feb.'26) href="https://nueva-vaca.github.io/calGraciaWebBookApp/"   -->
-
-
-
-
-
-
+        .lista-de-selección-única select {
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            font-size: 16px;
+            }
             
-            <link rel="stylesheet" href="./CascadingStyleSheets/estilos estéticos por defecto.css" > 
-
-            <link rel="stylesheet" href="./CascadingStyleSheets/index.css">
-
-            <!--   in index.html > [ 'contenidor.js' must load before 'router api history.js' ]   -->
-            <script src="./JavaScript/contenidor.js" defer ></script> 
-            <link rel="stylesheet" href="./CascadingStyleSheets/contenidor.css" > 
-
-            <script src="./JavaScript/cabecera del index.js" defer></script>
-
-            <script defer src="./JavaScript/router api history.js"></script> 
-           
-            <!--   Asegúrate de que : ( el script "del breadcrumb" ) < se carga después de > [ el router ]   -->
-            <script src="./JavaScript/bread.crum navigation.js" defer></script>
-
- 
-
-
-
-
-
-
-
-
-
-</head> 
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<!-- neck -->
-<body style="border: 5px dashed #3333332f;"  >
-
-
-
-
-
-
-
-
-
-
-
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<!-- HEADER -->
-<header id="cabeceraÍndice" style=" border: 1px dashed blue ; " >
-    
-
-  <!--   título -de: "el header"   -->
-<div style="text-align: center;" >
-
-    <span class="contenedor" data-contenidor-id="definición-de-gracia" >"la gracia"<span class=" contenido burbuja colorGrisClaro "  data-contenidor-id="definición-de-gracia"  ><span class="literalmente" >gracia</span> <span class="colorGris">= { </span>cualidad que hace agradable al sujeto que la tiene. <span class="colorGris">-y o: </span> proeza, hazaña, mérito. <span class="colorGris">-y o: </span>favor {sobrenatural y gratuito} que Dios concede a la persona para ponerla en el camino de la salvación. <span class="colorGris">}</span> </span></span>
-
-    <span>-de: </span> 
-
-    <span class="contenedor" data-contenidor-id="n-sdg-sg" >las 3 <span class="contenedor" data-contenidor-id="definición-de-masía" >'masias'</span> <span class=" contenido colorGrisClaro " data-contenidor-id="definición-de-masía" >( 'masía' = casoplón rural de labor con finca agrícola ) </span> <span class=" contenido colorGris " data-contenidor-id="n-sdg-sg" >&gt; { sabiduría > virtud > absorción meditativa } </span> <span class=" contenido colorGris" data-contenidor-id="n-sdg-sg" ></span></span>
-
-</div>
-
-
-
-
-
-
-
-
-    <!--   ubicación + ruta   -->
-    <ol id="breadcrumb"
-    style="
-        display: inline ; 
-        list-style: none ; 
-        padding: 0 ;
-        "
-    ></ol>
-    
-    
-
-
-
-
-
-
-
-</header> 
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-<!-- header to main -->
-
-
-    
-<main id="contenidoPrincipal" style=" border: 1px dashed green ; background-color: rgba(68, 137, 68, 0.11) ; " > 
-
-<span>aquí - debería haber : el contenido principal </span><span class="colorGris">- pero si esto es lo único que ves... entonces: no estás viendo "el contenido principal"</span><span>.</span>
-
-</main> 
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<!-- main to footer -->
-<footer id="menúDePieDePantalla"
-        style=" border: 1px dashed red ; " 
-        >
-
-    <!-- menúÍndice -->
-    <ul 
-    style="border: 1px solid red ; padding-left: 0 ; " 
-    id="menúÍndice"
-    >
-        <li></li><li></li><li></li></ul>
-
-    <!-- botonesDeAcción -->
-    <ul 
-    id = "botonesDeAcción"
-    style = " border: solid red 1px  ; " 
-    >
-        <li id='botónParaResaltarLosContenedores' >O</li>
-        <li>||</li>
-        <li>A</li>
-    </ul>
-
-    <!--   menú: "reglas" +o-= menúReglas   -->
-    <ul 
-      style="border: 1px solid rgb(170, 6, 6) ; padding-left: 0 ; " 
-      id="menúReglas"
-    >
-      <li></li><li></li><li></li></ul>
-
-
-    
-    
-
-</footer> 
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-<!-- fin de <footer> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
-<!-- fin de <body> --> 
-<!-- fin de <body> -->
+   </style>
+
+</head>
+
+
+
+
+
+
+
+<body>
+    <p><a href="/index.html">index</a></p>
+    <p class="colorGris">selector desde una lista</p>
+
+    <div>
+        <span class="lista-de-selección-única">
+            <span>wake up</span>
+            <select>
+                <option>wake up</option>
+                <option>desvelarse</option>
+                <option>realize</option>
+            </select>
+        </span>
+        in the morning with the
+        <span class="lista-de-selección-única">
+            <span>family</span>
+            <select> 
+                <option>family</option>
+                <option>friends</option>
+                <option>neighbors</option>
+            </select>
+        </span>
+    </div>
+
+    <script>
+        document.querySelectorAll('.lista-de-selección-única select').forEach(select => {
+            select.addEventListener('change', () => {
+                select.previousElementSibling.textContent = select.value;
+            });
+        });
+    </script>
 </body>
 </html>
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
-<!-- FIN -->
