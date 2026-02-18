@@ -265,17 +265,18 @@ const inyectarPáginaEnrutada = async () => {
 
     // [3.?y1/2] la "ia" - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
-     // "Normalizar"(?) la ruta: si NO estamos en GitHub y la ruta incluye rutaBase, quitarlo
+     // { "Normalizar"(?) / "ajustar el valor de la ruta de" } la ruta:
+     // Si : { NO estamos en 'GitHub Pges' -y: la ruta empieza por 'la ruta base' : '/calGraciaWebBookApp' }   --->entonces:   reemplazar esa parte de la ruta (= /calGraciaWebBookApp) -por: '' (= vacío) <---para: obtener la ruta relativa correcta.
     if (!esGitHub && rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
-        rutaDelArchivoDeLaUrlActual = rutaDelArchivoDeLaUrlActual.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar el rutaBase, usar '/' como ruta raíz
+        rutaDelArchivoDeLaUrlActual = rutaDelArchivoDeLaUrlActual.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar 'la ruta base', usar '/' como ruta raíz
     }
     
-    // Si estamos en GitHub y la ruta NO incluye rutaBase, agregarlo
+    // Si : { estamos en 'GitHub Pages' -y: la ruta NO empieza por 'la ruta base' : '/calGraciaWebBookApp' }   --->   agregarlo
     if (esGitHub && !rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
-        rutaDelArchivoDeLaUrlActual = '/calGraciaWebBookApp' + rutaDelArchivoDeLaUrlActual;
+        rutaDelArchivoDeLaUrlActual = '/calGraciaWebBookApp' + rutaDelArchivoDeLaUrlActual   ;
     }
     
-    console.log('Ruta normalizada:', rutaDelArchivoDeLaUrlActual); // Para depuración
+    console.log('Ruta normalizada: ', rutaDelArchivoDeLaUrlActual)   ; // Para depuración
     
 
 
