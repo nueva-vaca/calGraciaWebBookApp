@@ -40,9 +40,9 @@
                 // + ( 'the base path' )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
 
                 // I just came up with this
-                window.rutaBase = window.location.hostname.includes('github.io'); ?   '/calGraciaWebBookApp'   :   ''   ; 
+                window.rutaBase = window.location.hostname.includes('github.io') ?   '/calGraciaWebBookApp'   :   ''   ; 
 
-                if (window.esGitHub) {
+                if (window.location.hostname.includes('github.io')) {
                   document.getElementById('rutaBaseDinámica').href = '/calGraciaWebBookApp/'   ;
                 } else {
                   document.getElementById('rutaBaseDinámica').href = './'   ;
