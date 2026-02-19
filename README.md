@@ -39,6 +39,15 @@
 <u>"SÍMBOLOS"</u>  
 
 (+) -vs: corcehtes = ladrillos -vs: parétesis = burbujas -vs: llaves = "abrazos"? -vs: "corchetes angulares" = "flechas"?  
+(+) emociones:  
+:o  
+:)  
+:|  
+:(  
+&gt;(  
+&lt;(   
+X(  
+;(
 
 
 
@@ -52,9 +61,9 @@
 
 
 <u>"PARTES" :</u> 
-- torere de mierda +o-= bull.shit bull.fighter 
-- copia buena pasta +o-= copy good paste 
-- cultivar/ndo : pepitas de oro +o-= cultivating : gold nuggets +o-= cultivador de pepitas de oro 
+- torere de mierda   +o-=   bull.shit bull.fighter 
+- copia buena pasta   +o-=   copy good paste 
+- ( cultivar/ndo : ) pepitas de oro   +o-=   "gold nuggetting" gold nuggets   +o-=   cultivadore de pepitas de oro 
 
 
 
@@ -119,10 +128,3 @@
 
 
 
-:o  
-:)  
-:(  
-&gt;(  
-&lt;(   
-X(  
-;(
