@@ -8,6 +8,7 @@
 
 
 
+
 (!!!) libro 
 
 
@@ -20,7 +21,8 @@
 
 
 
-<u>" OPCIONES / INTERACCIONES "</u>  
+<u>" OPCIONES / INTERACCIONES "</u> 
+
 (+) "stretch.text"  
 (+) listas { selección única   -vs:   selección múltiple }
 
@@ -35,6 +37,7 @@
 
 
 <u>"SÍMBOLOS"</u>  
+
 (+) -vs: corcehtes = ladrillos -vs: parétesis = burbujas -vs: llaves = "abrazos"? -vs: "corchetes angulares" = "flechas"?  
 
 
@@ -43,19 +46,6 @@
 
 ***
 
-
- 
-
-(+) ensenyar : { git >y: "git.hub" -y: "git.hub code.spaces" }   <- para colaborar  
-(+) usar : google > { docs ; sheets ; meet ; gmail ; }  <- para colaborar ( -pq: es { "readily available" * "fácil" * "buena calidad" } )  
-(+) usar : 'visual studio code' > "online"   >ej: "git.hub code.spaces"  
-(-) <span style="color:grey">mark.down ( is quite shitty -actually )</span>  
-
-
-
-
-
-***
 
 
 
@@ -86,6 +76,19 @@
 
 ***
 
+
+ 
+
+(+) ensenyar : { git >y: "git.hub" -y: "git.hub code.spaces" }   <- para colaborar  
+(+) usar : google > { docs ; sheets ; meet ; gmail ; }  <- para colaborar ( -pq: es { "readily available" * "fácil" * "buena calidad" } )  
+(+) usar : 'visual studio code' > "online"   >ej: "git.hub code.spaces"  
+(-) <span style="color:grey">mark.down ( is quite shitty -actually )</span>  
+
+
+
+
+
+***
 
 
 
