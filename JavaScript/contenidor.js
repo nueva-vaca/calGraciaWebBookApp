@@ -125,7 +125,7 @@ const hayBotónParaResaltarLosContenedores = document.getElementById('botónPara
 if (hayBotónParaResaltarLosContenedores) 
     { 
     hayBotónParaResaltarLosContenedores.addEventListener( 'click' , () =>
-    {
+    { 
     
     // [1] "coge" todos los elementos que tengan la clase 'contenedor' 
     const todosLosContenedoresEnHTMLCollection = document.getElementsByClassName('contenedor')  ; 
