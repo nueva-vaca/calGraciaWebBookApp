@@ -74,11 +74,25 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
-
+    /*antiguo código:
     const obtenerObjetivo = (select) => {
         const targetSelector = select.dataset.target;
         if (targetSelector) return document.querySelector(targetSelector);
         return select.previousElementSibling; // fallback
+    };*/
+    const obtenerObjetivo = (select) => {
+    const targetSelector = select.dataset.target;
+    if (targetSelector) {
+        // Busca primero dentro del mismo contenedor inyectado (#contenidoPrincipal)
+        const main = document.getElementById('contenidoPrincipal');
+        if (main) {
+            const dentro = main.querySelector(targetSelector);
+            if (dentro) return dentro;
+        }
+        // Fallback: buscar en todo el documento
+        return document.querySelector(targetSelector);
+    }
+    return select.previousElementSibling; // fallback
     };
 
 
