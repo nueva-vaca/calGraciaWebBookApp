@@ -258,7 +258,7 @@ const inyectarPáginaEnrutada = async () => {
     // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'rutaDelArchivoDeLaUrlActual' 
     let rutaDelArchivoDeLaUrlActual = window.location.pathname   ; 
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
-    console.log( `"la ruta actual" -es: ` , rutaDelArchivoDeLaUrlActual )
+    console.log( `'Ruta normalizada' +o-= "cola de la ruta" : ` , `"la ruta actual" -es: ` , rutaDelArchivoDeLaUrlActual )
 
 
 
@@ -276,8 +276,7 @@ const inyectarPáginaEnrutada = async () => {
     if (window.location.hostname.includes('github.io') && !rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
         rutaDelArchivoDeLaUrlActual = '/calGraciaWebBookApp' + rutaDelArchivoDeLaUrlActual   ;
     }
-    
-    console.log(`'Ruta normalizada' +o-= "cola de la ruta" : `, rutaDelArchivoDeLaUrlActual)   ; // Para depuración
+
     
 
 
