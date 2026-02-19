@@ -1,4 +1,5 @@
 [ ] "trabajar" -en: "listas" 
+        [ ] hacer las listas : "random" 
 
 
 

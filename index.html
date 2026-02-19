@@ -5,15 +5,26 @@
             <meta charset="UTF-8"> 
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-            <!--         [ ]"dots" in " ./"paths" " ]   =   'relative paths'   <-|This: <work> on both environments ( = { "live Server" -and: 'Git.Hub Pages' } ) <-because: they're relative to the HTML file's location         -->
+            
 
 
 
             <!--   + ( The <base> element )   < -defines/sepcifies: >   [ the "base url" for resolving all relative urls = the name of the default browsing context <- for the purposes of : following hyperlinks ]   -->
             <base id="rutaBaseDinámica" href="./">
-            <!-- 'RUTA BASE' DINÁMICA del 'base path' : se establece con JS según el entorno -->
+            <!-- 'RUTA BASE' DINÁMICA del 'base path' : se establece con 'Java.Script' - según el entorno -->
             <script>
               // (en 2026) Estoy "desarrollando" este sitio web desde 'git.hub code.spaces' -y: no me dejaba abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} , ---> por lo tanto : añadí código para poder abrir "al mismo tiempo" : {'live server' -y: 'git.hub pages'} 
+              
+              /* 
+              this |->   " (()=>{...})(); "   <-is:   an 'IIFE' = an 'Immediately Invoked Function Expression'   =   a JavaScript pattern - where [1] you define : an anonymous function   -and:   [2] "call it" right away. 
+                (               // start "wrap in" parenthesis <--- to make the function an expression
+                () => { }       // arrow function ( parameters and function body )   
+                )               // closes : the starting / opening parenthesis 
+                ()              // 
+                ;               //  -and:   the '()' -(immediately) invokes : the function  -and:   the ';' - { "finishes" the function -and: "jumps" to the next line } 
+
+              (()=>{...})();   =or:   (function(){...})(); 
+              */
               (function() {
 
                 // [1] detectar : si el sitio / entorno se está sirviendo desde GitHub Pages o no
@@ -33,7 +44,7 @@
                 } else {
                   document.getElementById('rutaBaseDinámica').href = './'   ;
                 }
-              })();
+              })();   // FIN DE :   (() => { 
             </script> 
             <!--   + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the 'endpoints' you will be calling ] <-| ( It typically includes : { the protocol -and:  the domain name, -and sometimes: the port number } ) .   -->
             <!--   base (in feb.'26) href="https://nueva-vaca.github.io/calGraciaWebBookApp/"   -->
@@ -42,6 +53,9 @@
 
 
 
+
+
+            <!--         "dots" in " ./"paths" " ]   =   'relative paths'   <-|This: <work> on both environments ( = { "live Server" -and: 'Git.Hub Pages' } ) <-because: they're relative to the HTML file's location         -->
 
             
             <link rel="stylesheet" href="./CascadingStyleSheets/estilos estéticos por defecto.css" > 
@@ -59,7 +73,7 @@
 
             <script defer src="./JavaScript/router api history.js"></script> 
            
-            <!--   Asegúrate de que : ( el script "del breadcrumb" ) < se carga después de > [ el router ]   -->
+            <!--   Asegúrate de que : ( el script "del breadcrumb" )  < se carga después de >  [ el router ]   -->
             <script src="./JavaScript/bread.crum navigation.js" defer></script>
 
  
