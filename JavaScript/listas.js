@@ -69,8 +69,8 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
     // const selector = '.lista-de-selección-única select';
-    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-target (no solo los que están dentro de .lista-de-selección-única):
-    const selector = 'select[data-target]'; 
+    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-lista-de-selección-única (no solo los que están dentro de .lista-de-selección-única):
+    const selector = 'select[data-lista-de-selección-única]'; 
 
 
 
