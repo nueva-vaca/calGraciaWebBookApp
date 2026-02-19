@@ -1,0 +1,24 @@
+select[data-id-lista-de-selección-única] {
+
+    /* eliminar decoraciones del box */
+    appearance: none ;
+    -webkit-appearance: none ;
+    background: none ;
+    border: none ;
+    outline: none ;
+    box-shadow: none ;
+    padding: 0 ;
+    margin: 0 ;
+
+    /* que el texto fluya igual que el texto del párrafo */
+    font-family: inherit ;
+    font-size: inherit ;
+    color: inherit ;
+    line-height: inherit ;
+
+    /* que no rompa el flujo del texto */
+    display: inline ;
+    width: auto ;
+    cursor: pointer ;
+
+}
