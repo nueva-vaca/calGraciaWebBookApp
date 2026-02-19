@@ -17,27 +17,30 @@
               
               /* 
               this |->   " (()=>{...})(); "   <-is:   an 'IIFE' = an 'Immediately Invoked Function Expression'   =   a JavaScript pattern - where [1] you define : an anonymous function   -and:   [2] "call it" right away. 
-                (               // start "wrap in" parenthesis <--- to make the function an expression
-                () => { }       // arrow function ( parameters and function body )   
-                )               // closes : the starting / opening parenthesis 
-                ()              // 
-                ;               //  -and:   the '()' -(immediately) invokes : the function  -and:   the ';' - { "finishes" the function -and: "jumps" to the next line } 
+                (               +o-= start "wrap in" parenthesis <--- to make the function an expression
+                () => { }       +o-= arrow function ( parameters and function body )   
+                )               +o-= closes : the starting / opening parenthesis 
+                ()              +o-= the '()' -(immediately) invokes : the function
+                ;               +o-= the ';' - { "finishes" the line -and: "jumps" to the next line / "moves on" } 
 
               (()=>{...})();   =or:   (function(){...})(); 
               */
               (function() {
 
                 // [1] detectar : si el sitio / entorno se está sirviendo desde GitHub Pages o no
-                window.esGitHub = window.location.hostname.includes('github.io')   ; 
-                // ( 'window.esGitHub =' )   < explicitly assigns to >   [ the global window object ] Accessible everywhere, including from other scripts. 
-                // 'window.location.hostname' = nombre del host de la URL actual -devuelve: el nombre de dominio de la URL actual (sin incluir el protocolo ni el puerto) -y: 'github.io' indica que estamos en 'GitHub Pages' 
+                //window.esGitHub = window.location.hostname.includes('github.io')   ; 
+                // ( 'window.esGitHub =' )   < explicitly assigns to >   [ the global window object ] +o-= accessible everywhere, including from other scripts 
+                // 'window.location.hostname' =   [ nombre del host de la URL actual -devuelve: el nombre de dominio de la URL actual (sin incluir el protocolo ni el puerto) ]   -y:   [ ('github.io') -indica: que estamos en 'GitHub Pages' ] 
 
                 // [2] +- [ si el sitio se está sirviendo desde GitHub Pages ] ---> entonces : [ la 'rutaBase' -es: '/calGraciaWebBookApp' (o el nombre de tu repositorio) ] <> -de lo contrario: ---> [ la 'rutaBase' -es: una cadena vacía '' ( <- lo que significa que : las rutas son relativas a la raíz del servidor ) ] 
-                window.rutaBase = window.esGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
+                //window.rutaBase = window.esGitHub   ?   '/calGraciaWebBookApp'   :   ''   ;
                 // ruta base = protocolo + dominio ( +- puerto)
                 // 'url' = 'ruta base' + 'ruta'(!) = protocolo://dominio[:puerto]/ruta
-                //  'basePath' +o-= { 'path prefix' -or: base URL }
-                // + ( the base path )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
+                // 'basePath' +o-= { 'path prefix' -or: base URL }
+                // + ( 'the base path' )   < -is: >   [ "the core part" of your URL - that is common to all the endpoints you will be calling ] <-| ( It typically includes : { the protocol (http:// or https://) -and:  the domain name, -and sometimes: the port number } ) .
+
+                // I just came up with this
+                window.rutaBase = window.location.hostname.includes('github.io'); ?   '/calGraciaWebBookApp'   :   ''   ; 
 
                 if (window.esGitHub) {
                   document.getElementById('rutaBaseDinámica').href = '/calGraciaWebBookApp/'   ;
