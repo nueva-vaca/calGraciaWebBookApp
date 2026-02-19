@@ -258,6 +258,7 @@ const inyectarPáginaEnrutada = async () => {
     // [3.2] Reads the current URL path ( pero la parte de la ruta después del dominio ) - and saves it in a variable called 'rutaDelArchivoDeLaUrlActual' 
     let rutaDelArchivoDeLaUrlActual = window.location.pathname   ; 
     //   La 'propiedad' > 'window.location.pathname' <-devuelve: la ruta del archivo de la URL actual, ( excluyendo : { el dominio, el protocolo, los parámetros de consulta } ) 
+    console.log( `"la ruta actual" -es: ` , rutaDelArchivoDeLaUrlActual )
 
 
 
@@ -266,31 +267,39 @@ const inyectarPáginaEnrutada = async () => {
     // [3.?y1/2] la "ia" - me hace añadir esto para poder cargar en abmos : {github pages y live server} 
 
      // { "Normalizar"(?) / "ajustar el valor de la ruta de" } la ruta:
-     // Si : { NO estamos en 'GitHub Pges' -y: la ruta empieza por 'la ruta base' : '/calGraciaWebBookApp' }   --->entonces:   reemplazar esa parte de la ruta (= /calGraciaWebBookApp) -por: '' (= vacío) <---para: obtener la ruta relativa correcta.
+     // Si : { NO estamos en 'GitHub Pges' -y: la ruta empieza por 'la ruta base' : '/calGraciaWebBookApp' }   --->entonces:   reemplazar esa parte de la ruta (= /calGraciaWebBookApp) -por: '' (= vacío) <---para: obtener la ruta relativa correcta 
     if (!window.location.hostname.includes('github.io') && rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
         rutaDelArchivoDeLaUrlActual = rutaDelArchivoDeLaUrlActual.replace('/calGraciaWebBookApp', '')   ||    '/'   ; // Si la ruta queda vacía después de quitar 'la ruta base', usar '/' como ruta raíz
     }
     
-    // Si : { estamos en 'GitHub Pages' -y: la ruta NO empieza por 'la ruta base' : '/calGraciaWebBookApp' }   --->   agregarlo
+    // Si : { estamos en 'GitHub Pages' -y: la ruta NO empieza por 'la ruta base' : '/calGraciaWebBookApp' }   --->   "agregarlo" 
     if (window.location.hostname.includes('github.io') && !rutaDelArchivoDeLaUrlActual.startsWith('/calGraciaWebBookApp')) {
         rutaDelArchivoDeLaUrlActual = '/calGraciaWebBookApp' + rutaDelArchivoDeLaUrlActual   ;
     }
     
-    console.log('Ruta normalizada: ', rutaDelArchivoDeLaUrlActual)   ; // Para depuración
+    console.log(`'Ruta normalizada' +o-= "cola de la ruta" : `, rutaDelArchivoDeLaUrlActual)   ; // Para depuración
     
 
 
 
 
-    // [3.3] Looks it ( = la parte de la ruta después del dominio ) up in the rutaUrlSinDominio object 
+    // [3.3] Looks up : "la parte de la ruta después del dominio"   -in:   'the rutaUrlSinDominio object' 
     const route = rutaUrlSinDominio[rutaDelArchivoDeLaUrlActual] || rutaUrlSinDominio[404] ;
 
-    // [3.4] Fetches the corresponding HTML file 
-    const html = await fetch(route).then((data) => data.text()) ;
-    // [3.5] Injects it into the element with id 'contenidoPrincipal' 
+    // [3.4] Fetches : "the corresponding HTML file" 
+    // + performs an HTTP request <- to retrieve the contents of a resource specified by the variable route
+    const html = await fetch(route).then((data) => data.text()) ; 
+    // 'await' =   keyword - used to : pause execution of the surrounding async function <-until: the entire fetch and text conversion process is complete.
+    // fetch API - returns a Promise - that resolves to : a "Response object"(?) <-representing: the result of the request  
+    // ( the '.then((data) => data.text()) part' )   < -is: >   [ a "Promise chain" -that:   [1] takes "the Response object" (= 'data')   -and: [2] calls its .text() method, which itself returns : a Promise that resolves to the response body as a plain text string.
+
+    // (!!!)
+    // [3.5] Injects : "the corresponding HTML file" -into: the element with id 'contenidoPrincipal' 
     document.getElementById("contenidoPrincipal").innerHTML = html ;
+
     // [3.X] Actualiza el breadcrumb después de inyectar el contenido
     if (window.actualizarRutaDeNavegaciónEnEslabonesDeCadena) window.actualizarRutaDeNavegaciónEnEslabonesDeCadena();
+
     // [3.X] listas: Re-inicializa los selects con data-id-lista-de-seleccion-unica en el contenido recién inyectado
     document.querySelectorAll('#contenidoPrincipal select[data-id-lista-de-seleccion-unica]').forEach((select) => {
         const targetSelector = select.dataset.idListaDeSeleccionUnica ;
@@ -302,7 +311,15 @@ const inyectarPáginaEnrutada = async () => {
     });
 
 
-}; // FIN DE : const inyectarPáginaEnrutada = async () => {
+
+
+
+}; // FIN DE :   const inyectarPáginaEnrutada = async () => {
+
+
+
+
+
 
 
 
@@ -310,13 +327,16 @@ const inyectarPáginaEnrutada = async () => {
 
 
 // Loads the correct page when the site first opens.
-inyectarPáginaEnrutada();
+inyectarPáginaEnrutada()  ;
+
+
+
+
+
 
 
 
 
 
 // Back/forward button support - via 'onpopstate' 
-window.onpopstate = inyectarPáginaEnrutada;
-
-
+window.onpopstate = inyectarPáginaEnrutada  ;

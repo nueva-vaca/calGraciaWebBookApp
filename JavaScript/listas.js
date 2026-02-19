@@ -9,15 +9,15 @@
 
 /*
 // Laia me propuso este código para : elegir un item de una lista
-document.querySelectorAll('.lista-de-selección-única select').forEach(elementoHtmlSelect => {
+document.querySelectorAll('.lista-de-seleccion-unica select').forEach(elementoHtmlSelect => {
         elementoHtmlSelect.addEventListener('change', () => {
-        // para cada elemento html <select> que esté dentro de un contenedor con la clase '.lista-de-selección-única'   -adjunta:   un evento 'change' ( que se dispara cuando el usuario selecciona una opción <option> diferente ). 
+        // para cada elemento html <select> que esté dentro de un contenedor con la clase '.lista-de-seleccion-unica'   -adjunta:   un evento 'change' ( que se dispara cuando el usuario selecciona una opción <option> diferente ). 
             elementoHtmlSelect.previousElementSibling.textContent = elementoHtmlSelect.value;
             // [0] cuando ocurre "ese" cambio, [1] el código toma el elemento hermano inmediatamente anterior del <select> (previousElementSibling) -y: [2] reemplaza su texto (textContent) -con: el valor del item <option> seleccionado (elementoHtmlSelect.value).
 
         });   // FIN DE : elementoHtmlSelect.addEventListener('change', () => { 
 
-});   // FIN DE :   document.querySelectorAll('.lista-de-selección-única select').forEach(elementoHtmlSelect => { 
+});   // FIN DE :   document.querySelectorAll('.lista-de-seleccion-unica select').forEach(elementoHtmlSelect => { 
 */
 
 
@@ -69,8 +69,8 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
-    // const selector = '.lista-de-selección-única select';
-    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-selección-única):
+    // const selector = '.lista-de-seleccion-unica select';
+    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-seleccion-unica):
     const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
 
 
