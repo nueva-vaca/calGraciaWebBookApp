@@ -7,7 +7,7 @@
 
 
 
-
+/*
 // Laia me propuso este código para : elegir un item de una lista
 document.querySelectorAll('.lista-de-selección-única select').forEach(elementoHtmlSelect => {
         elementoHtmlSelect.addEventListener('change', () => {
@@ -18,3 +18,73 @@ document.querySelectorAll('.lista-de-selección-única select').forEach(elemento
         });   // FIN DE : elementoHtmlSelect.addEventListener('change', () => { 
 
 });   // FIN DE :   document.querySelectorAll('.lista-de-selección-única select').forEach(elementoHtmlSelect => { 
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expression   =   a JavaScript pattern where you define an anonymous function and call it right away. Breaking it down:
+(               // wrap in parens to make it an expression
+  () => {       // arrow function with no parameters
+    ...         // function body
+  }
+)();            // immediately invoke it with ()
+
+(()=>{...})();   =   (function(){...})(); 
+*/
+(() => {
+
+    // Evita registrar listeners duplicados
+    if (window.__listasJsInicializado) return;
+    window.__listasJsInicializado = true;
+
+    const selector = '.lista-de-selección-única select';
+
+    const obtenerObjetivo = (select) => {
+    const targetSelector = select.dataset.target;
+    if (targetSelector) return document.querySelector(targetSelector);
+    return select.previousElementSibling; // fallback
+    };
+
+    const sincronizar = (select) => {
+    const objetivo = obtenerObjetivo(select);
+    if (objetivo) objetivo.textContent = select.value;
+    };
+
+    // Inicializa selects presentes
+    document.querySelectorAll(selector).forEach(sincronizar);
+
+    // Funciona también con contenido inyectado dinámicamente
+    document.addEventListener('change', (event) => {
+    const select = event.target.closest(selector);
+    if (!select) return;
+    sincronizar(select);
+    });   // FIN DE :   document.addEventListener('change', (event) => { 
+
+})();   // FIN DE :   (() => { 
