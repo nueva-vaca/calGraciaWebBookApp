@@ -58,7 +58,7 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 (()=>{...})();   =   (function(){...})(); 
 */
-/*
+
 (() => {
 
 
@@ -70,14 +70,14 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
     // const selector = '.lista-de-selección-única select';
-    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-selección-única (no solo los que están dentro de .lista-de-selección-única):
-    const selector = 'select[data-id-lista-de-selección-única]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-selección-única (con cualquier valor).
+    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-selección-única):
+    const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
 
 
 
     // antiguo código:     const obtenerObjetivo = (select) => {        const targetSelector = select.dataset.target;        if (targetSelector) return document.querySelector(targetSelector);        return select.previousElementSibling; // fallback    };
     const obtenerObjetivo = (select) => {
-    const targetSelector = select.dataset.idListaDeSelecciónÚnica;
+    const targetSelector = select.dataset.idListaDeSeleccionUnica;
     if (targetSelector) {
         // Busca primero dentro del mismo contenedor inyectado (#contenidoPrincipal)
         const main = document.getElementById('contenidoPrincipal');
@@ -115,7 +115,6 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
         
 })();   // FIN DE :   (() => { 
-*/
 
 
 
@@ -154,21 +153,32 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
+/*
 (() => {
 
+
+
+    // Evita registrar listeners duplicados
     if (window.__listasJsInicializado) return;
     window.__listasJsInicializado = true;
 
-    const selector = 'select[data-id-lista-de-selección-única]';
+
+
+    //const selector = 'select[data-id-lista-de-seleccion-unica]'   ; 
+
+
 
     // El <select> ya muestra la primera <option> por defecto -
     // solo necesitamos escuchar cambios futuros (delegación de eventos)
     document.addEventListener('change', (event) => {
-        const select = event.target.closest(selector);
-        if (!select) return;
+        const select = event.target.closest('select[data-id-lista-de-seleccion-unica]');
+        if (!select) return
         // aquí puedes añadir lógica adicional si en el futuro
         // necesitas sincronizar algo con el valor seleccionado
-        console.log('lista cambiada:', select.dataset.idListaDeSelecciónÚnica, '=', select.value);
+        console.log('lista cambiada:', select.dataset.idListaDeSeleccionUnica, '=', select.value);
     });
 
-})();
+
+
+})();   // FIN DE :   (() => { 
+*/
