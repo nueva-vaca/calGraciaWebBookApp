@@ -60,28 +60,40 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 */
 (() => {
 
+
+
     // Evita registrar listeners duplicados
     if (window.__listasJsInicializado) return;
     window.__listasJsInicializado = true;
+
+
 
     // const selector = '.lista-de-selección-única select';
     // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-target (no solo los que están dentro de .lista-de-selección-única):
     const selector = 'select[data-target]'; 
 
 
+
+
     const obtenerObjetivo = (select) => {
-    const targetSelector = select.dataset.target;
-    if (targetSelector) return document.querySelector(targetSelector);
-    return select.previousElementSibling; // fallback
+        const targetSelector = select.dataset.target;
+        if (targetSelector) return document.querySelector(targetSelector);
+        return select.previousElementSibling; // fallback
     };
 
+
+
     const sincronizar = (select) => {
-    const objetivo = obtenerObjetivo(select);
-    if (objetivo) objetivo.textContent = select.value;
+        const objetivo = obtenerObjetivo(select);
+        if (objetivo) objetivo.textContent = select.value;
     };
+
+
 
     // Inicializa selects presentes
     document.querySelectorAll(selector).forEach(sincronizar);
+
+
 
     // Funciona también con contenido inyectado dinámicamente
     document.addEventListener('change', (event) => {
@@ -90,4 +102,6 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
     sincronizar(select);
     });   // FIN DE :   document.addEventListener('change', (event) => { 
 
+
+        
 })();   // FIN DE :   (() => { 
