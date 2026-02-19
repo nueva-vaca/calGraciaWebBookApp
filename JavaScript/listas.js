@@ -69,8 +69,8 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
     // const selector = '.lista-de-selección-única select';
-    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-lista-de-selección-única (no solo los que están dentro de .lista-de-selección-única):
-    const selector = 'select[data-lista-de-selección-única]'; 
+    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-selección-única (no solo los que están dentro de .lista-de-selección-única):
+    const selector = 'select[data-id-lista-de-selección-única]'; 
 
 
 
@@ -81,7 +81,7 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
         return select.previousElementSibling; // fallback
     };*/
     const obtenerObjetivo = (select) => {
-    const targetSelector = select.dataset.target;
+    const targetSelector = select.dataset.idListaDeSelecciónÚnica;
     if (targetSelector) {
         // Busca primero dentro del mismo contenedor inyectado (#contenidoPrincipal)
         const main = document.getElementById('contenidoPrincipal');

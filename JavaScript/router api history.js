@@ -291,9 +291,9 @@ const inyectarPáginaEnrutada = async () => {
     document.getElementById("contenidoPrincipal").innerHTML = html ;
     // [3.X] Actualiza el breadcrumb después de inyectar el contenido
     if (window.actualizarRutaDeNavegaciónEnEslabonesDeCadena) window.actualizarRutaDeNavegaciónEnEslabonesDeCadena();
-    // [3.X] listas: Re-inicializa los selects con data-lista-de-selección-única en el contenido recién inyectado
-    document.querySelectorAll('#contenidoPrincipal select[data-lista-de-selección-única]').forEach((select) => {
-        const targetSelector = select.dataset.target;
+    // [3.X] listas: Re-inicializa los selects con data-id-lista-de-selección-única en el contenido recién inyectado
+    document.querySelectorAll('#contenidoPrincipal select[data-id-lista-de-selección-única]').forEach((select) => {
+        const targetSelector = select.dataset.idListaDeSelecciónÚnica ;
         if (targetSelector) {
             const objetivo = document.getElementById('contenidoPrincipal').querySelector(targetSelector) 
                           || document.querySelector(targetSelector);
