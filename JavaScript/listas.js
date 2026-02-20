@@ -78,28 +78,31 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
     }  ;
     */
     // nombre de función = 
-    const obtenerObjetivo = (elementoHtmlSelect) => { 
+    const obtenerElElementoSelectAdecuado = (elementoHtmlSelect) => { 
     // el parámetro select es simplemente el elemento <select> del DOM que tú le pasas cuando llamas a la función. No es una palabra reservada, es un nombre de variable. Podrías haberlo llamado " elemento, combo, dropdown o incluso x ". Tú decides el nombre.
-    const targetSelector = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   // Lee un selector CSS <--- desde un atributo data-* 
+    const elementoSelectConElAtributoIdListaDeSeleccionUnica = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   // Lee un selector CSS <--- desde un atributo data-* = data-id-lista-de-seleccion-unica 
     // si existe el selector css descrito en la linea anterior --->entonces: 
-    if (targetSelector) {
-        // Busca primero ("el objetivo" = ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
-        const main = document.getElementById('contenidoPrincipal');
-        if (main) {
-            const dentro = main.querySelector(targetSelector);
-            if (dentro) return dentro;
+    if (elementoSelectConElAtributoIdListaDeSeleccionUnica) {
+        // Busca primero ( "el objetivo" = elemento Select Con El Atributo : Id Lista De Seleccion Unica ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
+        const hayContenidoPrincipal = document.getElementById('contenidoPrincipal');
+        // si hay "contenido principal" --->entonces:
+        if (hayContenidoPrincipal) {
+            // ¿ hay El Select Adecuado Dentro De : Contenido Principal ?
+            const hayElSelectAdecuadoDentroDeContenidoPrincipal = hayContenidoPrincipal.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica);
+            // si : [ hay El Select Adecuado Dentro De : Contenido Principal ]   ---> entonces :   [ "devolver" : " el elemento Select Con El Atributo : Id-Lista-De-Seleccion-Unica " ]
+            if (hayElSelectAdecuadoDentroDeContenidoPrincipal) return hayElSelectAdecuadoDentroDeContenidoPrincipal;
         }
         // Fallback: buscar en todo el documento
-        return document.querySelector(targetSelector);
-    }   // FIN DE :   if (targetSelector) { 
+        return document.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica);
+    }   // FIN DE :   if (elementoSelectConElAtributoIdListaDeSeleccionUnica) { 
     // si NO existe el selector css "select.dataset.idListaDeSeleccionUnica" --->entonces:
     return elementoHtmlSelect.previousElementSibling; // fallback +o-= Devuelve el elemento hermano anterior 
-    };   // FIN DE :   const obtenerObjetivo = (select) => { 
+    };   // FIN DE :   const obtenerElElementoSelectAdecuado = (select) => { 
 
 
 
     const sincronizar = (elementoHtmlSelect) => {
-        const objetivo = obtenerObjetivo(elementoHtmlSelect);
+        const objetivo = obtenerElElementoSelectAdecuado(elementoHtmlSelect);
         if (objetivo) objetivo.textContent = elementoHtmlSelect.value;
     };
 
