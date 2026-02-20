@@ -77,34 +77,55 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
         return select.previousElementSibling; // fallback    
     }  ;
     */
-    // nombre de función = 
+    // nombre de función = 'obtenerElElementoSelectAdecuado'   <-el cual:   devuelve el elemento del DOM que está vinculado a "un elemento <select> determinado"
+    // recibe un elemento <select> (del DOM) como parámetro (llamado 'elementoHtmlSelect')
     const obtenerElElementoSelectAdecuado = (elementoHtmlSelect) => { 
-    // el parámetro select es simplemente el elemento <select> del DOM que tú le pasas cuando llamas a la función. No es una palabra reservada, es un nombre de variable. Podrías haberlo llamado " elemento, combo, dropdown o incluso x ". Tú decides el nombre.
-    const elementoSelectConElAtributoIdListaDeSeleccionUnica = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   // Lee un selector CSS <--- desde un atributo data-* = data-id-lista-de-seleccion-unica 
-    // si existe el selector css descrito en la linea anterior --->entonces: 
+    
+    // Lee un selector CSS <--- desde un atributo data-* = data-id-lista-de-seleccion-unica
+    const elementoSelectConElAtributoIdListaDeSeleccionUnica = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   
+
+    // si existe el selector css con el atributo data-id-lista-de-seleccion-unica   --->entonces: 
     if (elementoSelectConElAtributoIdListaDeSeleccionUnica) {
         // Busca primero ( "el objetivo" = elemento Select Con El Atributo : Id Lista De Seleccion Unica ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
-        const hayContenidoPrincipal = document.getElementById('contenidoPrincipal');
+        const hayContenidoPrincipal = document.getElementById('contenidoPrincipal')   ;
         // si hay "contenido principal" --->entonces:
         if (hayContenidoPrincipal) {
             // ¿ hay El Select Adecuado Dentro De : Contenido Principal ?
-            const hayElSelectAdecuadoDentroDeContenidoPrincipal = hayContenidoPrincipal.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica);
+            const hayElSelectAdecuadoDentroDeContenidoPrincipal = hayContenidoPrincipal.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica)   ;
             // si : [ hay El Select Adecuado Dentro De : Contenido Principal ]   ---> entonces :   [ "devolver" : " el elemento Select Con El Atributo : Id-Lista-De-Seleccion-Unica " ]
-            if (hayElSelectAdecuadoDentroDeContenidoPrincipal) return hayElSelectAdecuadoDentroDeContenidoPrincipal;
+            if (hayElSelectAdecuadoDentroDeContenidoPrincipal) return hayElSelectAdecuadoDentroDeContenidoPrincipal   ;
         }
         // Fallback: buscar en todo el documento
         return document.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica);
     }   // FIN DE :   if (elementoSelectConElAtributoIdListaDeSeleccionUnica) { 
+
+
     // si NO existe el selector css "select.dataset.idListaDeSeleccionUnica" --->entonces:
     return elementoHtmlSelect.previousElementSibling; // fallback +o-= Devuelve el elemento hermano anterior 
+
+
     };   // FIN DE :   const obtenerElElementoSelectAdecuado = (select) => { 
 
 
 
-    const sincronizar = (elementoHtmlSelect) => {
-        const objetivo = obtenerElElementoSelectAdecuado(elementoHtmlSelect);
-        if (objetivo) objetivo.textContent = elementoHtmlSelect.value;
-    };
+
+
+
+    // crea una función -llamda: 'reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect' >que:   actualiza el contenido de texto de un elemento objetivo usando el valor actual de un <select> 
+    // Su propósito es producir un efecto: reemplazar el texto en otro elemento -con: el valor seleccionado en el <select>.
+    // recibe un elemento <select> como parámetro (llamado 'elementoHtmlSelect')
+    const reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect = (elementoHtmlSelect) => {
+
+        // Llama a : "la constante función" 'obtenerElElementoSelectAdecuado'   --->para que:   devuelva el elemento del DOM que está vinculado a "un elemento <select> determinado" 
+        const elementoHtmlQueMuestraLaOpciónSeleccionada = obtenerElElementoSelectAdecuado(elementoHtmlSelect)   ;
+
+        // Si existe ese elemento "objetivo", actualiza su texto 
+        if (elementoHtmlQueMuestraLaOpciónSeleccionada) elementoHtmlQueMuestraLaOpciónSeleccionada.textContent = elementoHtmlSelect.value   ;
+
+    };   // FIN DE :    const reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect = (elementoHtmlSelect) => {
+
+
+
 
 
 
@@ -115,7 +136,7 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
     const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
 
     // Inicializa selects presentes
-    document.querySelectorAll(selector).forEach(sincronizar);
+    document.querySelectorAll(selector).forEach(reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect);
     // .querySelectorAll('select[data-id-lista-de-seleccion-unica]')   <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor). 
     // .querySelectorAll('.lista-de-seleccion-unica select')   <- selecciona cualquier elemento <select> que esté dentro de otro (cualquier) elemento html tenga la clase 'lista-de-seleccion-unica' 
 
@@ -125,7 +146,7 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
     document.addEventListener('change', (event) => {
     const select = event.target.closest(selector);
     if (!select) return;
-    sincronizar(select);
+    reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect(select);
     });   // FIN DE :   document.addEventListener('change', (event) => { 
 
 
