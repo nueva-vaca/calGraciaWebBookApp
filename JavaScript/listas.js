@@ -142,12 +142,16 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
+
+
     // Funciona también con contenido inyectado dinámicamente
     document.addEventListener('change', (event) => {
     const select = event.target.closest(selector);
     if (!select) return;
     reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect(select);
     });   // FIN DE :   document.addEventListener('change', (event) => { 
+
+
 
 
         
