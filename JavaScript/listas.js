@@ -64,8 +64,8 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
     // Evita registrar listeners duplicados
-    if (window.__listasJsInicializado) return;
-    window.__listasJsInicializado = true;
+    if (window.__listasJsInicializado) return   ;
+    window.__listasJsInicializado = true   ;
 
 
 

@@ -128,3 +128,4 @@ X(
 
 
 
+- los colores de sintaxis en el editor de Visual Studio Code
