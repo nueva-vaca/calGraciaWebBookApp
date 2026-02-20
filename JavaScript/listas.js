@@ -69,48 +69,34 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
-
-    /* antiguo código:     
-    const obtenerObjetivo = (select) => {        
-        const targetSelector = select.dataset.target;        
-        if (targetSelector) return document.querySelector(targetSelector)   ;        
-        return select.previousElementSibling; // fallback    
-    }  ;
-    */
     // nombre de función = 'obtenerElElementoSelectAdecuado'   <-el cual:   devuelve el elemento del DOM que está vinculado a "un elemento <select> determinado"
     // recibe un elemento <select> (del DOM) como parámetro (llamado 'elementoHtmlSelect')
     const obtenerElElementoSelectAdecuado = (elementoHtmlSelect) => { 
     
-    // Lee un selector CSS <--- desde un atributo data-* = data-id-lista-de-seleccion-unica
-    const elementoSelectConElAtributoIdListaDeSeleccionUnica = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   
+        // Lee un selector CSS <--- desde un atributo data-* = data-id-lista-de-seleccion-unica
+        const elementoSelectConElAtributoIdListaDeSeleccionUnica = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   
 
-    // si existe el selector css con el atributo data-id-lista-de-seleccion-unica   --->entonces: 
-    if (elementoSelectConElAtributoIdListaDeSeleccionUnica) {
-        // Busca primero ( "el objetivo" = elemento Select Con El Atributo : Id Lista De Seleccion Unica ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
-        const hayContenidoPrincipal = document.getElementById('contenidoPrincipal')   ;
-        // si hay "contenido principal" --->entonces:
-        if (hayContenidoPrincipal) {
-            // ¿ hay El Select Adecuado Dentro De : Contenido Principal ?
-            const hayElSelectAdecuadoDentroDeContenidoPrincipal = hayContenidoPrincipal.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica)   ;
-            // si : [ hay El Select Adecuado Dentro De : Contenido Principal ]   ---> entonces :   [ "devolver" : " el elemento Select Con El Atributo : Id-Lista-De-Seleccion-Unica " ]
-            if (hayElSelectAdecuadoDentroDeContenidoPrincipal) return hayElSelectAdecuadoDentroDeContenidoPrincipal   ;
-        }
-        // Fallback: buscar en todo el documento
-        return document.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica);
-    }   // FIN DE :   if (elementoSelectConElAtributoIdListaDeSeleccionUnica) { 
-
-
-    // si NO existe el selector css "select.dataset.idListaDeSeleccionUnica" --->entonces:
-    return elementoHtmlSelect.previousElementSibling; // fallback +o-= Devuelve el elemento hermano anterior 
-
+        // si existe el selector css con el atributo data-id-lista-de-seleccion-unica   --->entonces: 
+        if (elementoSelectConElAtributoIdListaDeSeleccionUnica) {
+            // Busca primero ( "el objetivo" = elemento Select Con El Atributo : Id Lista De Seleccion Unica ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
+            const hayContenidoPrincipal = document.getElementById('contenidoPrincipal')   ;
+            // si hay "contenido principal" --->entonces:
+            if (hayContenidoPrincipal) {
+                // ¿ hay El Select Adecuado Dentro De : Contenido Principal ?
+                const hayElSelectAdecuadoDentroDeContenidoPrincipal = hayContenidoPrincipal.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica)   ;
+                // si : [ hay El Select Adecuado Dentro De : Contenido Principal ]   ---> entonces :   [ "devolver" : " el elemento Select Con El Atributo : Id-Lista-De-Seleccion-Unica " ]
+                if (hayElSelectAdecuadoDentroDeContenidoPrincipal) return hayElSelectAdecuadoDentroDeContenidoPrincipal   ;
+            }
+            // Fallback: buscar en todo el documento
+            return document.querySelector(elementoSelectConElAtributoIdListaDeSeleccionUnica);
+        }   // FIN DE :   if (elementoSelectConElAtributoIdListaDeSeleccionUnica) { 
 
     };   // FIN DE :   const obtenerElElementoSelectAdecuado = (select) => { 
 
 
 
 
-
-
+    // ACTUALIZAR / REEMPLAZAR EL TEXTO DE UN ELEMENTO -CON: EL VALOR SELECCIONADO EN UN <SELECT> 
     // crea una función -llamda: 'reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect' >que:   actualiza el contenido de texto de un elemento objetivo usando el valor actual de un <select> 
     // Su propósito es producir un efecto: reemplazar el texto en otro elemento -con: el valor seleccionado en el <select>.
     // recibe un elemento <select> como parámetro (llamado 'elementoHtmlSelect')
@@ -133,23 +119,23 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
     // const selector = '.lista-de-seleccion-unica select';
     // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-seleccion-unica):
-    const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
+    const elementoSelectConElAtributoIdListaDeSeleccionUnica = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
 
     // Inicializa selects presentes
-    document.querySelectorAll(selector).forEach(reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect);
+    document.querySelectorAll(elementoSelectConElAtributoIdListaDeSeleccionUnica).forEach(reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect);
     // .querySelectorAll('select[data-id-lista-de-seleccion-unica]')   <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor). 
     // .querySelectorAll('.lista-de-seleccion-unica select')   <- selecciona cualquier elemento <select> que esté dentro de otro (cualquier) elemento html tenga la clase 'lista-de-seleccion-unica' 
 
 
 
 
-
+    // Delegación de eventos — Usa document.addEventListener('change', ...) - lo cual funciona bien con contenido inyectado dinámicamente.
     // Funciona también con contenido inyectado dinámicamente
-    document.addEventListener('change', (event) => {
-    const select = event.target.closest(selector);
-    if (!select) return;
-    reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect(select);
-    });   // FIN DE :   document.addEventListener('change', (event) => { 
+    document.addEventListener('change', (cambioDeOptionSeleccionadaEnElSelect) => {
+    const selectYZ = cambioDeOptionSeleccionadaEnElSelect.target.closest(elementoSelectConElAtributoIdListaDeSeleccionUnica);
+    if (!selectYZ) return;
+    reemplazarElTextoEnElElmentoAdecuadoPorElValorSeleccionadoEnElSelect(selectYZ);
+    });   // FIN DE :   document.addEventListener('change', (cambioDeOptionSeleccionadaEnElSelect) => { 
 
 
 
