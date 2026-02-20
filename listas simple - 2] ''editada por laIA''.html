@@ -71,32 +71,84 @@
 
 
 
-    <!-- Claude Opus 4.6, do this:
-        - use the 
-    -->
-
-
-
-
+<!-- first original scritp -->
     <script>
-
-
-
         document.querySelectorAll('.lista-de-selección-única select').forEach(elementoSelectConLaClaseLista => {
             elementoSelectConLaClaseLista.addEventListener('change', () => {
                 elementoSelectConLaClaseLista.previousElementSibling.textContent = elementoSelectConLaClaseLista.value;
             });
         });
-
-
-
-    
-
-
-
-
-
     </script>
+
+
+
+
+
+
+
+
+                    <hr style=" margin: 66px 0 ; " > 
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Claude Opus 4.6, do this: 
+        - using the html written below here - [ try to replicate : the functionality of the 'first original script' above - working "in tandem" with the html above here this instructions ]   -but:   making it work with the html written below here this instructions 
+        - "couple" the two elements that have the same value in their 'data-id-lista-de-seleccion-unica' attributes, being the element with the class 'contenedor-de-lista' the "parent", and being the <select> element with the class 'lista-de-selección-única' the options to select 
+        - make by default - the first option in the select element - to automatically appear in the "enclosing" class="contenedor-de-lista" 
+        - write the java.script -in: the script element below here this instructions 
+
+        - also : come up with the css to mimic the effects of the html above this instructions 
+
+        -->
+
+
+ 
+
+    <p><a href="/index.html">index</a></p>
+    <p class="colorGris">selector desde una lista</p>
+
+
+
+  
+        
+        <span 
+        class="contenedor-de-lista"  
+        data-id-lista-de-seleccion-unica="aht-red-cfy" 
+        >
+        wake up</span>
+        <select  class="lista-de-selección-única" data-id-lista-de-seleccion-unica="aht-red-cfy" >
+            <option>wake up</option>
+            <option>desvelarse</option>
+            <option>realize</option>
+        </select>
+        
+        <span>in the morning with the </span>
+
+            <span
+            class="contenedor-de-lista"  
+            data-id-lista-de-seleccion-unica="kd-r6-f62" 
+            >
+            family</span>
+            <select 
+            class="lista-de-selección-única"
+            data-id-lista-de-seleccion-unica="kd-r6-f62"
+            > 
+                <option>family</option>
+                <option>friends</option>
+                <option>neighbors</option>
+            </select>
+
+        
+   
+    
 
 
 
