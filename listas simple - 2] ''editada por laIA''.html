@@ -249,8 +249,11 @@
             </select>
 
     <script>
-        document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach(select => {
+                                                                                                            // selected element with the
+        document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach(select => { 
+            // valorDelAtributoDataIdListaDeSeleccionUnica
             const id = select.getAttribute('data-id-lista-de-seleccion-unica');
+            // crea El String Para "Quey.ear" : el valor Del Atributo 'Data-Id-Lista-De-Seleccion-Unica' 
             const contenedor = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + id + '"]');
             if (!contenedor) return;
 
