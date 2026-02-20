@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Word Replacer</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <style>
+        .lista-de-selección-única {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;  
+            }
+
+        .lista-de-selección-única:hover {
+            background: #e0edff;
+            transition: background 0.2s;
+            border-bottom: 1px solid #2563eb;
+            text-decoration: underline double #2563eb;
+            }
+
+        .lista-de-selección-única select {
+
+            opacity: 0 ; /*   0 = el elemento es transparente (= invisible)   --->   esconde el <select>  */
+
+            /* Se posiciona encima del contenedor */
+            position: absolute; /*   absolute = desplazamiento desde los bordes de "el bloque contenedor del elemento"= el ancestro relativo al cual el elemento está posicionado   */             
+            top: 0 ;
+            left: 0 ;
+            /*   El <select> invisible - cubre / ocupa : todo el área del contenedor   */
+            width: 100% ;
+            height: 100% ;
+
+            cursor: pointer ;
+
+            }
+            
+   </style>
+
+
+
+
+
+
+
+
+   <style>
+        /* --- Styles for the new section --- */
+        .contenedor-de-lista {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .contenedor-de-lista:hover {
+            background: #e0edff;
+            transition: background 0.2s;
+            border-bottom: 1px solid #2563eb;
+            text-decoration: underline double #2563eb;
+        }
+
+        .contenedor-de-lista select.lista-de-selección-única {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+   </style>
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<body>
+    <p><a href="/index.html">index</a></p>
+    <p class="colorGris">selector desde una lista</p>
+
+    <div>
+        <span class="lista-de-selección-única">
+            <span>wake up</span>
+            <select>
+                <option>wake up</option>
+                <option>desvelarse</option>
+                <option>realize</option>
+            </select>
+        </span>
+        <span>in the morning with the </span>
+        <span class="lista-de-selección-única">
+            <span>family</span>
+            <select> 
+                <option>family</option>
+                <option>friends</option>
+                <option>neighbors</option>
+            </select>
+        </span>
+    </div>
+
+
+
+<!-- first original scritp -->
+    <script>
+        document.querySelectorAll('.lista-de-selección-única select').forEach(elementoSelectConLaClaseLista => {
+            elementoSelectConLaClaseLista.addEventListener('change', () => {
+                elementoSelectConLaClaseLista.previousElementSibling.textContent = elementoSelectConLaClaseLista.value;
+            });
+        });
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <hr style=" margin: 66px 0 ; " > 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Claude Opus 4.6, do this: 
+        - using the html written below here - [ try to replicate : the functionality of the 'first original script' above - working "in tandem" with the html above here this instructions ]   -but:   making it work with the html written below here this instructions 
+        - "couple" the two elements that have the same value in their 'data-id-lista-de-seleccion-unica' attributes, being the element with the class 'contenedor-de-lista' the "parent", and being the <select> element with the class 'lista-de-selección-única' the options to select 
+        - make by default - the first option in the select element - to automatically appear in the "enclosing" class="contenedor-de-lista" 
+        - write the java.script -in: the script element below here this instructions 
+
+        - also : come up with the css to mimic the effects of the html above this instructions 
+
+        -->
+
+
+ 
+
+    <p><a href="/index.html">index</a></p>
+    <p class="colorGris">selector desde una lista</p>
+
+        <span 
+        class="contenedor-de-lista"  
+        data-id-lista-de-seleccion-unica="aht-red-cfy" 
+        ></span>
+        <select  class="lista-de-selección-única" data-id-lista-de-seleccion-unica="aht-red-cfy" >
+            <option>wake up</option>
+            <option>desvelarse</option>
+            <option>realize</option>
+        </select>
+        
+        <span>in the morning with the </span>
+
+            <span
+            class="contenedor-de-lista"  
+            data-id-lista-de-seleccion-unica="kd-r6-f62" 
+            ></span>
+            <select 
+            class="lista-de-selección-única"
+            data-id-lista-de-seleccion-unica="kd-r6-f62"
+            > 
+                <option>family</option>
+                <option>friends</option>
+                <option>neighbors</option>
+            </select>
+
+    <script>
+                                                                                                            // selected element with the
+        document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach(select => { 
+            // valorDelAtributoDataIdListaDeSeleccionUnica
+            const id = select.getAttribute('data-id-lista-de-seleccion-unica');
+            // crea El String Para "Quey.ear" : el valor Del Atributo 'Data-Id-Lista-De-Seleccion-Unica' 
+            const contenedor = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + id + '"]');
+            if (!contenedor) return;
+
+            // Set default text to first option
+            contenedor.textContent = select.options[0].text;
+
+            // Move the select inside the container
+            contenedor.appendChild(select);
+
+            // On change, update container text and re-append select
+            select.addEventListener('change', () => {
+                contenedor.childNodes.forEach(node => {
+                    if (node !== select) contenedor.removeChild(node);
+                });
+                contenedor.insertBefore(document.createTextNode(select.value), select);
+            });
+        });
+    </script>
+
+
+</body>
+</html>
