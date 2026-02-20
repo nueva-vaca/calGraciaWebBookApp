@@ -37,6 +37,33 @@
             
    </style>
 
+   <style>
+        /* --- Styles for the new section --- */
+        .contenedor-de-lista {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .contenedor-de-lista:hover {
+            background: #e0edff;
+            transition: background 0.2s;
+            border-bottom: 1px solid #2563eb;
+            text-decoration: underline double #2563eb;
+        }
+
+        .contenedor-de-lista select.lista-de-selección-única {
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+   </style>
+
 </head>
 
 
@@ -81,12 +108,6 @@
     </script>
 
 
-
-
-
-
-
-
                     <hr style=" margin: 66px 0 ; " > 
 
 
@@ -115,15 +136,10 @@
     <p><a href="/index.html">index</a></p>
     <p class="colorGris">selector desde una lista</p>
 
-
-
-  
-        
         <span 
         class="contenedor-de-lista"  
         data-id-lista-de-seleccion-unica="aht-red-cfy" 
-        >
-        wake up</span>
+        ></span>
         <select  class="lista-de-selección-única" data-id-lista-de-seleccion-unica="aht-red-cfy" >
             <option>wake up</option>
             <option>desvelarse</option>
@@ -135,8 +151,7 @@
             <span
             class="contenedor-de-lista"  
             data-id-lista-de-seleccion-unica="kd-r6-f62" 
-            >
-            family</span>
+            ></span>
             <select 
             class="lista-de-selección-única"
             data-id-lista-de-seleccion-unica="kd-r6-f62"
@@ -146,14 +161,27 @@
                 <option>neighbors</option>
             </select>
 
-        
-   
-    
+    <script>
+        document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach(select => {
+            const id = select.getAttribute('data-id-lista-de-seleccion-unica');
+            const contenedor = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + id + '"]');
+            if (!contenedor) return;
 
+            // Set default text to first option
+            contenedor.textContent = select.options[0].text;
 
+            // Move the select inside the container
+            contenedor.appendChild(select);
 
-
-
+            // On change, update container text and re-append select
+            select.addEventListener('change', () => {
+                contenedor.childNodes.forEach(node => {
+                    if (node !== select) contenedor.removeChild(node);
+                });
+                contenedor.insertBefore(document.createTextNode(select.value), select);
+            });
+        });
+    </script>
 
 
 </body>
