@@ -249,13 +249,17 @@
             </select>
 
     <script>
-                                                                                                            // selected element with the
+        // elementoSelectSeleccionadoActualmente
         document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach(select => { 
-            // valorDelAtributoDataIdListaDeSeleccionUnica
-            const id = select.getAttribute('data-id-lista-de-seleccion-unica');
-            // crea El String Para "Quey.ear" : el valor Del Atributo 'Data-Id-Lista-De-Seleccion-Unica' 
-            const contenedor = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + id + '"]');
-            if (!contenedor) return;
+        // ( from the 'document' = "web page"(?) )     < select/query/find : all >     [ the 'select' elements >that have: { 1) the class called lista-de-selección-única -and: 2) the data attribute called data-id-lista-de-seleccion-unica } ]   ---> ( creates : a collection of DOM nodes -called: 'NodeList' )     +--->and:     ( for each : selection/finding/element from the 'NodeList' )   { 
+
+            // valorDelAtributoLlamadoDataIdListaDeSeleccionUnica
+            const id = select.getAttribute('data-id-lista-de-seleccion-unica')   ; 
+
+            // returns the first element in the document that : {   has the class named 'contenedor-de-lista'   +and:   has a 'data-id-lista-de-seleccion-unica' attribute    +and:   it is equal to the value of the variable 'valorDelAtributoLlamadoDataIdListaDeSeleccionUnica'   } 
+            const contenedor = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + id + '"]')   ; 
+
+            if (!contenedor) return   ; 
 
             // Set default text to first option
             contenedor.textContent = select.options[0].text;
@@ -272,6 +276,10 @@
             });
         });
     </script>
+
+
+<script>
+console.log(`esto es un Nodelist   >ej: query todos los elementos html <divs> de esta página ->   `, document.querySelectorAll('select')); </script>
 
 
 </body>
