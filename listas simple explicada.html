@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Word Replacer</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <style>
+        .lista-de-selección-única {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;  
+            }
+
+        .lista-de-selección-única:hover {
+            background: #e0edff;
+            transition: background 0.2s;
+            border-bottom: 1px solid #2563eb;
+            text-decoration: underline double #2563eb;
+            }
+
+        .lista-de-selección-única select {
+            position: absolute;
+            opacity: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+            }
+            
+   </style>
+
+</head>
+
+
+
+
+
+
+
+<body>
+    <p><a href="/index.html">index</a></p>
+    <p class="colorGris">selector desde una lista</p>
+
+    <div>
+        <span class="lista-de-selección-única">
+            <span>wake up</span>
+            <select>
+                <option>wake up</option>
+                <option>desvelarse</option>
+                <option>realize</option>
+            </select>
+        </span>
+        <span>in the morning with the </span>
+        <span class="lista-de-selección-única">
+            <span>family</span>
+            <select> 
+                <option>family</option>
+                <option>friends</option>
+                <option>neighbors</option>
+            </select>
+        </span>
+    </div>
+
+
+
+
+
+    <script>
+
+
+
+        document.querySelectorAll('.lista-de-selección-única select').forEach(elementoSelectConLaClaseLista => {
+            elementoSelectConLaClaseLista.addEventListener('change', () => {
+                elementoSelectConLaClaseLista.previousElementSibling.textContent = elementoSelectConLaClaseLista.value;
+            });
+        });
+
+
+
+    
+
+
+
+
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>
