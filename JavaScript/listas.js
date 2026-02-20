@@ -69,11 +69,6 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
-    // const selector = '.lista-de-seleccion-unica select';
-    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-seleccion-unica):
-    const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
-
-
 
     // antiguo código:     const obtenerObjetivo = (select) => {        const targetSelector = select.dataset.target;        if (targetSelector) return document.querySelector(targetSelector);        return select.previousElementSibling; // fallback    };
     const obtenerObjetivo = (select) => {
@@ -100,8 +95,16 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
+
+    
+    // const selector = '.lista-de-seleccion-unica select';
+    // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-seleccion-unica):
+    const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
+
     // Inicializa selects presentes
     document.querySelectorAll(selector).forEach(sincronizar);
+    // .querySelectorAll('select[data-id-lista-de-seleccion-unica]')   <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor). 
+    // .querySelectorAll('.lista-de-seleccion-unica select')   <- selecciona cualquier elemento <select> que esté dentro de otro (cualquier) elemento html tenga la clase 'lista-de-seleccion-unica' 
 
 
 
