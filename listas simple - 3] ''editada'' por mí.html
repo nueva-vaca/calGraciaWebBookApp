@@ -250,29 +250,31 @@
 
     <script>
         // elementoSelectSeleccionadoActualmente
-        document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach(select => { 
+        document.querySelectorAll('select.lista-de-selección-única[data-id-lista-de-seleccion-unica]').forEach( elementoSelectSeleccionadoActualmente => { 
         // ( from the 'document' = "web page"(?) )     < select/query/find : all >     [ the 'select' elements >that have: { 1) the class called lista-de-selección-única -and: 2) the data attribute called data-id-lista-de-seleccion-unica } ]   ---> ( creates : a collection of DOM nodes -called: 'NodeList' )     +--->and:     ( for each : selection/finding/element from the 'NodeList' )   { 
 
-            // valorDelAtributoLlamadoDataIdListaDeSeleccionUnica
-            const id = select.getAttribute('data-id-lista-de-seleccion-unica')   ; 
+            // valor Del Atributo Llamado : Data-Id-Lista-De-Seleccion-Unica   
+            // ( del elemento '<select>' seleccionado actualmente )   
+            const valorDelAtributoLlamadoDataIdListaDeSeleccionUnicaDeLaListaActual = elementoSelectSeleccionadoActualmente.getAttribute('data-id-lista-de-seleccion-unica')   ; 
 
-            // returns the first element in the document that : {   has the class named 'contenedor-de-lista'   +and:   has a 'data-id-lista-de-seleccion-unica' attribute    +and:   it is equal to the value of the variable 'valorDelAtributoLlamadoDataIdListaDeSeleccionUnica'   } 
-            const contenedor = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + id + '"]')   ; 
+            // element in the 'NodeList' that : {   has the class named 'contenedor-de-lista'   +and:   has a 'data-id-lista-de-seleccion-unica' attribute    +and:   it is equal to the value of the variable 'valorDelAtributoLlamadoDataIdListaDeSeleccionUnicaDeLaListaActual'   } 
+            const elContenedorQueTieneIdCoincidenteConLaLista = document.querySelector('.contenedor-de-lista[data-id-lista-de-seleccion-unica="' + valorDelAtributoLlamadoDataIdListaDeSeleccionUnicaDeLaListaActual + '"]')   ; 
 
-            if (!contenedor) return   ; 
+            // si NO existe ningún 'contenedor-de-listas' que tengan id coincidente -con: el valor del atributo llamado 'data-id-lista-de-seleccion-unica' 
+            if (!elContenedorQueTieneIdCoincidenteConLaLista) return   ; 
 
-            // Set default text to first option
-            contenedor.textContent = select.options[0].text;
+            // metele al contenedor - la primera opción en la lista 'select'
+            elContenedorQueTieneIdCoincidenteConLaLista.textContent = elementoSelectSeleccionadoActualmente.options[0].text   ;
 
             // Move the select inside the container
-            contenedor.appendChild(select);
+            elContenedorQueTieneIdCoincidenteConLaLista.appendChild(elementoSelectSeleccionadoActualmente);
 
             // On change, update container text and re-append select
-            select.addEventListener('change', () => {
-                contenedor.childNodes.forEach(node => {
-                    if (node !== select) contenedor.removeChild(node);
+            elementoSelectSeleccionadoActualmente.addEventListener('change', () => {
+                elContenedorQueTieneIdCoincidenteConLaLista.childNodes.forEach(node => {
+                    if (node !== elementoSelectSeleccionadoActualmente) elContenedorQueTieneIdCoincidenteConLaLista.removeChild(node);
                 });
-                contenedor.insertBefore(document.createTextNode(select.value), select);
+                elContenedorQueTieneIdCoincidenteConLaLista.insertBefore(document.createTextNode(elementoSelectSeleccionadoActualmente.value), elementoSelectSeleccionadoActualmente);
             });
         });
     </script>
