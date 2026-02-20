@@ -70,10 +70,17 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
-    // antiguo código:     const obtenerObjetivo = (select) => {        const targetSelector = select.dataset.target;        if (targetSelector) return document.querySelector(targetSelector);        return select.previousElementSibling; // fallback    };
-    const obtenerObjetivo = (select) => { 
-    // el parámetro select es simplemente el elemento <select> del DOM que tú le pasas cuando llamas a la función. No es una palabra reservada ni algo mágico: es un nombre de variable. Podrías haberlo llamado elemento, combo, dropdown o incluso x. Tú decides el nombre.
-    const targetSelector = select.dataset.idListaDeSeleccionUnica   ;   // Lee un selector CSS <--- desde un atributo data-* 
+    /* antiguo código:     
+    const obtenerObjetivo = (select) => {        
+        const targetSelector = select.dataset.target;        
+        if (targetSelector) return document.querySelector(targetSelector)   ;        
+        return select.previousElementSibling; // fallback    
+    }  ;
+    */
+    // nombre de función = 
+    const obtenerObjetivo = (elementoHtmlSelect) => { 
+    // el parámetro select es simplemente el elemento <select> del DOM que tú le pasas cuando llamas a la función. No es una palabra reservada, es un nombre de variable. Podrías haberlo llamado " elemento, combo, dropdown o incluso x ". Tú decides el nombre.
+    const targetSelector = elementoHtmlSelect.dataset.idListaDeSeleccionUnica   ;   // Lee un selector CSS <--- desde un atributo data-* 
     // si existe el selector css descrito en la linea anterior --->entonces: 
     if (targetSelector) {
         // Busca primero ("el objetivo" = ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
@@ -86,14 +93,14 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
         return document.querySelector(targetSelector);
     }   // FIN DE :   if (targetSelector) { 
     // si NO existe el selector css "select.dataset.idListaDeSeleccionUnica" --->entonces:
-    return select.previousElementSibling; // fallback +o-= Devuelve el elemento hermano anterior 
+    return elementoHtmlSelect.previousElementSibling; // fallback +o-= Devuelve el elemento hermano anterior 
     };   // FIN DE :   const obtenerObjetivo = (select) => { 
 
 
 
-    const sincronizar = (select) => {
-        const objetivo = obtenerObjetivo(select);
-        if (objetivo) objetivo.textContent = select.value;
+    const sincronizar = (elementoHtmlSelect) => {
+        const objetivo = obtenerObjetivo(elementoHtmlSelect);
+        if (objetivo) objetivo.textContent = elementoHtmlSelect.value;
     };
 
 
