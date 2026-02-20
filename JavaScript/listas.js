@@ -71,10 +71,12 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
     // antiguo código:     const obtenerObjetivo = (select) => {        const targetSelector = select.dataset.target;        if (targetSelector) return document.querySelector(targetSelector);        return select.previousElementSibling; // fallback    };
-    const obtenerObjetivo = (select) => {
-    const targetSelector = select.dataset.idListaDeSeleccionUnica;
+    const obtenerObjetivo = (select) => { 
+    // el parámetro select es simplemente el elemento <select> del DOM que tú le pasas cuando llamas a la función. No es una palabra reservada ni algo mágico: es un nombre de variable. Podrías haberlo llamado elemento, combo, dropdown o incluso x. Tú decides el nombre.
+    const targetSelector = select.dataset.idListaDeSeleccionUnica   ;   // Lee un selector CSS <--- desde un atributo data-* 
+    // si existe el selector css descrito en la linea anterior --->entonces: 
     if (targetSelector) {
-        // Busca primero dentro del mismo contenedor inyectado (#contenidoPrincipal)
+        // Busca primero ("el objetivo" = ) dentro del mismo contenedor inyectado (#contenidoPrincipal)
         const main = document.getElementById('contenidoPrincipal');
         if (main) {
             const dentro = main.querySelector(targetSelector);
@@ -82,9 +84,10 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
         }
         // Fallback: buscar en todo el documento
         return document.querySelector(targetSelector);
-    }
-    return select.previousElementSibling; // fallback
-    };
+    }   // FIN DE :   if (targetSelector) { 
+    // si NO existe el selector css "select.dataset.idListaDeSeleccionUnica" --->entonces:
+    return select.previousElementSibling; // fallback +o-= Devuelve el elemento hermano anterior 
+    };   // FIN DE :   const obtenerObjetivo = (select) => { 
 
 
 
@@ -96,7 +99,7 @@ this:   (()=>{...})();   <-is:   an IIFE = an Immediately Invoked Function Expre
 
 
 
-    
+
     // const selector = '.lista-de-seleccion-unica select';
     // Cambiar el selector en listas.js para que funcione con cualquier <select> que tenga data-id-lista-de-seleccion-unica (no solo los que están dentro de .lista-de-seleccion-unica):
     const selector = 'select[data-id-lista-de-seleccion-unica]'   ;   // <- selecciona cualquier elemento <select> que tenga el atributo data-id-lista-de-seleccion-unica (con cualquier valor).
